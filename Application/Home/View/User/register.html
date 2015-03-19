@@ -1,0 +1,294 @@
+<include file="Public:header" />
+<!-- Content -->
+			<div class="row content">
+				
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                	<div class="breadcrumbs">
+                    	<p><a href="#">首页</a> <i class="icons icon-right-dir"></i> 用户注册</p>
+                    </div>
+                </div>
+                
+                
+                <!-- Sidebar -->
+				<aside class="sidebar col-lg-3 col-md-3 col-sm-3 right-sidebar">
+					
+					<!-- Categories -->
+						<include file="Public:category" />
+					<!-- /Categories -->
+                    
+                    
+                    
+                    <!-- Compare Products -->
+					<div class="row sidebar-box blue">
+						
+						<div class="col-lg-12 col-md-12 col-sm-12">
+							
+							<div class="sidebar-box-heading">
+                            	<i class="icons icon-docs"></i>
+								<h4>Compare Products</h4>
+							</div>
+							<div class="sidebar-box-content">
+                                <table class="compare-table">
+                                    
+                                    <tr>
+                                        <td class="product-thumbnail"><img src="__PUBLIC__/homeshop/img/products/sample1.jpg" alt="Product1"></td>
+                                        <td class="product-info">
+                                            <p><a href="#">Lorem ipsum dolor sit amet</a></p>
+                                            <a class="remove">Remove</a>
+                                        </td>
+                                    </tr>
+                                    
+                                </table>
+                                <div class="padding-box">
+                                	<a class="button grey">Go to compare</a>
+                                </div>
+							</div>
+						</div>
+						
+					</div>
+					<!-- /Compare Products -->
+					
+					
+					<!-- Carousel -->
+					<div class="row sidebar-box">
+						
+						<div class="col-lg-12 col-md-12 col-sm-12 sidebar-carousel">
+							
+							<!-- Slider -->
+							<section class="sidebar-slider">
+								<div class="sidebar-flexslider">
+									<ul class="slides">
+										<li>
+											<a href="#"><img src="__PUBLIC__/homeshop/img/sidebar-slide1.jpg" alt="Slide1"></a>
+										</li>
+										<li>
+											<a href="#"><img src="__PUBLIC__/homeshop/img/sidebar-slide2.jpg" alt="Slide1"></a>
+										</li>
+										<li>
+											<a href="#"><img src="__PUBLIC__/homeshop/img/sidebar-slide3.jpg" alt="Slide1"></a>
+										</li>
+									</ul>
+								</div>
+								<div class="slider-nav"></div>
+							</section>
+							<!-- /Slider -->
+                            
+						</div>
+						
+					</div>
+					<!-- /Carousel -->
+					
+					
+					<!-- Bestsellers -->
+					<div class="row sidebar-box red">
+						
+						<div class="col-lg-12 col-md-12 col-sm-12">
+							
+							<div class="sidebar-box-heading">
+                            <i class="icons icon-award-2"></i>
+								<h4>Bestsellers</h4>
+							</div>
+							
+							<div class="sidebar-box-content">
+								<table class="bestsellers-table">
+									
+									<tr>
+										<td class="product-thumbnail"><a href="#"><img src="__PUBLIC__/homeshop/img/products/sample1.jpg" alt="Product1"></a></td>
+										<td class="product-info">
+											<p><a href="#">Lorem ipsum dolor sit amet</a></p>
+											<span class="price">$550.00</span>
+										</td>
+									</tr>
+									
+									<tr>
+										<td class="product-thumbnail"><a href="#"><img src="__PUBLIC__/homeshop/img/products/sample2.jpg" alt="Product1"></a></td>
+										<td class="product-info">
+											<p><a href="#">Lorem ipsum dolor sit amet</a></p>
+											<span class="price">$550.00</span>
+										</td>
+									</tr>
+									
+									<tr>
+										<td class="product-thumbnail"><a href="#"><img src="__PUBLIC__/homeshop/img/products/sample3.jpg" alt="Product1"></a></td>
+										<td class="product-info">
+											<p><a href="#">Lorem ipsum dolor sit amet</a></p>
+                                            <div class="rating readonly-rating" data-score="4"></div>
+											<span class="price"><del>$650.00</del> $550.00</span>
+										</td>
+									</tr>
+									
+								</table>
+							</div>
+							
+						</div>
+						
+					</div>
+					<!-- /Bestsellers -->
+					
+                    
+				</aside>
+                <!-- /Sidebar -->
+                
+                
+				<!-- Main Content -->
+				<section class="main-content col-lg-9 col-md-9 col-sm-9">
+                    
+                    
+                    <div class="row">
+                    	
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                        	
+                            <div class="carousel-heading no-margin">
+                                <h4>登录</h4>
+                            </div>
+                            
+                            <div class="page-content">
+                            	<p>如果您已注册，请直接登录</p>
+                            	<form action="{:U('Home/User/login')}" method="post">
+                                <div class="row">
+                                	<div class="col-lg-2 col-md-2 col-sm-2">
+                                		<p>用户名*</p>
+                                	</div>
+                                	<div class="col-lg-4 col-md-4 col-sm-4">
+                                    	<div class="iconic-input">
+                                            <input name="username" type="text" placeholder="用户名">
+                                            <i class="icons icon-user-3"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                	<div class="col-lg-2 col-md-2 col-sm-2">
+                                	<p>密码*</p>
+                                	</div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                    	<div class="iconic-input">
+                                            <input name="upwd" type="password" placeholder="密码">
+                                            <i class="icons icon-lock"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                  <div class="row">
+                                	<div class="col-lg-2 col-md-2 col-sm-2">
+                               		</div>
+                               		<div class="col-lg-2 col-md-2 col-sm-2">
+                               		<input name="autologin" type="checkbox" id="login-remember-2"> <label for="login-remember-2">自动登录</label>
+                               		</div>
+                               	</div>
+                                <br>
+                                <div class="row">
+	                                <div class="col-lg-2 col-md-2 col-sm-2">
+	                               		</div>
+                                	<div class="col-lg-2 col-md-2 col-sm-2 align-left">
+                                    	<input type="submit" class="orange" value="登录">
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2">
+                                     <small>
+											<a class="align-right" href="#">忘记密码?</a>
+											<br>
+											<a class="align-right" href="#">忘记用户名?</a>
+											<br>
+									</small>
+	                               	</div>
+                                </div>
+                               </form>
+                            </div>
+                            
+                    	</div>
+                          
+                    </div>
+                    
+                    
+                    
+                    <div class="row">
+                    	
+                        <div class="col-lg-12 col-md-12 col-sm-12 register-account">
+                        	
+                            <div class="carousel-heading no-margin">
+                                <h4>注册</h4>
+                            </div>
+                            
+                            <div class="page-content">
+                            	<div class="row">
+                                	
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                    	<p><strong>注册者信息</strong></p>
+                                    </div>
+                                    
+                                </div>
+                                
+                                <form action="{:U('Home/User/register')}" method="post">
+                                <div class="row">
+                                    
+                                    <div class="col-lg-2 col-md-2 col-sm-2">
+                                    	<p>用户名*</p>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                    	<input name="username" type="text">
+                                    </div>	
+                                    
+                                </div>
+                                
+                                
+                                <div class="row">
+                                    
+                                    <div class="col-lg-2 col-md-2 col-sm-2">
+                                    	<p>称呼</p>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                    	<select class="chosen-select">
+                                        	<option>先生</option>
+                                            <option>女士</option>
+                                        </select>
+                                    </div>	
+                                    
+                                </div>
+                               
+                                <div class="row">
+                                    
+                                    <div class="col-lg-2 col-md-2 col-sm-2">
+                                    	<p>密码*</p>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                    	<input name="upwd" type="password">
+                                    </div>	
+                                    
+                                </div>
+                                
+                                <div class="row">
+                                   
+                                   <div class="col-lg-2 col-md-2 col-sm-2">
+                                   	<p>确认*</p>
+                                   </div>
+                                   <div class="col-lg-4 col-md-4 col-sm-4">
+                                   	<input name="confirm" type="password">
+                                   </div>	
+                                   
+                               </div>
+                       
+                        
+                                <div class="row">
+                                     <div class="col-lg-2 col-md-2 col-sm-2">
+                                     </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                    	<input class="big" type="submit" value="注册">
+                                        <input class="big" type="reset" value="取消">
+                                    </div>
+                                    
+                                </div>
+                                </form>
+                            </div>
+                            
+                    	</div>
+                          
+                    </div>
+                        
+                    
+				</section>
+				<!-- /Main Content -->
+                
+                
+                
+			</div>
+			<!-- /Content -->
+			
+	<include file="Public:footer" />		

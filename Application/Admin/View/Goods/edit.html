@@ -1,0 +1,64 @@
+﻿<extend name="Public:base" />
+<block name="section">
+<div class="row-fluid">
+		<div class="span12">
+			<ul class="nav nav-list well ">
+				<li class="nav-header">
+					商品管理
+				</li>
+				<li class="active">
+					<a href="#">商品列表</a>
+				</li>
+				<li>
+					<a href="{:U('Goods/add')}">新增商品</a>
+				</li>
+				<li>
+					<a href="#">应用</a>
+				</li>
+				<li class="nav-header">
+					分组管理
+				</li>
+				<li>
+					<a href="#">分组列表</a>
+				</li>
+				<li>
+					<a href="#">新增分组</a>
+				</li>
+				<li class="divider">
+				</li>
+				<li>
+					<a href="#">帮助</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</block>
+<block name="content">
+<form  action="{:U('Goods/edit',array('id'=>$good[id]))}" method="post">
+<fieldset>
+<legend>编辑商品</legend>
+<div>
+<label for="title">&nbsp;&nbsp;商品名称:</label>
+<input id="title" name="title" type="text" value="{$good.title}" >
+</div>
+<div>
+<label for="price">&nbsp;&nbsp;商品价格:</label>
+<input id="price" name="price" type="text" value="{$good.price}">
+</div>
+<div>
+<label for="creat_time">&nbsp;&nbsp;创建时间:</label>
+<input id="create_time" name="create_time" type="text" value="{$good.create_time|date="Y-m-d",###}">
+</div>
+<div>
+<label for="update_time">&nbsp;&nbsp;更新时间:</label>
+<input id="update_time" name="update_time" type="text" value="{$good.update_time|date="Y-m-d",###}" >
+</div>
+<div>
+<label for="status">&nbsp;&nbsp;商品状态:</label>
+<input id="status" name="status" type="text" value="{$good.status}" >
+</div>
+
+<input id="btn" type="submit" name="btn" value="保存">
+</fieldset>
+</form>
+</block>

@@ -1,0 +1,53 @@
+﻿<extend name="Public:base" />
+<block name="section">
+<div class="row-fluid">
+		<div class="span12">
+			<ul class="nav nav-list well ">
+				<li class="nav-header">
+					会员管理
+				</li>
+				<li >
+					<a href="#">会员列表</a>
+				</li>
+				<li>
+					<a href="#">新增会员</a>
+				</li>
+				<li class="active">
+					<a href="#">应用</a>
+				</li>
+				<li class="nav-header">
+					分组管理
+				</li>
+				<li>
+					<a href="#">分组列表</a>
+				</li>
+				<li>
+					<a href="#">新增分组</a>
+				</li>
+				<li class="divider">
+				</li>
+				<li>
+					<a href="#">帮助</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</block>
+
+<block name="content">
+<form id="login_form" action="{:U('User/edit', array('id'=>$user_info['id']))}" method="post">
+<fieldset>
+<legend>修改密码</legend>
+<div>
+<label for="username">&nbsp;&nbsp;用户名:</label>
+<input id="username" name="username" type="text" value="{$user_info.username}" required aria-required="true" autofocus>
+</div>
+<div>
+<label for="upwd">登录密码:</label>
+<input id="upwd" name="upwd" placeholder="请输入密码" type="password" required>
+</div>
+
+<input id="btn" type="submit" name="btn" value="提交">
+</fieldset>
+</form>
+</block>

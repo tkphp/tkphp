@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+.head{
+	height:80px;
+	background-color:#000;
+}
+
+.left{
+	background-color:#FFF;
+	margin-left:-15px;
+}
+
+.right{
+	
+}
+
+.foot{
+	height:40px;
+	background-color:#ddd;
+	clear:both;
+}
+
