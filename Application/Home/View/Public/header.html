@@ -9,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <!-- Title -->
-        <title>HomeShop - HTML Template</title>
+        <title>TKPHP</title>
         
 		<!-- Fonts -->
 		<link href='http://fonts.useso.com/css?family=Roboto:400,300,300italic,400italic,500,700,900,700italic,500italic' rel='stylesheet' type='text/css'>
@@ -54,9 +54,9 @@
 							
 							<nav id="top-navigation" class="col-lg-7 col-md-7 col-sm-7">
 								<ul class="pull-left">
+								    <li><a href="{:U('')}">收藏本站</a></li>
 									<li><a href="{:U('Home/User/register')}">我的账户</a></li>
 									<li><a href="{:U('Home/Bill/lists')}">订单信息</a></li>
-									<li><a href="{:U('Home/Bill/info')}">订单信息</a></li>
 									<li><a href="{:U('Home/Index/about')}">关于我们</a></li>
 									<li><a href="{:U('Home/Index/contact')}">联系我们</a></li>
 								</ul>
@@ -64,14 +64,12 @@
 							
 							<nav class="col-lg-5 col-md-5 col-sm-5">
 								<ul class="pull-right">
-									<if condition="$_COOKIE['username'] neq '' ">
-										
-									</if>
-									<if condition="$_SESSION['is_Login'] eq 1 ">
-									{$_SESSION['username']} 你好!
+									
+									<if condition="$_SESSION['user']['is_Login'] eq 1 ">
+									{$_SESSION['user']['username']} 你好!
 									<a href="{:U('Home/User/logout')}">注销</a>
 									<else /> 
-									<li class="purple"><a href="{:U('Home/User/register')}"><i class="icons icon-user-3"></i> 登录</a>
+									<li class="purple"><a href="{:U('Home/User/login')}"><i class="icons icon-user-3"></i> 登录</a>
 										<!-- <ul id="login-dropdown" class="box-dropdown">
 											<li>
                                             	<div class="box-wrapper">
@@ -278,7 +276,7 @@
 								<!-- 	<span class="nav-description">Variety of Layouts</span> -->
 								</a>
 								
-								<ul class="normal-dropdown normalAnimation">
+								<!-- <ul class="normal-dropdown normalAnimation">
 									<li><a href="#">Layouts <i class="icons icon-right-dir"></i></a>
 										<ul class="normalAnimation">
 											<li><a href="home_v1.html">Layout 1</a></li>
@@ -313,7 +311,7 @@
 											<li><a href="home_v3.html">Flex Slider</a></li>
 										</ul>
 									</li>
-								</ul>
+								</ul> -->
 							</li>
 							
 							<li class="red">
@@ -323,7 +321,7 @@
 									<!-- <span class="nav-description">Photo & Video</span> -->
 								</a>
 								
-								<ul class="wide-dropdown normalAniamtion">
+								<!-- <ul class="wide-dropdown normalAniamtion">
 									<li>
 										<ul>
 											<li><span class="nav-caption">Digital Cameras</span></li>
@@ -350,7 +348,7 @@
 											<li><a href="#"><i class="icons icon-right-dir"></i> Cases, Bags &amp; Covers</a></li>
 										</ul>
 									</li>
-								</ul>
+								</ul> -->
 								
 							</li>
 							

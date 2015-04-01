@@ -1,57 +1,33 @@
 ﻿<extend name="Public:base" />
-<block name="section">
-<div class="row-fluid">
-		<div class="span12">
-			<ul class="nav nav-list well ">
-				<li class="nav-header">
-					商品管理
-				</li>
-				<li class="active">
-					<a href="#">商品列表</a>
-				</li>
-				<li>
-					<a href="{:U('Goods/add')}">新增商品</a>
-				</li>
-				<li>
-					<a href="#">应用</a>
-				</li>
-				<li class="nav-header">
-					分组管理
-				</li>
-				<li>
-					<a href="#">分组列表</a>
-				</li>
-				<li>
-					<a href="#">新增分组</a>
-				</li>
-				<li class="divider">
-				</li>
-				<li>
-					<a href="#">帮助</a>
-				</li>
-			</ul>
-		</div>
-	</div>
-</block>
 
 <block name="content">
-<div style="margin-top:15px; margin-bottom:10px;">
- <button class="btn btn-primary btn-small" type="button">添加</button>
-</div>
+<h3 class="sub-header"><a href="{:U('Goods/add')}">添加商品</a></h3>
 <table class="table table-bordered table-hover">
 				<thead>
 					<tr>
 						<th>
+						<input type="checkbox">全选
+						</th>
+						<th>
+							编号
+						</th>
+						<th>
 							商品名称
 						</th>
 						<th>
-							商品价格
+							货号
 						</th>
 						<th>
-							创建时间
+							售价
 						</th>
 						<th>
-							更新时间
+							上架
+						</th>
+						<th>
+							上架时间
+						</th>
+						<th>
+							货存
 						</th>
 						<th>
 							操作
@@ -60,18 +36,31 @@
 				</thead>
 				<tbody>
 					<foreach name="goods" item="good">
-					<tr class="info">
+					<tr>
 						<td>
-							{$good.title}
+							<input type="checkbox">
 						</td>
 						<td>
-							{$good.price}
+							{$good.id}
 						</td>
 						<td>
-							{$good.create_time|date="Y-m-d",###}
+							{$good.pro_name}
 						</td>
 						<td>
-							{$good.update_time|date="Y-m-d",###}
+							{$good.pro_sn}
+						</td>
+						<td>
+							{$good.market_price}
+						</td>
+						<td>
+							<if condition="$good.is_on_sale eq 1">√</if>
+							<if condition="$good.is_on_sale eq 0">X</if>
+						</td>
+						<td>
+							{$good.add_time|date="Y-m-d",###}
+						</td>
+						<td>
+							{$good.stock_num}
 						</td>
 						<td>
 							 <a href="{:U('Goods/edit',array('id'=>$good[id]))}">编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -82,7 +71,8 @@
 					</foreach>
 				</tbody>
 				<tfoot>
-					<th colspan="6"></th>
+				
+					<th colspan="9" >{$page}</th>
 				</tfoot>
 			</table>
 

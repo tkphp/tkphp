@@ -1,64 +1,107 @@
 ﻿<extend name="Public:base" />
-<block name="section">
-<div class="row-fluid">
-		<div class="span12">
-			<ul class="nav nav-list well ">
-				<li class="nav-header">
-					商品管理
-				</li>
-				<li class="active">
-					<a href="#">商品列表</a>
-				</li>
-				<li>
-					<a href="{:U('Goods/add')}">新增商品</a>
-				</li>
-				<li>
-					<a href="#">应用</a>
-				</li>
-				<li class="nav-header">
-					分组管理
-				</li>
-				<li>
-					<a href="#">分组列表</a>
-				</li>
-				<li>
-					<a href="#">新增分组</a>
-				</li>
-				<li class="divider">
-				</li>
-				<li>
-					<a href="#">帮助</a>
-				</li>
-			</ul>
-		</div>
-	</div>
+<block name="bread_menu">
+	<li>
+		<a href="#">主页</a> <span class="divider"></span>
+	</li>
+	<li>
+		<a href="#">商品管理</a> <span class="divider"></span>
+	</li>
+	<li class="active">
+		编辑商品
+	</li>
 </block>
 <block name="content">
-<form  action="{:U('Goods/edit',array('id'=>$good[id]))}" method="post">
-<fieldset>
-<legend>编辑商品</legend>
-<div>
-<label for="title">&nbsp;&nbsp;商品名称:</label>
-<input id="title" name="title" type="text" value="{$good.title}" >
-</div>
-<div>
-<label for="price">&nbsp;&nbsp;商品价格:</label>
-<input id="price" name="price" type="text" value="{$good.price}">
-</div>
-<div>
-<label for="creat_time">&nbsp;&nbsp;创建时间:</label>
-<input id="create_time" name="create_time" type="text" value="{$good.create_time|date="Y-m-d",###}">
-</div>
-<div>
-<label for="update_time">&nbsp;&nbsp;更新时间:</label>
-<input id="update_time" name="update_time" type="text" value="{$good.update_time|date="Y-m-d",###}" >
-</div>
-<div>
-<label for="status">&nbsp;&nbsp;商品状态:</label>
-<input id="status" name="status" type="text" value="{$good.status}" >
-</div>
+  <h3 class="sub-header"><a href="{:U('Goods/lists')}">商品列表</a></h3>
+  <form class="form-horizontal" action="{:U('Goods/doEdit')}" enctype="multipart/form-data" method="post">
+  <input type="hidden" name="id" value="{$pro[id]}">
+  <div class="form-group">
+    <label for="pro_name" class="col-sm-3 control-label">产品名称:</label>
+    <div class="col-sm-5">
+      <input type="text" class="form-control" value="{$pro.pro_name}" id="pro_name" name="pro_name" placeholder="产品名称">
+    </div>		
+  </div>
+   <div class="form-group">
+      <label for="cat_id" class="col-sm-3 control-label">产品类别:</label>
+      <div class="col-sm-5">
+          <select name="cat_id" id="cat_id" class="form-control">
+              <foreach name="cats" item="cat">
+	                <option value="{$cat.id}" 
+	                <if condition="$cat['id'] eq $pro['cat_id']">selected</if>
+	                > 
+	                {$cat.cat_name}
+	                </option>
+	            </foreach>
+          </select>
+      </div>
+  </div>
+  <div class="form-group">
+      <label for="pro_sn" class="col-sm-3 control-label">产品货号:</label>
+      <div class="col-sm-5">
+          <input type="text" id="pro_sn" name="pro_sn" value="{$pro.pro_sn}" class="form-control" placeholder="产品货号">
+      </div>
+  </div>
+  <div class="form-group">
+      <label for="pro_subname" class="col-sm-3 control-label">产品副标题:</label>
+      <div class="col-sm-5">
+          <input type="text" class="form-control" value="{$pro.pro_subname}" id="pro_subname" name="pro_subname" placeholder="产品副标题">
+          <span class="help-block">显示的部分描述信息</span> 
+      </div>
+  </div>
+  <div class="form-group">
+      <label for="market_price" class="col-sm-3 control-label">市场售价:</label>
+      <div class="col-sm-5">
+          <input type="text" id="market_price" name="market_price" value="{$pro.market_price}" class="form-control" placeholder="0.00">
+      </div>
+  </div>
+  <div class="form-group">
+      <label for="promote_price" class="col-sm-3 control-label">本店价格:</label>
+      <div class="col-sm-5">
+          <input type="text" id="promote_price" name="promote_price" value="{$pro.promote_price}" class="form-control" placeholder="0.00">
+      </div>
+  </div>
+  <div class="form-group">
+      <label for="stock_num" class="col-sm-3 control-label">库存数量:</label>
+      <div class="col-sm-5">
+          <input type="text" id="stock_num" name="stock_num" class="form-control" value="{$pro.stock_num}" placeholder="库存数">
+      </div>
+  </div>
+  <div class="form-group">
+      <label for="keywords" class="col-sm-3 control-label">关键字:</label>
+      <div class="col-sm-5">
+          <input type="text" id="keywords" name="keywords" class="form-control" value="{$pro.keywords}"  placeholder="关键字">
+      </div>
+  </div>
+   <div class="form-group">
+       <label for="description" class="col-sm-3 control-label">描述:</label>
+       <div class="col-sm-5">
+           <textarea id="description" name="description" class="form-control"  placeholder="产品相关描述">{$pro.description}</textarea>
+       </div>
+   </div>
+   <div class="form-group">
+       <label for="photo" class="col-sm-3 control-label">上传缩略图:</label>
+       <div class="col-sm-5">
+           <input id="photo" type="file"  name="photo" />
+       </div>
+       <img src="__ROOT__/Uploads/{$pro.list_image}">
+   </div>
+   <div class="form-group">
+       <label  class="col-sm-3 control-label">属性:</label>
+       <div class="col-sm-5">
+           <label><input type="checkbox"  <if condition="$pro.is_new eq 1">checked</if>
+	                 value="1" name="is_new" /> 新品</label>
+           <label><input type="checkbox" <if condition="$pro.is_promote eq 1">checked</if>
+	                 value="1" name="is_promote" /> 促销</label>
+           <label><input type="checkbox" <if condition="$pro.is_on_sale eq 0">checked</if>
+	                 value="1" name="is_on_sale" /> 下架</label>
+       </div>
+   </div>
 
-<input id="btn" type="submit" name="btn" value="保存">
-</fieldset>
+  
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-5">
+      <input type="submit" value="保存" class="btn btn-default">
+    </div>
+  </div>
 </form>
 </block>
+

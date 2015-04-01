@@ -1,1 +1,0 @@
-<?php if (!defined('THINK_PATH')) exit();?>{"status":0,"info":"u786eu8ba4u5bc6u7801u4e0du4e00u81f4u6216u4e3au7a7a"}

@@ -1,4 +1,4 @@
-<include file="Public:header" />
+﻿<include file="Public:header" />
 
 			
 			<!-- Content -->
@@ -12,107 +12,109 @@
 							<div class="tp-banner" >
 								<ul>
 									<!-- SLIDE  -->
+									<foreach name="goods" item="good">
 									<li data-transition="fade" data-slotamount="7" data-masterspeed="1500" >
 										<!-- MAIN IMAGE -->
-										<img src="__PUBLIC__/homeshop/img/slide1.jpg"  alt="slidebg1"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+										<img src="__ROOT__/Uploads/{$good.list_image}"  alt="slidebg1"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
 										<!-- LAYERS -->
 										<div class="tp-caption skewfromrightshort fadeout"
 											data-x="40"
 											data-y="60"
 											data-speed="500"
 											data-start="1200"
-											data-easing="Power4.easeOut"><h2>The New <strong>Laptop</strong></h2>
+											data-easing="Power4.easeOut"><h2>{$good.pro_name} <strong></strong></h2>
 										</div>
 										<div class="tp-caption skewfromrightshort fadeout"
 											data-x="40"
 											data-y="140"
 											data-speed="500"
 											data-start="1200"
-											data-easing="Power4.easeOut"><h3>All the power in your hands!</h3>
+											data-easing="Power4.easeOut"><h3>{$good.pro_subname}</h3>
 										</div>
 										<div class="tp-caption skewfromrightshort fadeout"
 											data-x="40"
 											data-y="250"
 											data-speed="500"
 											data-start="1200"
-											data-easing="Power4.easeOut"><span>From <span class="price">$960.00</span></span>
+											data-easing="Power4.easeOut"><span>售价 <span class="price">￥{$good.promote_price}</span></span>
 										</div>
 										<div class="tp-caption skewfromrightshort fadeout"
 											data-x="40"
 											data-y="300"
 											data-speed="500"
 											data-start="1200"
-											data-easing="Power4.easeOut"><a class="button big red" href="#">Buy Now</a>
+											data-easing="Power4.easeOut"><a class="button big red" href="#">了解更多</a>
 										</div>
 									</li>
+									</foreach>
 									<!-- SLIDE  -->
-									<li data-transition="zoomout" data-slotamount="7" data-masterspeed="1000" >
-										<!-- MAIN IMAGE -->
+									<!-- <li data-transition="zoomout" data-slotamount="7" data-masterspeed="1000" >
+										MAIN IMAGE
 										<img src="__PUBLIC__/homeshop/img/slide3.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
-										<!-- LAYERS -->
+										LAYERS
 										<div class="tp-caption skewfromrightshort fadeout"
 											data-x="40"
 											data-y="60"
 											data-speed="500"
 											data-start="1200"
-											data-easing="Power4.easeOut"><h2><strong>The New Studio<br>Original Headphones</strong></h2>
+											data-easing="Power4.easeOut"><h2><strong>新款耳机<br></strong></h2>
 										</div>
 										<div class="tp-caption skewfromrightshort fadeout"
 											data-x="40"
 											data-y="190"
 											data-speed="500"
 											data-start="1200"
-											data-easing="Power4.easeOut"><h3>Lorem ipsum dolor</h3>
+											data-easing="Power4.easeOut"><h3>悦耳声音</h3>
 										</div>
 										<div class="tp-caption skewfromrightshort fadeout"
 											data-x="40"
 											data-y="300"
 											data-speed="500"
 											data-start="1200"
-											data-easing="Power4.easeOut"><span>Only <span class="price">$399.00</span></span>
+											data-easing="Power4.easeOut"><span>只要 <span class="price">￥399</span></span>
 										</div>
 										<div class="tp-caption skewfromrightshort fadeout"
 											data-x="40"
 											data-y="347"
 											data-speed="500"
 											data-start="1200"
-											data-easing="Power4.easeOut"><a class="button big red" href="#">Shop Now</a>
+											data-easing="Power4.easeOut"><a class="button big red" href="#">立即购买</a>
 										</div>
-									</li>
+									</li> -->
 									<!-- SLIDE  -->
-									<li data-transition="zoomout" data-slotamount="7" data-masterspeed="1000" >
-										<!-- MAIN IMAGE -->
+									<!-- <li data-transition="zoomout" data-slotamount="7" data-masterspeed="1000" >
+										MAIN IMAGE
 										<img src="__PUBLIC__/homeshop/img/slide2.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
-										<!-- LAYERS -->
+										LAYERS
 										<div class="tp-caption skewfromrightshort fadeout"
 											data-x="40"
 											data-y="60"
 											data-speed="500"
 											data-start="1200"
-											data-easing="Power4.easeOut"><h2><strong>Lorem Ipsum Dolor</strong></h2>
+											data-easing="Power4.easeOut"><h2><strong>一切皆有可能</strong></h2>
 										</div>
 										<div class="tp-caption skewfromrightshort fadeout"
 											data-x="40"
 											data-y="140"
 											data-speed="500"
 											data-start="1200"
-											data-easing="Power4.easeOut"><h3>All the power in your hands!</h3>
+											data-easing="Power4.easeOut"><h3>权利在你手中!</h3>
 										</div>
 										<div class="tp-caption skewfromrightshort fadeout"
 											data-x="40"
 											data-y="250"
 											data-speed="500"
 											data-start="1200"
-											data-easing="Power4.easeOut"><span>From <span class="price">$990.00</span></span>
+											data-easing="Power4.easeOut"><span>售价<span class="price">￥990</span></span>
 										</div>
 										<div class="tp-caption skewfromrightshort fadeout"
 											data-x="40"
 											data-y="300"
 											data-speed="500"
 											data-start="1200"
-											data-easing="Power4.easeOut"><a class="button big red" href="#">Buy Now</a>
+											data-easing="Power4.easeOut"><a class="button big red" href="#">现在购买</a>
 										</div>
-									</li>
+									</li> -->
 								</ul>
 							</div>
 						</div>
@@ -1174,7 +1176,54 @@
 				<aside class="sidebar col-lg-3 col-md-3 col-sm-3  col-lg-pull-9 col-md-pull-9 col-sm-pull-9">
 					
 					<!-- Categories -->
-				<include file="Public:category" />
+				<!-- <include file="Public:category" /> -->
+						   <div class="row sidebar-box purple" style="margin-top:0;">
+						
+						<div class="col-lg-12 col-md-12 col-sm-12">
+							
+							<div class="sidebar-box-heading">
+								<i class="icons icon-folder-open-empty"></i>
+								<h4>商品分类</h4>
+							</div>
+							
+							<div class="sidebar-box-content">
+								<ul>
+									<li><a href="#">智能手机 <i class="icons icon-right-dir"></i></a></li>
+									<li><a href="#">平板电脑 <i class="icons icon-right-dir"></i></a></li>
+									<li><a href="#">单反相机 <i class="icons icon-right-dir"></i></a>
+                                    	 <ul class="sidebar-dropdown">
+                                        	<li>
+                                            	<ul>
+                                                	<li><a href="#">Cell phones &amp; Smartphone</a></li>
+                                                    <li><a href="#">Cell Phone Accessories</a></li>
+                                                    <li><a href="#">Headsets</a></li>
+                                                    <li><a href="#">Cases, Covers & Skins</a></li>
+                                                    <li><a href="#">Screen Protectors</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                            	<ul>
+                                                	<li><a href="#">Chargers & Cradles</a></li>
+                                                    <li><a href="#">Batteries</a></li>
+                                                    <li><a href="#">Cables & Adapters</a></li>
+                                                    <li><a href="#">All About Smartphones</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+									<li><a href="#">手机<i class="icons icon-right-dir"></i></a></li>
+									<li><a href="#">电脑 <i class="icons icon-right-dir"></i></a></li>
+									<li><a href="#">相机 <i class="icons icon-right-dir"></i></a></li>
+									<li><a href="#">配件 <i class="icons icon-right-dir"></i></a></li>
+									<li><a href="#">服务 <i class="icons icon-right-dir"></i></a></li>
+									<li><a class="purple" href="#">更多分类</a></li>
+								</ul>
+							</div>
+							
+						</div>
+							
+					</div>
+				
 					<!-- /Categories -->
 					
 					
@@ -1185,11 +1234,11 @@
 							
 							<div class="sidebar-box-heading">
                             	<i class="icons icon-docs"></i>
-								<h4>Compare Products</h4>
+								<h4>商品对比</h4>
 							</div>
 							
 							<div class="sidebar-box-content sidebar-padding-box">
-								<p>You have no products to compare.</p>
+								<p>您还没有商品对比</p>
 							</div>
 							
 						</div>
@@ -1235,7 +1284,7 @@
 							
 							<div class="sidebar-box-heading">
                             <i class="icons icon-award-2"></i>
-								<h4>Bestsellers</h4>
+								<h4>手机</h4>
 							</div>
 							
 							<div class="sidebar-box-content">
@@ -1244,25 +1293,25 @@
 									<tr>
 										<td class="product-thumbnail"><a href="#"><img src="__PUBLIC__/homeshop/img/products/sample1.jpg" alt="Product1"></a></td>
 										<td class="product-info">
-											<p><a href="#">Lorem ipsum dolor sit amet</a></p>
-											<span class="price">$550.00</span>
+											<p><a href="#">值得拥有</a></p>
+											<span class="price">￥550</span>
 										</td>
 									</tr>
 									
 									<tr>
 										<td class="product-thumbnail"><a href="#"><img src="__PUBLIC__/homeshop/img/products/sample2.jpg" alt="Product1"></a></td>
 										<td class="product-info">
-											<p><a href="#">Lorem ipsum dolor sit amet</a></p>
-											<span class="price">$550.00</span>
+											<p><a href="#">值得拥有</a></p>
+											<span class="price">￥550</span>
 										</td>
 									</tr>
 									
 									<tr>
 										<td class="product-thumbnail"><a href="#"><img src="__PUBLIC__/homeshop/img/products/sample3.jpg" alt="Product1"></a></td>
 										<td class="product-info">
-											<p><a href="#">Lorem ipsum dolor sit amet</a></p>
+											<p><a href="#">值得拥有</a></p>
                                             <div class="rating readonly-rating" data-score="4"></div>
-											<span class="price"><del>$650.00</del> $550.00</span>
+											<span class="price"><del>￥650</del> ￥550</span>
 										</td>
 									</tr>
 									
@@ -1282,18 +1331,18 @@
 							
 							<div class="sidebar-box-heading">
                             	<i class="icons icon-tag-6"></i>
-								<h4>Tags Cloud</h4>
+								<h4>标签</h4>
 							</div>
 							
 							<div class="sidebar-box-content sidebar-padding-box">
-								<a href="#" class="tag-item">digital camera</a>
-								<a href="#" class="tag-item">lorem</a>
-								<a href="#" class="tag-item">gps</a>
-								<a href="#" class="tag-item">headphones</a>
-								<a href="#" class="tag-item">ipsum</a>
-								<a href="#" class="tag-item">laptop</a>
-								<a href="#" class="tag-item">smartphone</a>
-								<a href="#" class="tag-item">tv</a>
+								<a href="#" class="tag-item">手机</a>
+								<a href="#" class="tag-item">相机</a>
+								<a href="#" class="tag-item">电脑</a>
+								<a href="#" class="tag-item">耳机</a>
+								<a href="#" class="tag-item">笔记本</a>
+								<a href="#" class="tag-item">台式机</a>
+								<a href="#" class="tag-item">内存卡</a>
+								<a href="#" class="tag-item">显示屏</a>
 							</div>
 								
 						</div>
@@ -1310,7 +1359,7 @@
 							<!-- Carousel Heading -->
 							<div class="carousel-heading no-margin">
 								
-								<h4><i class="icons icon-magic"></i> Specials</h4>
+								<h4><i class="icons icon-magic"></i> 特别款</h4>
 								<div class="carousel-arrows">
 									<i class="icons icon-left-dir"></i>
 									<i class="icons icon-right-dir"></i>
@@ -1442,7 +1491,7 @@
 				<div class="col-lg-12 col-md-12 col-sm-12">
 					
 					<div class="carousel-heading">
-						<h4>Latest news &amp; Reviews</h4>
+						<h4>新闻</h4>
 						<div class="carousel-arrows">
 							<i class="icons icon-left-dir"></i>
 							<i class="icons icon-right-dir"></i>

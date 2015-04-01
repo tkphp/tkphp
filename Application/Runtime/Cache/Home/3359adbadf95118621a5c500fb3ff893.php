@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?>﻿<!DOCTYPE html>
 
 <html>
 
@@ -9,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <!-- Title -->
-        <title>HomeShop - HTML Template</title>
+        <title>TKPHP</title>
         
 		<!-- Fonts -->
 		<link href='http://fonts.useso.com/css?family=Roboto:400,300,300italic,400italic,500,700,900,700italic,500italic' rel='stylesheet' type='text/css'>
@@ -54,9 +54,9 @@
 							
 							<nav id="top-navigation" class="col-lg-7 col-md-7 col-sm-7">
 								<ul class="pull-left">
+								    <li><a href="<?php echo U('');?>">收藏本站</a></li>
 									<li><a href="<?php echo U('Home/User/register');?>">我的账户</a></li>
 									<li><a href="<?php echo U('Home/Bill/lists');?>">订单信息</a></li>
-									<li><a href="<?php echo U('Home/Bill/info');?>">订单信息</a></li>
 									<li><a href="<?php echo U('Home/Index/about');?>">关于我们</a></li>
 									<li><a href="<?php echo U('Home/Index/contact');?>">联系我们</a></li>
 								</ul>
@@ -64,11 +64,11 @@
 							
 							<nav class="col-lg-5 col-md-5 col-sm-5">
 								<ul class="pull-right">
-									<?php if($_COOKIE['username'] != '' ): endif; ?>
-									<?php if($_SESSION['is_Login'] == 1 ): echo ($_SESSION['username']); ?> 你好!
+									
+									<?php if($_SESSION['user']['is_Login'] == 1 ): echo ($_SESSION['user']['username']); ?> 你好!
 									<a href="<?php echo U('Home/User/logout');?>">注销</a>
 									<?php else: ?> 
-									<li class="purple"><a href="<?php echo U('Home/User/register');?>"><i class="icons icon-user-3"></i> 登录</a>
+									<li class="purple"><a href="<?php echo U('Home/User/login');?>"><i class="icons icon-user-3"></i> 登录</a>
 										<!-- <ul id="login-dropdown" class="box-dropdown">
 											<li>
                                             	<div class="box-wrapper">
@@ -274,7 +274,7 @@
 								<!-- 	<span class="nav-description">Variety of Layouts</span> -->
 								</a>
 								
-								<ul class="normal-dropdown normalAnimation">
+								<!-- <ul class="normal-dropdown normalAnimation">
 									<li><a href="#">Layouts <i class="icons icon-right-dir"></i></a>
 										<ul class="normalAnimation">
 											<li><a href="home_v1.html">Layout 1</a></li>
@@ -309,7 +309,7 @@
 											<li><a href="home_v3.html">Flex Slider</a></li>
 										</ul>
 									</li>
-								</ul>
+								</ul> -->
 							</li>
 							
 							<li class="red">
@@ -319,7 +319,7 @@
 									<!-- <span class="nav-description">Photo & Video</span> -->
 								</a>
 								
-								<ul class="wide-dropdown normalAniamtion">
+								<!-- <ul class="wide-dropdown normalAniamtion">
 									<li>
 										<ul>
 											<li><span class="nav-caption">Digital Cameras</span></li>
@@ -346,7 +346,7 @@
 											<li><a href="#"><i class="icons icon-right-dir"></i> Cases, Bags &amp; Covers</a></li>
 										</ul>
 									</li>
-								</ul>
+								</ul> -->
 								
 							</li>
 							
@@ -442,31 +442,151 @@
 				
                 <div class="col-lg-12 col-md-12 col-sm-12">
                 	<div class="breadcrumbs">
-                    	<p><a href="#">��ҳ</a> <i class="icons icon-right-dir"></i> �û�ע��</p>
+                    	<p><a href="<?php echo U('Home/Index/index');?>">首页</a> <i class="icons icon-right-dir"></i> 用户注册</p>
                     </div>
                 </div>
                 
                 
-                <!-- Sidebar -->
+           
+                
+                
+				<!-- Main Content -->
+				<section class="main-content col-lg-9 col-md-9 col-sm-9">
+
+                    
+                    <div class="row">
+                    	
+                        <div class="col-lg-12 col-md-12 col-sm-12 register-account">
+                        	
+                            <div class="carousel-heading no-margin">
+                                <h4>邮箱注册</h4>
+                            </div>
+                            
+                            <div class="page-content">
+                            	<div class="row">
+                                	<div class="col-lg-1 col-md-1 col-sm-1 ">
+                                	</div>
+                                    <div class="col-lg-11 col-md-11 col-sm-11 ">
+                                    	<p><strong><a href="<?php echo U('Home/User/login');?>">已有Tkphp账号</a></strong></p>
+                                    </div>
+                                    
+                                </div>
+                                
+                                <form action="<?php echo U('Home/User/checkEmail');?>" method="post" name="regist-by-email">
+                                <div class="row">
+                                      	<div class="col-lg-1 col-md-1 col-sm-1 ">
+                                	</div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2">
+                                    	<p>邮箱地址*</p>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                    	<input type="text"  data-trigger="focus" data-container="body" name="email" id="email" placeholder="邮箱地址" data-toggle="popover" data-placement="right" title="提示信息" data-content="请输入常用邮箱地址" />
+										<span></span>
+                                    </div>	
+                                    <div class="col-lg-5 col-md-5 col-sm-5 ">
+                                    	<p>*请输入常用邮箱地址</p>
+                                	</div>
+                                    
+                                </div>
+                                
+                                
+                               
+                                <div class="row">
+                                      	<div class="col-lg-1 col-md-1 col-sm-1 ">
+                                	</div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2">
+                                    	<p>密&nbsp;&nbsp;&nbsp;&nbsp;码*</p>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                    	<input type="password"  data-trigger="focus" data-container="body" name="password" id="email-pwd" placeholder="密　　码" data-toggle="popover" data-placement="right" title="提示信息" data-content="长度为8到16个字符，至少包含两种类型" />
+										<span></span>
+                                    </div>	
+                                     <div class="col-lg-5 col-md-5 col-sm-5 ">
+                                    	<p>*长度为8到16个字符，至少包含两种类型</p>
+                                	</div>
+                                </div>
+                                
+                                <div class="row">
+                                     	<div class="col-lg-1 col-md-1 col-sm-1 ">
+                                	</div>
+                                   <div class="col-lg-2 col-md-2 col-sm-2">
+                                   	<p>确认密码*</p>
+                                   </div>
+                                   <div class="col-lg-4 col-md-4 col-sm-4">
+                                   <input type="password" name="repassword"  data-trigger="focus" data-container="body" id="email-repwd" placeholder="重复密码" data-toggle="popover" data-placement="right" title="提示信息" data-content="长度为8到16个字符，至少包含两种类型" />
+								   <span></span>
+                                   </div>	
+                                    <div class="col-lg-5 col-md-5 col-sm-5 ">
+                                    	<p>*长度为8到16个字符，至少包含两种类型</p>
+                                	</div>
+                               </div>
+                       
+                       		   <div class="row">
+                                    	<div class="col-lg-1 col-md-1 col-sm-1 ">
+                                	</div>
+                                  <div class="col-lg-2 col-md-2 col-sm-2">
+                                  	<p>验证码*</p>
+                                  </div>
+                                  <div class="col-lg-2 col-md-2 col-sm-2">
+                                  <input type="text" name="code" id="code"  placeholder="点击刷新" />
+									<div></div>
+
+                                  </div>
+                                  <div class="col-lg-2 col-md-2 col-sm-2">
+                                  	<img src="<?php echo U('Home/User/code');?>"  onclick="this.src=this.src + '?' + Math.random()" alt="">
+                                  </div>	
+                                   
+                               </div>
+                                  <div class="row">
+                                   
+                                    <div class="col-lg-3 col-md-3 col-sm-3 ">
+                                	</div>
+                                	
+                                   <div class="col-lg-6 col-md-6 col-sm-6">
+                                   	 <input type="checkbox" checked name="agreement" value="1" /> 我已阅读并接受 <a href="###">《服务协议条款》</a> 
+
+                                   </div>	
+                                   
+                               </div>
+                                <div class="row">
+                                     <div class="col-lg-3 col-md-3 col-sm-3">
+                                     </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                    	<input class="big" type="submit" value="注册">
+                                        <input class="big" type="reset" value="取消">
+                                    </div>
+                                    
+                                </div>
+                                </form>
+                            </div>
+                            
+                    	</div>
+                          
+                    </div>
+                        
+                    
+				</section>
+				<!-- /Main Content -->
+                
+                     <!-- Sidebar -->
 				<aside class="sidebar col-lg-3 col-md-3 col-sm-3 right-sidebar">
 					
 					<!-- Categories -->
-							<!-- Categories -->
-					<div class="row sidebar-box purple">
+						﻿		   <div class="row sidebar-box purple" style="margin-top:0;">
 						
 						<div class="col-lg-12 col-md-12 col-sm-12">
 							
 							<div class="sidebar-box-heading">
 								<i class="icons icon-folder-open-empty"></i>
-								<h4>Categories</h4>
+								<h4>商品分类</h4>
 							</div>
 							
 							<div class="sidebar-box-content">
 								<ul>
-									<li><a href="#">Cameras &amp; Photography <i class="icons icon-right-dir"></i></a></li>
-									<li><a href="#">Computers &amp; Tablets <i class="icons icon-right-dir"></i></a></li>
-									<li><a href="#">Cell Phones &amp; Accessories <i class="icons icon-right-dir"></i></a>
-                                    	<ul class="sidebar-dropdown">
+									<li><a href="#">智能手机 <i class="icons icon-right-dir"></i></a></li>
+									<li><a href="#">平板电脑 <i class="icons icon-right-dir"></i></a></li>
+									<li><a href="#">单反相机 <i class="icons icon-right-dir"></i></a>
+                                    	 <ul class="sidebar-dropdown">
                                         	<li>
                                             	<ul>
                                                 	<li><a href="#">Cell phones &amp; Smartphone</a></li>
@@ -486,296 +606,380 @@
                                             </li>
                                         </ul>
                                     </li>
-									<li><a href="#">TV, Audio &amp; Surveillance <i class="icons icon-right-dir"></i></a></li>
-									<li><a href="#">Video Games &amp; Consoles <i class="icons icon-right-dir"></i></a></li>
-									<li><a href="#">Car Audio, Video &amp; GPS <i class="icons icon-right-dir"></i></a></li>
-									<li><a href="#">Best Sellers <i class="icons icon-right-dir"></i></a></li>
-									<li><a href="#">Shop by Brands <i class="icons icon-right-dir"></i></a></li>
-									<li><a class="purple" href="#">All Categories</a></li>
+									<li><a href="#">手机<i class="icons icon-right-dir"></i></a></li>
+									<li><a href="#">电脑 <i class="icons icon-right-dir"></i></a></li>
+									<li><a href="#">相机 <i class="icons icon-right-dir"></i></a></li>
+									<li><a href="#">配件 <i class="icons icon-right-dir"></i></a></li>
+									<li><a href="#">服务 <i class="icons icon-right-dir"></i></a></li>
+									<li><a class="purple" href="#">更多分类</a></li>
 								</ul>
 							</div>
 							
 						</div>
 							
 					</div>
+
 					<!-- /Categories -->
-					<!-- /Categories -->
                     
                     
                     
-                    <!-- Compare Products -->
-					<div class="row sidebar-box blue">
-						
-						<div class="col-lg-12 col-md-12 col-sm-12">
-							
-							<div class="sidebar-box-heading">
-                            	<i class="icons icon-docs"></i>
-								<h4>Compare Products</h4>
-							</div>
-							<div class="sidebar-box-content">
-                                <table class="compare-table">
-                                    
-                                    <tr>
-                                        <td class="product-thumbnail"><img src="/tkphp/Public/homeshop/img/products/sample1.jpg" alt="Product1"></td>
-                                        <td class="product-info">
-                                            <p><a href="#">Lorem ipsum dolor sit amet</a></p>
-                                            <a class="remove">Remove</a>
-                                        </td>
-                                    </tr>
-                                    
-                                </table>
-                                <div class="padding-box">
-                                	<a class="button grey">Go to compare</a>
-                                </div>
-							</div>
-						</div>
-						
-					</div>
-					<!-- /Compare Products -->
-					
-					
-					<!-- Carousel -->
-					<div class="row sidebar-box">
-						
-						<div class="col-lg-12 col-md-12 col-sm-12 sidebar-carousel">
-							
-							<!-- Slider -->
-							<section class="sidebar-slider">
-								<div class="sidebar-flexslider">
-									<ul class="slides">
-										<li>
-											<a href="#"><img src="/tkphp/Public/homeshop/img/sidebar-slide1.jpg" alt="Slide1"></a>
-										</li>
-										<li>
-											<a href="#"><img src="/tkphp/Public/homeshop/img/sidebar-slide2.jpg" alt="Slide1"></a>
-										</li>
-										<li>
-											<a href="#"><img src="/tkphp/Public/homeshop/img/sidebar-slide3.jpg" alt="Slide1"></a>
-										</li>
-									</ul>
-								</div>
-								<div class="slider-nav"></div>
-							</section>
-							<!-- /Slider -->
-                            
-						</div>
-						
-					</div>
-					<!-- /Carousel -->
-					
-					
-					<!-- Bestsellers -->
-					<div class="row sidebar-box red">
-						
-						<div class="col-lg-12 col-md-12 col-sm-12">
-							
-							<div class="sidebar-box-heading">
-                            <i class="icons icon-award-2"></i>
-								<h4>Bestsellers</h4>
-							</div>
-							
-							<div class="sidebar-box-content">
-								<table class="bestsellers-table">
-									
-									<tr>
-										<td class="product-thumbnail"><a href="#"><img src="/tkphp/Public/homeshop/img/products/sample1.jpg" alt="Product1"></a></td>
-										<td class="product-info">
-											<p><a href="#">Lorem ipsum dolor sit amet</a></p>
-											<span class="price">$550.00</span>
-										</td>
-									</tr>
-									
-									<tr>
-										<td class="product-thumbnail"><a href="#"><img src="/tkphp/Public/homeshop/img/products/sample2.jpg" alt="Product1"></a></td>
-										<td class="product-info">
-											<p><a href="#">Lorem ipsum dolor sit amet</a></p>
-											<span class="price">$550.00</span>
-										</td>
-									</tr>
-									
-									<tr>
-										<td class="product-thumbnail"><a href="#"><img src="/tkphp/Public/homeshop/img/products/sample3.jpg" alt="Product1"></a></td>
-										<td class="product-info">
-											<p><a href="#">Lorem ipsum dolor sit amet</a></p>
-                                            <div class="rating readonly-rating" data-score="4"></div>
-											<span class="price"><del>$650.00</del> $550.00</span>
-										</td>
-									</tr>
-									
-								</table>
-							</div>
-							
-						</div>
-						
-					</div>
-					<!-- /Bestsellers -->
-					
+                  
                     
 				</aside>
                 <!-- /Sidebar -->
                 
-                
-				<!-- Main Content -->
-				<section class="main-content col-lg-9 col-md-9 col-sm-9">
-                    
-                    
-                    <div class="row">
-                    	
-                        <div class="col-lg-12 col-md-12 col-sm-12">
-                        	
-                            <div class="carousel-heading no-margin">
-                                <h4>��¼</h4>
-                            </div>
-                            
-                            <div class="page-content">
-                            	<p>�������ע�ᣬ��ֱ�ӵ�¼</p>
-                            	<form action="<?php echo U('Home/User/login');?>" method="post">
-                                <div class="row">
-                                	<div class="col-lg-2 col-md-2 col-sm-2">
-                                		<p>�û���*</p>
-                                	</div>
-                                	<div class="col-lg-4 col-md-4 col-sm-4">
-                                    	<div class="iconic-input">
-                                            <input name="username" type="text" placeholder="�û���">
-                                            <i class="icons icon-user-3"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                	<div class="col-lg-2 col-md-2 col-sm-2">
-                                	<p>����*</p>
-                                	</div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                    	<div class="iconic-input">
-                                            <input name="upwd" type="password" placeholder="����">
-                                            <i class="icons icon-lock"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                  <div class="row">
-                                	<div class="col-lg-2 col-md-2 col-sm-2">
-                               		</div>
-                               		<div class="col-lg-2 col-md-2 col-sm-2">
-                               		<input name="autologin" type="checkbox" id="login-remember-2"> <label for="login-remember-2">�Զ���¼</label>
-                               		</div>
-                               	</div>
-                                <br>
-                                <div class="row">
-	                                <div class="col-lg-2 col-md-2 col-sm-2">
-	                               		</div>
-                                	<div class="col-lg-2 col-md-2 col-sm-2 align-left">
-                                    	<input type="submit" class="orange" value="��¼">
-                                    </div>
-                                    <div class="col-lg-2 col-md-2 col-sm-2">
-                                     <small>
-											<a class="align-right" href="#">��������?</a>
-											<br>
-											<a class="align-right" href="#">�����û���?</a>
-											<br>
-									</small>
-	                               	</div>
-                                </div>
-                               </form>
-                            </div>
-                            
-                    	</div>
-                          
-                    </div>
-                    
-                    
-                    
-                    <div class="row">
-                    	
-                        <div class="col-lg-12 col-md-12 col-sm-12 register-account">
-                        	
-                            <div class="carousel-heading no-margin">
-                                <h4>ע��</h4>
-                            </div>
-                            
-                            <div class="page-content">
-                            	<div class="row">
-                                	
-                                    <div class="col-lg-12 col-md-12 col-sm-12">
-                                    	<p><strong>ע������Ϣ</strong></p>
-                                    </div>
-                                    
-                                </div>
-                                
-                                <form action="<?php echo U('Home/User/register');?>" method="post">
-                                <div class="row">
-                                    
-                                    <div class="col-lg-2 col-md-2 col-sm-2">
-                                    	<p>�û���*</p>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                    	<input name="username" type="text">
-                                    </div>	
-                                    
-                                </div>
-                                
-                                
-                                <div class="row">
-                                    
-                                    <div class="col-lg-2 col-md-2 col-sm-2">
-                                    	<p>�ƺ�</p>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                    	<select class="chosen-select">
-                                        	<option>����</option>
-                                            <option>Ůʿ</option>
-                                        </select>
-                                    </div>	
-                                    
-                                </div>
-                               
-                                <div class="row">
-                                    
-                                    <div class="col-lg-2 col-md-2 col-sm-2">
-                                    	<p>����*</p>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                    	<input name="upwd" type="password">
-                                    </div>	
-                                    
-                                </div>
-                                
-                                <div class="row">
-                                   
-                                   <div class="col-lg-2 col-md-2 col-sm-2">
-                                   	<p>ȷ��*</p>
-                                   </div>
-                                   <div class="col-lg-4 col-md-4 col-sm-4">
-                                   	<input name="confirm" type="password">
-                                   </div>	
-                                   
-                               </div>
-                       
-                        
-                                <div class="row">
-                                     <div class="col-lg-2 col-md-2 col-sm-2">
-                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                    	<input class="big" type="submit" value="ע��">
-                                        <input class="big" type="reset" value="ȡ��">
-                                    </div>
-                                    
-                                </div>
-                                </form>
-                            </div>
-                            
-                    	</div>
-                          
-                    </div>
-                        
-                    
-				</section>
-				<!-- /Main Content -->
-                
-                
-                
 			</div>
 			<!-- /Content -->
-			
+<script>
+
+
+$(function (){
+    // 登录注册切换
+    $('#by-phone').click(function (){
+        $(this).addClass('active');
+        $('#by-email').removeClass('active');
+        $('form[name="regist-by-mobile"]').show();
+        $('form[name="regist-by-email"]').hide();
+    });
+
+    $('#by-email').click(function (){
+        $(this).addClass('active');
+        $('#by-phone').removeClass('active');
+        $('form[name="regist-by-mobile"]').hide();
+        $('form[name="regist-by-email"]').show();
+    });
+
+
+    // ========================== 手机注册 表单验证================================
+    // 检测手机号是否存在
+    $('#mobile-num').blur(function () {
+        checkMobile();
+    });
+
+    // 检测密码是否合法
+    $('#mobile-pwd').blur(function (){
+        checkPassword(this);
+    });
+
+    // 检测重复密码
+    $('#mobile-repwd').blur(function (){
+        checkRePassword(this, $('#mobile-pwd'));
+    });
+
+    // 检查手机号
+    function checkMobile ()
+    {
+        // 获取号码
+        var obj    = $('#mobile-num');
+        var oBtn   = $('#verify-btn');
+        var number = $('#mobile-num').val();
+        var oTxt   = $('#mobile-num').next('span');
+        if (number.length == 0)
+        {
+            oTxt.css({
+                'font-size':'12px',
+                'color':'red'
+            }).html('对不起，手机号不能为空');
+            obj.attr('mobile-exists', '0');
+            oBtn.attr('disabled', 'disabled');
+            return false;
+        }
+
+        // 检测号码是否合法
+        if ( ! number.match(/^[1][3578]{1}\d{9}$/))
+        {
+            oTxt.css({
+                'font-size':'12px', 
+                'color': 'red',
+            }).html('对不起，手机号码不合法');
+            obj.attr('mobile-exists', '0');
+            oBtn.attr('disabled', 'disabled');
+            return false;
+        }
+        else
+        {
+            // 验证手机号码是否存在
+            $.ajax({
+                'url': url + '/checkMobileExists',
+                'type': 'GET',
+                'data':{
+                    'number':number
+                },
+                'dataType':'json',
+                'success': function (d){
+                    if (d == 1)
+                    {
+                        // 可用
+                        obj.attr('mobile-exists', '1');
+                        oBtn.removeAttr('disabled');
+                        oTxt.css({
+                            'font-size': '12px',
+                            'color': 'green'
+                        }).html('手机号码可用');
+                    }
+                    else
+                    {
+                        // 不可用
+                        obj.attr('mobile-exists', '0');
+                        oBtn.attr('disabled', 'disabled');
+                        oTxt.css({
+                            'font-size': '12px',
+                            'color':'red',
+                        }).html('该手机号已被占用');
+                    }
+                }
+            });
+        }
+    }
+
+    // Ajax去验证手机验证码
+    $('#verify-btn').click(function ()
+    {
+        var data = $('#mobile-num').val();
+        $.post(url + '/checkBySms', {'phone_number': data}, function (d){
+            if (d != null)
+            {
+                $('#verify-btn').attr('disabled', 'disabled');
+                var time = 120;
+                var timer = null;
+                timer = setInterval(function (){
+                    var str = '计时' + time + '秒';
+                    $('#verify-btn').html(str);
+                    time--;
+                    if (time == 0) 
+                    {
+                        $('#verify-btn').removeAttr('disabled');
+                        clearInterval(timer);
+                        $('#verify-btn').html('获取验证码');
+                    }
+                }, 1000);
+            }
+        });
+        return false;
+    });
+
+    $('#regist-by-mobile').submit(function (){
+        checkMobile();
+        var checkP = checkPassword($('#mobile-pwd'));
+        var checkRP = checkRePassword($('#mobile-repwd'), $('#mobile-pwd'));
+        // 去查找手机号
+        var m = $('#mobile-num').attr('mobile-exists');
+        if (m == 0)
+        {
+            return false;
+        }
+        // 检测验证码
+        var v = $('#verify-num').val()
+        if (v.length < 6)
+        {
+            alert('验证码不合法');
+            return false;
+        }
+        // 协议是否勾选
+        if ( ! $('#mobile-agreement')[0].checked)
+        {
+            alert('请先阅读并勾选用户注册协议');
+            return false;
+        }
+        if (checkP && checkRP)
+        {
+            return true;
+        }
+        return false;
+    });
+
+
+    // ========================== 邮箱注册 表单验证================================
+    // 验证邮箱
+    // 验证邮箱没有返回值，是修改了其属性性
+    $('#email').blur(function (){
+        checkEmail(this);
+    });
+
+    // 验证密码
+    var checkEmailP
+    $('#email-pwd').blur(function (){
+        checkEmailP = checkPassword(this);
+    });
+
+    // 验证重复密码
+    var checkEmailReP
+    $('#email-repwd').blur(function (){
+        var orgObj = $('#email-pwd');
+        checkEmailReP = checkRePassword(this, orgObj);
+    });
+
+
+    // 验证验证码
+    var checkCaptate = false;
+    $('#code').blur(function () {
+        if ($(this).val().length != 0)
+        {
+            checkCaptate = true;
+        }
+        else
+        {
+            $(this).parent().addClass('has-error');
+            $(this).next('div').html('验证码不能为空').css('color', 'red');
+        }
+    });
+
+    // 提交表单
+    $('form[name="regist-by-email"]').submit(function (){
+        // alert('');
+        if ($('#email').attr('email-available') == 0)
+        {
+            $('#email').parent().addClass('has-error');
+            $('#email').next('span').html('邮箱账号不可用，请重新填写').css({'color':'red', 'font-size':'12px'});
+            return false;
+        }
+        else
+        {
+            if ( ! $('#email-agreement')[0].checked)
+            {
+                return false;
+            }
+            else
+            {
+                if (checkEmailP && checkEmailReP && checkCaptate)
+                {
+                    return true;
+                }
+            }
+            
+        }
+        return false;
+    });
+
+
+});
+
+// 是否同意注册协议
+
+
+// 验证重复密码
+function checkRePassword (obj, orgObj)
+{
+    var bool = false;
+    if ($(obj).val().length == 0)
+    {
+        $(obj).parent().addClass('has-error');
+        $(obj).next('span').html('重复密码不能为空').css({'color':'red', 'font-size':'12px'});
+    }
+    else if ($(obj).val() != orgObj.val()) 
+    {
+        $(obj).parent().addClass('has-error');
+        $(obj).next('span').html('两次密码不一致').css({'color':'red', 'font-size':'12px'});
+    }
+    else
+    {
+        $(obj).parent().removeClass('has-error');
+        $(obj).next('span').html('密码合法').css({'color':'green', 'font-size':'12px'});
+        bool = true;
+    }
+    return bool;
+}
+
+// 验证密码
+function checkPassword (obj)
+{
+    var bool = false;
+    var counts = 0;
+    if ($(obj).val() == 0)
+    {
+        $(obj).parent().addClass('has-error');
+        $(obj).next('span').html('不能为空').css({'color': 'red', 'font-size': '12px'});
+    }
+    else if ($(obj).val().length >16 || $(obj).val().length < 8)
+    {
+        $(obj).parent().addClass('has-error');
+        $(obj).next('span').html('密码长度在8到16位之间').css({'color': 'red', 'font-size': '12px'});
+    }
+    else 
+    {
+        // 密码安全等级
+        if ($(obj).val().match(/\d+/))
+        {
+            counts++;
+        }
+
+        if ($(obj).val().match(/[a-zA-Z]+/))
+        {
+            counts++;
+        }
+        if ($(obj).val().match(/[^\da-zA-Z]+/))
+        {
+            counts++;
+        }
+        
+        if (counts < 2)
+        {
+            $(obj).parent().addClass('has-error');
+            $(obj).next('span').html('密码至少包含两种字符').css({'color': 'red', 'font-size': '12px'});
+        }
+        else 
+        {
+            $(obj).parent().removeClass('has-error');
+            $(obj).next('span').html('密码合法').css({'color': 'green', 'font-size': '12px'});
+            bool = true;
+        }
+    }
+    return bool;
+}
+
+// 验证手机号
+function checkMobile(obj) 
+{
+    var bool = false;
+    if ($(obj).val().length == 0)
+    {
+        $(obj).parent().addClass('has-error');
+        $(obj).next('span').html('不能为空').css('color', 'red');
+    }
+    else if ( ! $(obj).val().match(/^1[3587]{1}\d{9}$/))
+    {
+        $(obj).parent().addClass('has-error');
+        $(obj).next('span').html('非法号码').css('color', 'red');
+    }
+    else 
+    {
+        $(obj).parent().removeClass('has-error');
+        $(obj).next('span').html('合法手机号码').css('color', 'green');
+        bool = true;
+    }
+    return bool;
+}
+
+// 检测并用Ajax请求检测该邮箱是否已经注册
+function checkEmail(obj)
+{
+
+    if ( ! $(obj).val().match(/^[a-zA-Z1-9]+\w+@[a-zA-Z0-9]+\.\w+[\da-zA-Z]$/))
+    {
+        $(obj).next('span').html('账号不能包含特殊字符，并且不能以下划线开头或结尾').css({'color':'red', 'font-size':'12px'});
+    }
+    else
+    {
+        // Ajax请求判断邮箱是否可用
+        var emailValue = $('email').val();
+        $.post(url + '/checkEmailAvailable', {'email':emailValue}, function (d){
+            if (d == 'no')
+            {
+                $(obj).parent().addClass('has-error');
+                $(obj).next('span').html('该邮箱已被注册').css({'color':'red', 'font-size':'12px'});
+                // 由于在Ajax里面封装的方法不会返回值，因此这里修改input标签的属性，当提交表单的时候通过这个属性的值来判断
+                $(obj).attr('email-available', '0');
+            }
+            else if (d == 'yes')
+            {
+                $(obj).next('span').html('该邮箱可用').css({'color':'green', 'font-size':'12px'});
+                // 同上
+                $(obj).attr('email-available', '1');
+            }
+        });
+    }
+}
+</script>
 	﻿<!-- Banner -->
 			<section class="banner">
 				
@@ -797,7 +1001,7 @@
 				<a href="#">
 				<div class="right-side-banner banner-item orange">
 					<h4>疯狂抢购!</h4>
-					<p>商品列表</p>
+					<p>全网最低价</p>
                     <span class="button">现在购买</span>
 				</div>
 				</a>
@@ -819,9 +1023,8 @@
 							<!-- Newsletter -->
 							<div class="col-lg-7 col-md-7 col-sm-7">
 								<form id="newsletter" action="php/newsletter.php">
-									<h4>邮箱登记</h4>
-									<input type="text" name="newsletter-email" placeholder="输入您的邮箱">
-									<input type="submit" name="newsletter-submit" value="提交">
+									<h2>关注我们</h2>
+									
 								</form>
 							</div>
 							<!-- /Newsletter -->
@@ -829,14 +1032,6 @@
 							
 							<!-- Social Media -->
 							<div class="col-lg-5 col-md-5 col-sm-5 social-media">
-								<h4>保持联系</h4>
-								<ul>
-									<li class="social-googleplus tooltip-hover" data-toggle="tooltip" data-placement="top" title="Google+"><a href="#"></a></li>
-									<li class="social-facebook tooltip-hover" data-toggle="tooltip" data-placement="top" title="Facebook"><a href="#"></a></li>
-									<li class="social-pinterest tooltip-hover" data-toggle="tooltip" data-placement="top" title="Pinterest"><a href="#"></a></li>
-									<li class="social-twitter tooltip-hover" data-toggle="tooltip" data-placement="top" title="Twitter"><a href="#"></a></li>
-									<li class="social-youtube tooltip-hover" data-toggle="tooltip" data-placement="top" title="Youtube"><a href="#"></a></li>
-								</ul>
 							</div>
 							<!-- /Social Media -->
 							
@@ -858,14 +1053,15 @@
 							
 							<!-- The Service -->
 							<div class="col-lg-3 col-md-3 col-sm-6">
-								<h4>服务</h4>
+								<h4>关于我们</h4>
 								<ul>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 我的账户</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 历史纪录</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 保持联系</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 购物页</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 商品目录</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 搜索结果</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 关于tkphp</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 新闻中心</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 加入我们</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 法律声明</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 星空之约</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 联系我们</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 友情链接</a></li>
 								</ul>
 							</div>
 							<!-- /The Service -->
@@ -873,14 +1069,14 @@
 							
 							<!-- Like us on Facebook -->
 							<div class="col-lg-3 col-md-3 col-sm-6">
-								<h4>服务</h4>
+								<h4>产品</h4>
 								<ul>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 我的账户</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 历史纪录</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 保持联系</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 购物页</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 商品目录</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 搜索结果</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i>平板系列</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i>手记系列</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i>相机系列</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i>配件</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i>新产品</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i>概念产品</a></li>
 								</ul>
 							</div>
 							<!-- /Like us on Facebook -->
@@ -888,14 +1084,14 @@
 							
 							<!-- Information -->
 							<div class="col-lg-3 col-md-3 col-sm-6">
-								<h4>网站信息</h4>
+								<h4>服务中心</h4>
 								<ul>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 关于我们</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 关于我们</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 关于我们</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 关于我们</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 关于我们</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 关于我们</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 体验店</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 售后服务</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 官服中心</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 帮助中心</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 软件下载</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 固件升级</a></li>
 								</ul>
 							</div>
 							<!-- /Information -->
@@ -908,7 +1104,7 @@
 									<li><i class="icons icon-location"></i>龙门大道71号,<br>洛阳师范学院, 信息技术学院.</li>
                                     <li><i class="icons icon-phone"></i> +182-3882-7991</li>
 									<li><i class="icons icon-mail-alt"></i><a href="mailto:web_zhaobei@163.com"> web_zhaobei@163.com</a></li>
-									<li><i class="icons icon-skype"></i> homeshop</li>
+									<li><i class="icons icon-skype"></i> tkphp</li>
 								</ul>
 							</div>
 							<!-- /Contact Us -->
@@ -930,16 +1126,12 @@
 						<div class="row">
 							
 							<div class="col-lg-6 col-md-6 col-sm-6">
-								<p class="copyright">Copyright 2015 <a href="#">ShopZhao</a>. All Rights Reserved.</p>
+								<p class="copyright">Copyright 2015 <a href="#">TKPHP</a>. All Rights Reserved.</p>
 							</div>
 							
 							<div class="col-lg-6 col-md-6 col-sm-6">
 								<ul class="payment-list">
-									<li class="payment1"></li>
-									<li class="payment2"></li>
-									<li class="payment3"></li>
-									<li class="payment4"></li>
-									<li class="payment5"></li>
+									
 								</ul>
 							</div>
 							

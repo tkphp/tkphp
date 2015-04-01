@@ -9,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <!-- Title -->
-        <title>HomeShop - HTML Template</title>
+        <title>TKPHP</title>
         
 		<!-- Fonts -->
 		<link href='http://fonts.useso.com/css?family=Roboto:400,300,300italic,400italic,500,700,900,700italic,500italic' rel='stylesheet' type='text/css'>
@@ -54,9 +54,9 @@
 							
 							<nav id="top-navigation" class="col-lg-7 col-md-7 col-sm-7">
 								<ul class="pull-left">
+								    <li><a href="<?php echo U('');?>">收藏本站</a></li>
 									<li><a href="<?php echo U('Home/User/register');?>">我的账户</a></li>
 									<li><a href="<?php echo U('Home/Bill/lists');?>">订单信息</a></li>
-									<li><a href="<?php echo U('Home/Bill/info');?>">订单信息</a></li>
 									<li><a href="<?php echo U('Home/Index/about');?>">关于我们</a></li>
 									<li><a href="<?php echo U('Home/Index/contact');?>">联系我们</a></li>
 								</ul>
@@ -64,11 +64,11 @@
 							
 							<nav class="col-lg-5 col-md-5 col-sm-5">
 								<ul class="pull-right">
-									<?php if($_COOKIE['username'] != '' ): endif; ?>
-									<?php if($_SESSION['is_Login'] == 1 ): echo ($_SESSION['username']); ?> 你好!
+									
+									<?php if($_SESSION['user']['is_Login'] == 1 ): echo ($_SESSION['user']['username']); ?> 你好!
 									<a href="<?php echo U('Home/User/logout');?>">注销</a>
 									<?php else: ?> 
-									<li class="purple"><a href="<?php echo U('Home/User/register');?>"><i class="icons icon-user-3"></i> 登录</a>
+									<li class="purple"><a href="<?php echo U('Home/User/login');?>"><i class="icons icon-user-3"></i> 登录</a>
 										<!-- <ul id="login-dropdown" class="box-dropdown">
 											<li>
                                             	<div class="box-wrapper">
@@ -274,7 +274,7 @@
 								<!-- 	<span class="nav-description">Variety of Layouts</span> -->
 								</a>
 								
-								<ul class="normal-dropdown normalAnimation">
+								<!-- <ul class="normal-dropdown normalAnimation">
 									<li><a href="#">Layouts <i class="icons icon-right-dir"></i></a>
 										<ul class="normalAnimation">
 											<li><a href="home_v1.html">Layout 1</a></li>
@@ -309,7 +309,7 @@
 											<li><a href="home_v3.html">Flex Slider</a></li>
 										</ul>
 									</li>
-								</ul>
+								</ul> -->
 							</li>
 							
 							<li class="red">
@@ -319,7 +319,7 @@
 									<!-- <span class="nav-description">Photo & Video</span> -->
 								</a>
 								
-								<ul class="wide-dropdown normalAniamtion">
+								<!-- <ul class="wide-dropdown normalAniamtion">
 									<li>
 										<ul>
 											<li><span class="nav-caption">Digital Cameras</span></li>
@@ -346,7 +346,7 @@
 											<li><a href="#"><i class="icons icon-right-dir"></i> Cases, Bags &amp; Covers</a></li>
 										</ul>
 									</li>
-								</ul>
+								</ul> -->
 								
 							</li>
 							
@@ -618,7 +618,7 @@
 				<a href="#">
 				<div class="right-side-banner banner-item orange">
 					<h4>疯狂抢购!</h4>
-					<p>商品列表</p>
+					<p>全网最低价</p>
                     <span class="button">现在购买</span>
 				</div>
 				</a>
@@ -640,9 +640,8 @@
 							<!-- Newsletter -->
 							<div class="col-lg-7 col-md-7 col-sm-7">
 								<form id="newsletter" action="php/newsletter.php">
-									<h4>邮箱登记</h4>
-									<input type="text" name="newsletter-email" placeholder="输入您的邮箱">
-									<input type="submit" name="newsletter-submit" value="提交">
+									<h2>关注我们</h2>
+									
 								</form>
 							</div>
 							<!-- /Newsletter -->
@@ -650,14 +649,6 @@
 							
 							<!-- Social Media -->
 							<div class="col-lg-5 col-md-5 col-sm-5 social-media">
-								<h4>保持联系</h4>
-								<ul>
-									<li class="social-googleplus tooltip-hover" data-toggle="tooltip" data-placement="top" title="Google+"><a href="#"></a></li>
-									<li class="social-facebook tooltip-hover" data-toggle="tooltip" data-placement="top" title="Facebook"><a href="#"></a></li>
-									<li class="social-pinterest tooltip-hover" data-toggle="tooltip" data-placement="top" title="Pinterest"><a href="#"></a></li>
-									<li class="social-twitter tooltip-hover" data-toggle="tooltip" data-placement="top" title="Twitter"><a href="#"></a></li>
-									<li class="social-youtube tooltip-hover" data-toggle="tooltip" data-placement="top" title="Youtube"><a href="#"></a></li>
-								</ul>
 							</div>
 							<!-- /Social Media -->
 							
@@ -679,14 +670,15 @@
 							
 							<!-- The Service -->
 							<div class="col-lg-3 col-md-3 col-sm-6">
-								<h4>服务</h4>
+								<h4>关于我们</h4>
 								<ul>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 我的账户</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 历史纪录</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 保持联系</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 购物页</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 商品目录</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 搜索结果</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 关于tkphp</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 新闻中心</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 加入我们</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 法律声明</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 星空之约</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 联系我们</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 友情链接</a></li>
 								</ul>
 							</div>
 							<!-- /The Service -->
@@ -694,14 +686,14 @@
 							
 							<!-- Like us on Facebook -->
 							<div class="col-lg-3 col-md-3 col-sm-6">
-								<h4>服务</h4>
+								<h4>产品</h4>
 								<ul>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 我的账户</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 历史纪录</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 保持联系</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 购物页</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 商品目录</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 搜索结果</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i>平板系列</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i>手记系列</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i>相机系列</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i>配件</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i>新产品</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i>概念产品</a></li>
 								</ul>
 							</div>
 							<!-- /Like us on Facebook -->
@@ -709,14 +701,14 @@
 							
 							<!-- Information -->
 							<div class="col-lg-3 col-md-3 col-sm-6">
-								<h4>网站信息</h4>
+								<h4>服务中心</h4>
 								<ul>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 关于我们</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 关于我们</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 关于我们</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 关于我们</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 关于我们</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 关于我们</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 体验店</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 售后服务</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 官服中心</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 帮助中心</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 软件下载</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 固件升级</a></li>
 								</ul>
 							</div>
 							<!-- /Information -->
@@ -729,7 +721,7 @@
 									<li><i class="icons icon-location"></i>龙门大道71号,<br>洛阳师范学院, 信息技术学院.</li>
                                     <li><i class="icons icon-phone"></i> +182-3882-7991</li>
 									<li><i class="icons icon-mail-alt"></i><a href="mailto:web_zhaobei@163.com"> web_zhaobei@163.com</a></li>
-									<li><i class="icons icon-skype"></i> homeshop</li>
+									<li><i class="icons icon-skype"></i> tkphp</li>
 								</ul>
 							</div>
 							<!-- /Contact Us -->
@@ -751,16 +743,12 @@
 						<div class="row">
 							
 							<div class="col-lg-6 col-md-6 col-sm-6">
-								<p class="copyright">Copyright 2015 <a href="#">ShopZhao</a>. All Rights Reserved.</p>
+								<p class="copyright">Copyright 2015 <a href="#">TKPHP</a>. All Rights Reserved.</p>
 							</div>
 							
 							<div class="col-lg-6 col-md-6 col-sm-6">
 								<ul class="payment-list">
-									<li class="payment1"></li>
-									<li class="payment2"></li>
-									<li class="payment3"></li>
-									<li class="payment4"></li>
-									<li class="payment5"></li>
+									
 								</ul>
 							</div>
 							

@@ -22,7 +22,7 @@
                             
                             <div class="page-content contact-info">
                             	
-                                <iframe width="425" height="350" src="https://maps.google.rs/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=marmora+road&amp;sll=44.210767,20.922416&amp;sspn=4.606139,10.821533&amp;ie=UTF8&amp;hq=&amp;hnear=Marmora+Rd,+London+SE22+0RX,+United+Kingdom&amp;t=m&amp;z=14&amp;ll=51.451955,-0.055755&amp;output=embed"></iframe>
+                                <iframe width="425" height="350" src="http://fm.baidu.com/"></iframe>
 								<div class="row">
                                 	
                                     <div class="col-lg-6 col-md-6 col-sm-6">
@@ -78,19 +78,19 @@
                             
                             <div class="page-content contact-form">
                             	
-								<form id="contact-form" action="php/contact.php">
+								<form id="contact-form" action="{:U('Index/doContact')}" method="post">
 								
 									<label>姓名(必填)</label>
-									<input name="contact-name" type="text">
+									<input name="name" type="text" required>
 									
 									<label>邮箱(必填)</label>
-									<input name="contact-email" type="text">
+									<input name="email" type="text" required>
 									
 									<label>主题</label>
-									<input name="contact-subject" type="text">
+									<input name="subject" type="text">
 									
 									<label>信息</label>
-									<textarea name="contact-message"></textarea>
+									<textarea name="message"></textarea>
 									
 									<input class="big" type="submit" value="发送信息">
 									

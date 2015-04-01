@@ -20,4 +20,5 @@ return array(
         '__CSS__' => __ROOT__. '/Public/css',
         '__JS__' => __ROOT__. '/Public/js',
     ),
+    'LOAD_EXT_CONFIG' => 'email',
 );

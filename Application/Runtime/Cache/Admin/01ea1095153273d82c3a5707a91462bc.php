@@ -1,118 +1,235 @@
 <?php if (!defined('THINK_PATH')) exit();?>﻿<!DOCTYPE html>
-<html>
-<head>
-<title>后台管理系统</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" type="text/css" href="/tkphp/Public/static/bootstrap/css/bootstrap.css" />
-<link rel="stylesheet" type="text/css" href="/tkphp/Public/css/admin.css" />
-<script src="/tkphp/Public/static/jquery-2.1.3.min.js"></script>
-<script src="/tkphp/Public/static/bootstrap/js/bootstrap.js"></script>
-</head>
-<body>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>TKPHP管理</title>
 
-<div class="container-fluid head">  
-	<div class="row">
-		<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Tkphp</a>
-    </div>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="/tkphp/Public/static/css/bootstrap.css" />
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">会员 <span class="sr-only">(current)</span></a></li>
-        <li><a href="<?php echo U('Goods/lists');?>">商品</a></li>
-        <li><a href="#">广告</a></li>
-         <li><a href="#">设置</a></li>
-      </ul>
-    
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">后台管理系统</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">管理员 <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+	/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+}
+
+
+/*
+ * Global add-ons
+ */
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+.navbar-fixed-top {
+  border: 0;
+}
+
+/*
+ * Sidebar
+ */
+
+/* Hide for mobile, show later */
+.sidebar {
+  display: none;
+}
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 30px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+  }
+}
+
+/* Sidebar navigation */
+.nav-sidebar {
+  margin-right: -21px; /* 20px padding + 1px border */
+  margin-bottom: 20px;
+  margin-left: -20px;
+}
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color: #428bca;
+}
+
+
+/*
+ * Main content
+ */
+
+.main {
+  margin-left:-15px;
+  margin-right:-15px;
+  padding-bottom:12px;
+}
+/* @media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+} */
+.main .page-header {
+  margin-top: 0;
+}
+
+
+/*
+ * Placeholder dashboard ideas
+ */
+
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.placeholders h4 {
+  margin-bottom: 0;
+}
+.placeholder {
+  margin-bottom: 20px;
+}
+.placeholder img {
+  display: inline-block;
+  border-radius: 50%;
+}
+	
+</style>
+  </head>
+
+
+ <body>
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">TKPHP</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#">面板</a></li>
+            <li><a href="#">设置</a></li>
+            <li><a href="#">文件</a></li>
+            <li><a href="#">帮助</a></li>
           </ul>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-	</div>
-</div>
+          <ul class="nav navbar-nav navbar-right">
+			<li>
+			<a href=""><?php echo ($_SESSION['username']); ?> 你好!</a>
+			</li>
+			<li>
+			<a href="<?php echo U('Admin/Login/logout');?>">注销</a>
+			</li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
+ <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="#">后台主页 <span class="sr-only">(current)</span></a></li>
+            <li>   <a data-toggle="collapse" href="#1" aria-expanded="false" aria-controls="1">系统管理</a>
+				   <ol class="collapse" id="1">
+					<li><a href="#">网站配置</a></li>
+					<li><a href="#">系统管理员</a></li>
+					<li><a href="#">邮件配置</a></li>
+					<li><a href="#">短信配置</a></li>
+					<li><a href="#">支付管理</a></li>
+				   </ol>
+			</li>
+			<li>   <a data-toggle="collapse" href="#2" aria-expanded="false" aria-controls="2">用户管理</a>
+			   <ol class="collapse" id="2">
+				<li><a href="#">会员列表</a></li>
+			   </ol>
+			</li>
+			<li>   <a data-toggle="collapse" href="#3" aria-expanded="false" aria-controls="3">商品管理</a>
+				   <ol class="collapse" id="3">
+					<li><a href="<?php echo U('Goods/lists');?>">商品列表</a></li>
+					<li><a href="<?php echo U('Goods/add');?>">添加商品</a></li>
+					<li><a href="<?php echo U('Goods/cat');?>">商品分类</a></li>
+				   </ol>
+			</li>
+          </ul>
+         
+        </div>
 
-<div class="container-fluid">
-	<div class="row">
-		
-		<div class="pull-left col-md-2 left">
-			
-<div class="row-fluid">
-		<div class="span12">
-			<ul class="nav nav-list well ">
-				<li class="nav-header">
-					商品管理
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
+          <ul class="breadcrumb main">
+          
+				<li>
+					<a href="<?php echo ('Index/index');?>">主页</a> <span class="divider"></span>
 				</li>
 				<li class="active">
-					<a href="#">商品列表</a>
+					商品列表
 				</li>
-				<li>
-					<a href="<?php echo U('Goods/add');?>">新增商品</a>
-				</li>
-				<li>
-					<a href="#">应用</a>
-				</li>
-				<li class="nav-header">
-					分组管理
-				</li>
-				<li>
-					<a href="#">分组列表</a>
-				</li>
-				<li>
-					<a href="#">新增分组</a>
-				</li>
-				<li class="divider">
-				</li>
-				<li>
-					<a href="#">帮助</a>
-				</li>
+			
 			</ul>
-		</div>
-	</div>
 
-		</div>
 
-		<div class="pull-right col-md-10 right">
-		
-<div style="margin-top:15px; margin-bottom:10px;">
- <button class="btn btn-primary btn-small" type="button">添加</button>
-</div>
+<h3 class="sub-header"><a href="<?php echo U('Goods/add');?>">添加商品</a></h3>
 <table class="table table-bordered table-hover">
 				<thead>
 					<tr>
 						<th>
+						<input type="checkbox">全选
+						</th>
+						<th>
+							编号
+						</th>
+						<th>
 							商品名称
 						</th>
 						<th>
-							商品价格
+							货号
 						</th>
 						<th>
-							创建时间
+							售价
 						</th>
 						<th>
-							更新时间
+							上架
+						</th>
+						<th>
+							上架时间
+						</th>
+						<th>
+							货存
 						</th>
 						<th>
 							操作
@@ -120,18 +237,31 @@
 					</tr>
 				</thead>
 				<tbody>
-					<?php if(is_array($goods)): foreach($goods as $key=>$good): ?><tr class="info">
+					<?php if(is_array($goods)): foreach($goods as $key=>$good): ?><tr>
 						<td>
-							<?php echo ($good["title"]); ?>
+							<input type="checkbox">
 						</td>
 						<td>
-							<?php echo ($good["price"]); ?>
+							<?php echo ($good["id"]); ?>
 						</td>
 						<td>
-							<?php echo (date("Y-m-d",$good["create_time"])); ?>
+							<?php echo ($good["pro_name"]); ?>
 						</td>
 						<td>
-							<?php echo (date("Y-m-d",$good["update_time"])); ?>
+							<?php echo ($good["pro_sn"]); ?>
+						</td>
+						<td>
+							<?php echo ($good["market_price"]); ?>
+						</td>
+						<td>
+							<?php if($good["is_on_sale"] == 1): ?>√<?php endif; ?>
+							<?php if($good["is_on_sale"] == 0): ?>X<?php endif; ?>
+						</td>
+						<td>
+							<?php echo (date("Y-m-d",$good["add_time"])); ?>
+						</td>
+						<td>
+							<?php echo ($good["stock_num"]); ?>
 						</td>
 						<td>
 							 <a href="<?php echo U('Goods/edit',array('id'=>$good[id]));?>">编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -141,23 +271,19 @@
 					</tr><?php endforeach; endif; ?>
 				</tbody>
 				<tfoot>
-					<th colspan="6"></th>
+				
+					<th colspan="9" ><?php echo ($page); ?></th>
 				</tfoot>
 			</table>
 
 
-		</div>
-		
-	</div>
-</div>
+        </div>
+      </div>
+    </div>
 
-
-
-<div class="container-fluid foot">
-	<div class="row">
-		底部
-	</div>
-</div>
-
-</body>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="/tkphp/Public/static/js/bootstrap.js"></script>
+  </body>
 </html>

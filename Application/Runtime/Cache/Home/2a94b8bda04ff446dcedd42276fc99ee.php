@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?>﻿<!DOCTYPE html>
 
 <html>
 
@@ -9,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <!-- Title -->
-        <title>HomeShop - HTML Template</title>
+        <title>TKPHP</title>
         
 		<!-- Fonts -->
 		<link href='http://fonts.useso.com/css?family=Roboto:400,300,300italic,400italic,500,700,900,700italic,500italic' rel='stylesheet' type='text/css'>
@@ -54,9 +54,9 @@
 							
 							<nav id="top-navigation" class="col-lg-7 col-md-7 col-sm-7">
 								<ul class="pull-left">
+								    <li><a href="<?php echo U('');?>">收藏本站</a></li>
 									<li><a href="<?php echo U('Home/User/register');?>">我的账户</a></li>
 									<li><a href="<?php echo U('Home/Bill/lists');?>">订单信息</a></li>
-									<li><a href="<?php echo U('Home/Bill/info');?>">订单信息</a></li>
 									<li><a href="<?php echo U('Home/Index/about');?>">关于我们</a></li>
 									<li><a href="<?php echo U('Home/Index/contact');?>">联系我们</a></li>
 								</ul>
@@ -64,11 +64,11 @@
 							
 							<nav class="col-lg-5 col-md-5 col-sm-5">
 								<ul class="pull-right">
-									<?php if($_COOKIE['username'] != '' ): endif; ?>
-									<?php if($_SESSION['is_Login'] == 1 ): echo ($_SESSION['username']); ?> 你好!
+									
+									<?php if($_SESSION['user']['is_Login'] == 1 ): echo ($_SESSION['user']['username']); ?> 你好!
 									<a href="<?php echo U('Home/User/logout');?>">注销</a>
 									<?php else: ?> 
-									<li class="purple"><a href="<?php echo U('Home/User/register');?>"><i class="icons icon-user-3"></i> 登录</a>
+									<li class="purple"><a href="<?php echo U('Home/User/login');?>"><i class="icons icon-user-3"></i> 登录</a>
 										<!-- <ul id="login-dropdown" class="box-dropdown">
 											<li>
                                             	<div class="box-wrapper">
@@ -274,7 +274,7 @@
 								<!-- 	<span class="nav-description">Variety of Layouts</span> -->
 								</a>
 								
-								<ul class="normal-dropdown normalAnimation">
+								<!-- <ul class="normal-dropdown normalAnimation">
 									<li><a href="#">Layouts <i class="icons icon-right-dir"></i></a>
 										<ul class="normalAnimation">
 											<li><a href="home_v1.html">Layout 1</a></li>
@@ -309,7 +309,7 @@
 											<li><a href="home_v3.html">Flex Slider</a></li>
 										</ul>
 									</li>
-								</ul>
+								</ul> -->
 							</li>
 							
 							<li class="red">
@@ -319,7 +319,7 @@
 									<!-- <span class="nav-description">Photo & Video</span> -->
 								</a>
 								
-								<ul class="wide-dropdown normalAniamtion">
+								<!-- <ul class="wide-dropdown normalAniamtion">
 									<li>
 										<ul>
 											<li><span class="nav-caption">Digital Cameras</span></li>
@@ -346,7 +346,7 @@
 											<li><a href="#"><i class="icons icon-right-dir"></i> Cases, Bags &amp; Covers</a></li>
 										</ul>
 									</li>
-								</ul>
+								</ul> -->
 								
 							</li>
 							
@@ -450,107 +450,107 @@
 							<div class="tp-banner" >
 								<ul>
 									<!-- SLIDE  -->
-									<li data-transition="fade" data-slotamount="7" data-masterspeed="1500" >
+									<?php if(is_array($goods)): foreach($goods as $key=>$good): ?><li data-transition="fade" data-slotamount="7" data-masterspeed="1500" >
 										<!-- MAIN IMAGE -->
-										<img src="/tkphp/Public/homeshop/img/slide1.jpg"  alt="slidebg1"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+										<img src="/tkphp/Uploads/<?php echo ($good["list_image"]); ?>"  alt="slidebg1"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
 										<!-- LAYERS -->
 										<div class="tp-caption skewfromrightshort fadeout"
 											data-x="40"
 											data-y="60"
 											data-speed="500"
 											data-start="1200"
-											data-easing="Power4.easeOut"><h2>The New <strong>Laptop</strong></h2>
+											data-easing="Power4.easeOut"><h2><?php echo ($good["pro_name"]); ?> <strong></strong></h2>
 										</div>
 										<div class="tp-caption skewfromrightshort fadeout"
 											data-x="40"
 											data-y="140"
 											data-speed="500"
 											data-start="1200"
-											data-easing="Power4.easeOut"><h3>All the power in your hands!</h3>
+											data-easing="Power4.easeOut"><h3><?php echo ($good["pro_subname"]); ?></h3>
 										</div>
 										<div class="tp-caption skewfromrightshort fadeout"
 											data-x="40"
 											data-y="250"
 											data-speed="500"
 											data-start="1200"
-											data-easing="Power4.easeOut"><span>From <span class="price">$960.00</span></span>
+											data-easing="Power4.easeOut"><span>售价 <span class="price">￥<?php echo ($good["promote_price"]); ?></span></span>
 										</div>
 										<div class="tp-caption skewfromrightshort fadeout"
 											data-x="40"
 											data-y="300"
 											data-speed="500"
 											data-start="1200"
-											data-easing="Power4.easeOut"><a class="button big red" href="#">Buy Now</a>
+											data-easing="Power4.easeOut"><a class="button big red" href="#">了解更多</a>
 										</div>
-									</li>
+									</li><?php endforeach; endif; ?>
 									<!-- SLIDE  -->
-									<li data-transition="zoomout" data-slotamount="7" data-masterspeed="1000" >
-										<!-- MAIN IMAGE -->
+									<!-- <li data-transition="zoomout" data-slotamount="7" data-masterspeed="1000" >
+										MAIN IMAGE
 										<img src="/tkphp/Public/homeshop/img/slide3.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
-										<!-- LAYERS -->
+										LAYERS
 										<div class="tp-caption skewfromrightshort fadeout"
 											data-x="40"
 											data-y="60"
 											data-speed="500"
 											data-start="1200"
-											data-easing="Power4.easeOut"><h2><strong>The New Studio<br>Original Headphones</strong></h2>
+											data-easing="Power4.easeOut"><h2><strong>新款耳机<br></strong></h2>
 										</div>
 										<div class="tp-caption skewfromrightshort fadeout"
 											data-x="40"
 											data-y="190"
 											data-speed="500"
 											data-start="1200"
-											data-easing="Power4.easeOut"><h3>Lorem ipsum dolor</h3>
+											data-easing="Power4.easeOut"><h3>悦耳声音</h3>
 										</div>
 										<div class="tp-caption skewfromrightshort fadeout"
 											data-x="40"
 											data-y="300"
 											data-speed="500"
 											data-start="1200"
-											data-easing="Power4.easeOut"><span>Only <span class="price">$399.00</span></span>
+											data-easing="Power4.easeOut"><span>只要 <span class="price">￥399</span></span>
 										</div>
 										<div class="tp-caption skewfromrightshort fadeout"
 											data-x="40"
 											data-y="347"
 											data-speed="500"
 											data-start="1200"
-											data-easing="Power4.easeOut"><a class="button big red" href="#">Shop Now</a>
+											data-easing="Power4.easeOut"><a class="button big red" href="#">立即购买</a>
 										</div>
-									</li>
+									</li> -->
 									<!-- SLIDE  -->
-									<li data-transition="zoomout" data-slotamount="7" data-masterspeed="1000" >
-										<!-- MAIN IMAGE -->
+									<!-- <li data-transition="zoomout" data-slotamount="7" data-masterspeed="1000" >
+										MAIN IMAGE
 										<img src="/tkphp/Public/homeshop/img/slide2.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
-										<!-- LAYERS -->
+										LAYERS
 										<div class="tp-caption skewfromrightshort fadeout"
 											data-x="40"
 											data-y="60"
 											data-speed="500"
 											data-start="1200"
-											data-easing="Power4.easeOut"><h2><strong>Lorem Ipsum Dolor</strong></h2>
+											data-easing="Power4.easeOut"><h2><strong>一切皆有可能</strong></h2>
 										</div>
 										<div class="tp-caption skewfromrightshort fadeout"
 											data-x="40"
 											data-y="140"
 											data-speed="500"
 											data-start="1200"
-											data-easing="Power4.easeOut"><h3>All the power in your hands!</h3>
+											data-easing="Power4.easeOut"><h3>权利在你手中!</h3>
 										</div>
 										<div class="tp-caption skewfromrightshort fadeout"
 											data-x="40"
 											data-y="250"
 											data-speed="500"
 											data-start="1200"
-											data-easing="Power4.easeOut"><span>From <span class="price">$990.00</span></span>
+											data-easing="Power4.easeOut"><span>售价<span class="price">￥990</span></span>
 										</div>
 										<div class="tp-caption skewfromrightshort fadeout"
 											data-x="40"
 											data-y="300"
 											data-speed="500"
 											data-start="1200"
-											data-easing="Power4.easeOut"><a class="button big red" href="#">Buy Now</a>
+											data-easing="Power4.easeOut"><a class="button big red" href="#">现在购买</a>
 										</div>
-									</li>
+									</li> -->
 								</ul>
 							</div>
 						</div>
@@ -1612,22 +1612,21 @@
 				<aside class="sidebar col-lg-3 col-md-3 col-sm-3  col-lg-pull-9 col-md-pull-9 col-sm-pull-9">
 					
 					<!-- Categories -->
-					<!-- Categories -->
-					<div class="row sidebar-box purple">
+				<!-- ﻿		   <div class="row sidebar-box purple" style="margin-top:0;">
 						
 						<div class="col-lg-12 col-md-12 col-sm-12">
 							
 							<div class="sidebar-box-heading">
 								<i class="icons icon-folder-open-empty"></i>
-								<h4>Categories</h4>
+								<h4>商品分类</h4>
 							</div>
 							
 							<div class="sidebar-box-content">
 								<ul>
-									<li><a href="#">Cameras &amp; Photography <i class="icons icon-right-dir"></i></a></li>
-									<li><a href="#">Computers &amp; Tablets <i class="icons icon-right-dir"></i></a></li>
-									<li><a href="#">Cell Phones &amp; Accessories <i class="icons icon-right-dir"></i></a>
-                                    	<ul class="sidebar-dropdown">
+									<li><a href="#">智能手机 <i class="icons icon-right-dir"></i></a></li>
+									<li><a href="#">平板电脑 <i class="icons icon-right-dir"></i></a></li>
+									<li><a href="#">单反相机 <i class="icons icon-right-dir"></i></a>
+                                    	 <ul class="sidebar-dropdown">
                                         	<li>
                                             	<ul>
                                                 	<li><a href="#">Cell phones &amp; Smartphone</a></li>
@@ -1647,19 +1646,66 @@
                                             </li>
                                         </ul>
                                     </li>
-									<li><a href="#">TV, Audio &amp; Surveillance <i class="icons icon-right-dir"></i></a></li>
-									<li><a href="#">Video Games &amp; Consoles <i class="icons icon-right-dir"></i></a></li>
-									<li><a href="#">Car Audio, Video &amp; GPS <i class="icons icon-right-dir"></i></a></li>
-									<li><a href="#">Best Sellers <i class="icons icon-right-dir"></i></a></li>
-									<li><a href="#">Shop by Brands <i class="icons icon-right-dir"></i></a></li>
-									<li><a class="purple" href="#">All Categories</a></li>
+									<li><a href="#">手机<i class="icons icon-right-dir"></i></a></li>
+									<li><a href="#">电脑 <i class="icons icon-right-dir"></i></a></li>
+									<li><a href="#">相机 <i class="icons icon-right-dir"></i></a></li>
+									<li><a href="#">配件 <i class="icons icon-right-dir"></i></a></li>
+									<li><a href="#">服务 <i class="icons icon-right-dir"></i></a></li>
+									<li><a class="purple" href="#">更多分类</a></li>
 								</ul>
 							</div>
 							
 						</div>
 							
 					</div>
-					<!-- /Categories -->
+ -->
+						   <div class="row sidebar-box purple" style="margin-top:0;">
+						
+						<div class="col-lg-12 col-md-12 col-sm-12">
+							
+							<div class="sidebar-box-heading">
+								<i class="icons icon-folder-open-empty"></i>
+								<h4>商品分类</h4>
+							</div>
+							
+							<div class="sidebar-box-content">
+								<ul>
+									<li><a href="#">智能手机 <i class="icons icon-right-dir"></i></a></li>
+									<li><a href="#">平板电脑 <i class="icons icon-right-dir"></i></a></li>
+									<li><a href="#">单反相机 <i class="icons icon-right-dir"></i></a>
+                                    	 <ul class="sidebar-dropdown">
+                                        	<li>
+                                            	<ul>
+                                                	<li><a href="#">Cell phones &amp; Smartphone</a></li>
+                                                    <li><a href="#">Cell Phone Accessories</a></li>
+                                                    <li><a href="#">Headsets</a></li>
+                                                    <li><a href="#">Cases, Covers & Skins</a></li>
+                                                    <li><a href="#">Screen Protectors</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                            	<ul>
+                                                	<li><a href="#">Chargers & Cradles</a></li>
+                                                    <li><a href="#">Batteries</a></li>
+                                                    <li><a href="#">Cables & Adapters</a></li>
+                                                    <li><a href="#">All About Smartphones</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+									<li><a href="#">手机<i class="icons icon-right-dir"></i></a></li>
+									<li><a href="#">电脑 <i class="icons icon-right-dir"></i></a></li>
+									<li><a href="#">相机 <i class="icons icon-right-dir"></i></a></li>
+									<li><a href="#">配件 <i class="icons icon-right-dir"></i></a></li>
+									<li><a href="#">服务 <i class="icons icon-right-dir"></i></a></li>
+									<li><a class="purple" href="#">更多分类</a></li>
+								</ul>
+							</div>
+							
+						</div>
+							
+					</div>
+				
 					<!-- /Categories -->
 					
 					
@@ -1670,11 +1716,11 @@
 							
 							<div class="sidebar-box-heading">
                             	<i class="icons icon-docs"></i>
-								<h4>Compare Products</h4>
+								<h4>商品对比</h4>
 							</div>
 							
 							<div class="sidebar-box-content sidebar-padding-box">
-								<p>You have no products to compare.</p>
+								<p>您还没有商品对比</p>
 							</div>
 							
 						</div>
@@ -1720,7 +1766,7 @@
 							
 							<div class="sidebar-box-heading">
                             <i class="icons icon-award-2"></i>
-								<h4>Bestsellers</h4>
+								<h4>手机</h4>
 							</div>
 							
 							<div class="sidebar-box-content">
@@ -1729,25 +1775,25 @@
 									<tr>
 										<td class="product-thumbnail"><a href="#"><img src="/tkphp/Public/homeshop/img/products/sample1.jpg" alt="Product1"></a></td>
 										<td class="product-info">
-											<p><a href="#">Lorem ipsum dolor sit amet</a></p>
-											<span class="price">$550.00</span>
+											<p><a href="#">值得拥有</a></p>
+											<span class="price">￥550</span>
 										</td>
 									</tr>
 									
 									<tr>
 										<td class="product-thumbnail"><a href="#"><img src="/tkphp/Public/homeshop/img/products/sample2.jpg" alt="Product1"></a></td>
 										<td class="product-info">
-											<p><a href="#">Lorem ipsum dolor sit amet</a></p>
-											<span class="price">$550.00</span>
+											<p><a href="#">值得拥有</a></p>
+											<span class="price">￥550</span>
 										</td>
 									</tr>
 									
 									<tr>
 										<td class="product-thumbnail"><a href="#"><img src="/tkphp/Public/homeshop/img/products/sample3.jpg" alt="Product1"></a></td>
 										<td class="product-info">
-											<p><a href="#">Lorem ipsum dolor sit amet</a></p>
+											<p><a href="#">值得拥有</a></p>
                                             <div class="rating readonly-rating" data-score="4"></div>
-											<span class="price"><del>$650.00</del> $550.00</span>
+											<span class="price"><del>￥650</del> ￥550</span>
 										</td>
 									</tr>
 									
@@ -1767,18 +1813,18 @@
 							
 							<div class="sidebar-box-heading">
                             	<i class="icons icon-tag-6"></i>
-								<h4>Tags Cloud</h4>
+								<h4>标签</h4>
 							</div>
 							
 							<div class="sidebar-box-content sidebar-padding-box">
-								<a href="#" class="tag-item">digital camera</a>
-								<a href="#" class="tag-item">lorem</a>
-								<a href="#" class="tag-item">gps</a>
-								<a href="#" class="tag-item">headphones</a>
-								<a href="#" class="tag-item">ipsum</a>
-								<a href="#" class="tag-item">laptop</a>
-								<a href="#" class="tag-item">smartphone</a>
-								<a href="#" class="tag-item">tv</a>
+								<a href="#" class="tag-item">手机</a>
+								<a href="#" class="tag-item">相机</a>
+								<a href="#" class="tag-item">电脑</a>
+								<a href="#" class="tag-item">耳机</a>
+								<a href="#" class="tag-item">笔记本</a>
+								<a href="#" class="tag-item">台式机</a>
+								<a href="#" class="tag-item">内存卡</a>
+								<a href="#" class="tag-item">显示屏</a>
 							</div>
 								
 						</div>
@@ -1795,7 +1841,7 @@
 							<!-- Carousel Heading -->
 							<div class="carousel-heading no-margin">
 								
-								<h4><i class="icons icon-magic"></i> Specials</h4>
+								<h4><i class="icons icon-magic"></i> 特别款</h4>
 								<div class="carousel-arrows">
 									<i class="icons icon-left-dir"></i>
 									<i class="icons icon-right-dir"></i>
@@ -1927,7 +1973,7 @@
 				<div class="col-lg-12 col-md-12 col-sm-12">
 					
 					<div class="carousel-heading">
-						<h4>Latest news &amp; Reviews</h4>
+						<h4>新闻</h4>
 						<div class="carousel-arrows">
 							<i class="icons icon-left-dir"></i>
 							<i class="icons icon-right-dir"></i>
@@ -2118,7 +2164,7 @@
 				<a href="#">
 				<div class="right-side-banner banner-item orange">
 					<h4>疯狂抢购!</h4>
-					<p>商品列表</p>
+					<p>全网最低价</p>
                     <span class="button">现在购买</span>
 				</div>
 				</a>
@@ -2140,9 +2186,8 @@
 							<!-- Newsletter -->
 							<div class="col-lg-7 col-md-7 col-sm-7">
 								<form id="newsletter" action="php/newsletter.php">
-									<h4>邮箱登记</h4>
-									<input type="text" name="newsletter-email" placeholder="输入您的邮箱">
-									<input type="submit" name="newsletter-submit" value="提交">
+									<h2>关注我们</h2>
+									
 								</form>
 							</div>
 							<!-- /Newsletter -->
@@ -2150,14 +2195,6 @@
 							
 							<!-- Social Media -->
 							<div class="col-lg-5 col-md-5 col-sm-5 social-media">
-								<h4>保持联系</h4>
-								<ul>
-									<li class="social-googleplus tooltip-hover" data-toggle="tooltip" data-placement="top" title="Google+"><a href="#"></a></li>
-									<li class="social-facebook tooltip-hover" data-toggle="tooltip" data-placement="top" title="Facebook"><a href="#"></a></li>
-									<li class="social-pinterest tooltip-hover" data-toggle="tooltip" data-placement="top" title="Pinterest"><a href="#"></a></li>
-									<li class="social-twitter tooltip-hover" data-toggle="tooltip" data-placement="top" title="Twitter"><a href="#"></a></li>
-									<li class="social-youtube tooltip-hover" data-toggle="tooltip" data-placement="top" title="Youtube"><a href="#"></a></li>
-								</ul>
 							</div>
 							<!-- /Social Media -->
 							
@@ -2179,14 +2216,15 @@
 							
 							<!-- The Service -->
 							<div class="col-lg-3 col-md-3 col-sm-6">
-								<h4>服务</h4>
+								<h4>关于我们</h4>
 								<ul>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 我的账户</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 历史纪录</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 保持联系</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 购物页</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 商品目录</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 搜索结果</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 关于tkphp</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 新闻中心</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 加入我们</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 法律声明</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 星空之约</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 联系我们</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 友情链接</a></li>
 								</ul>
 							</div>
 							<!-- /The Service -->
@@ -2194,14 +2232,14 @@
 							
 							<!-- Like us on Facebook -->
 							<div class="col-lg-3 col-md-3 col-sm-6">
-								<h4>服务</h4>
+								<h4>产品</h4>
 								<ul>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 我的账户</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 历史纪录</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 保持联系</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 购物页</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 商品目录</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 搜索结果</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i>平板系列</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i>手记系列</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i>相机系列</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i>配件</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i>新产品</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i>概念产品</a></li>
 								</ul>
 							</div>
 							<!-- /Like us on Facebook -->
@@ -2209,14 +2247,14 @@
 							
 							<!-- Information -->
 							<div class="col-lg-3 col-md-3 col-sm-6">
-								<h4>网站信息</h4>
+								<h4>服务中心</h4>
 								<ul>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 关于我们</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 关于我们</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 关于我们</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 关于我们</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 关于我们</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> 关于我们</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 体验店</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 售后服务</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 官服中心</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 帮助中心</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 软件下载</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> 固件升级</a></li>
 								</ul>
 							</div>
 							<!-- /Information -->
@@ -2229,7 +2267,7 @@
 									<li><i class="icons icon-location"></i>龙门大道71号,<br>洛阳师范学院, 信息技术学院.</li>
                                     <li><i class="icons icon-phone"></i> +182-3882-7991</li>
 									<li><i class="icons icon-mail-alt"></i><a href="mailto:web_zhaobei@163.com"> web_zhaobei@163.com</a></li>
-									<li><i class="icons icon-skype"></i> homeshop</li>
+									<li><i class="icons icon-skype"></i> tkphp</li>
 								</ul>
 							</div>
 							<!-- /Contact Us -->
@@ -2251,16 +2289,12 @@
 						<div class="row">
 							
 							<div class="col-lg-6 col-md-6 col-sm-6">
-								<p class="copyright">Copyright 2015 <a href="#">ShopZhao</a>. All Rights Reserved.</p>
+								<p class="copyright">Copyright 2015 <a href="#">TKPHP</a>. All Rights Reserved.</p>
 							</div>
 							
 							<div class="col-lg-6 col-md-6 col-sm-6">
 								<ul class="payment-list">
-									<li class="payment1"></li>
-									<li class="payment2"></li>
-									<li class="payment3"></li>
-									<li class="payment4"></li>
-									<li class="payment5"></li>
+									
 								</ul>
 							</div>
 							
