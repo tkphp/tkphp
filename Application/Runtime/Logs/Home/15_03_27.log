@@ -1,0 +1,42 @@
+[ 2015-03-27T17:49:32+08:00 ] ::1 /tkphp/Home/Product/index.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001013s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001565s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000474s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000555s ]
+NOTIC: [8] Undefined index: user D:\XAMMP\htdocs\tkphp\Application\Runtime\Cache\Home\3458861da0342b1f9413030055ee3fb6.php 第 68 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.060248s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.060337s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000307s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000345s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000842s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000926s ]
+
+[ 2015-03-27T17:49:52+08:00 ] ::1 /tkphp/Home/User/twitter/jquery.tweet.js
+ERR: 非法操作:twitter
+
+[ 2015-03-27T17:49:52+08:00 ] ::1 /tkphp/Home/User/js/tinynav.min.js
+ERR: 非法操作:js
+
+[ 2015-03-27T17:49:55+08:00 ] ::1 /tkphp/Home/User/twitter/jquery.tweet.js
+ERR: 非法操作:twitter
+
+[ 2015-03-27T17:49:55+08:00 ] ::1 /tkphp/Home/User/js/tinynav.min.js
+ERR: 非法操作:js
+
+[ 2015-03-27T17:50:20+08:00 ] ::1 /tkphp/Home/Index/twitter/jquery.tweet.js
+ERR: 非法操作:twitter
+
+[ 2015-03-27T17:50:20+08:00 ] ::1 /tkphp/Home/Index/js/tinynav.min.js
+ERR: 非法操作:js
+
+[ 2015-03-27T17:50:33+08:00 ] ::1 /tkphp/Home/Index/products_page_v1.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000484s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000828s ]
+ERR: 非法操作:products_page_v1
+

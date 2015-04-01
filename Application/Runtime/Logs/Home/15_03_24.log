@@ -1,0 +1,18 @@
+[ 2015-03-24T21:23:57+08:00 ] ::1 /tkphp/Home/twitter/jquery.tweet.js
+ERR: 无法加载控制器:Twitter
+
+[ 2015-03-24T21:23:57+08:00 ] ::1 /tkphp/Home/js/tinynav.min.js
+ERR: 无法加载控制器:Js
+
+[ 2015-03-24T21:24:00+08:00 ] ::1 /tkphp/Home/User/twitter/jquery.tweet.js
+ERR: 非法操作:twitter
+
+[ 2015-03-24T21:24:00+08:00 ] ::1 /tkphp/Home/User/js/tinynav.min.js
+ERR: 非法操作:js
+
+[ 2015-03-24T21:24:34+08:00 ] ::1 /tkphp/Home/User/twitter/jquery.tweet.js
+ERR: 非法操作:twitter
+
+[ 2015-03-24T21:24:34+08:00 ] ::1 /tkphp/Home/User/js/tinynav.min.js
+ERR: 非法操作:js
+

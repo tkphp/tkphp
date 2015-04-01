@@ -1,0 +1,210 @@
+﻿<include file="Public:header" />
+<!-- Content -->
+			<div class="row content">
+				
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                	<div class="breadcrumbs">
+                    	<p><a href="#">首页</a> <i class="icons icon-right-dir"></i> 用户登录</p>
+                    </div>
+                </div>
+                
+                
+             
+				<!-- Main Content -->
+				<section class="main-content col-lg-9 col-md-9 col-sm-9">
+                    
+                    
+                    <div class="row">
+                    	
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                        	
+                            <div class="carousel-heading no-margin">
+                                <h4>登录</h4>
+                            </div>
+                            
+                            <div class="page-content">
+
+                            	<form action="{:U('Home/User/doLogin')}" method="post" name="login-form">
+                            	  <input type="hidden" name="cart" value="<{$types}>">
+                                <div class="row">
+                               		 <div class="col-lg-1 col-md-1 col-sm-1">
+                               		 </div>
+                                	<div class="col-lg-2 col-md-2 col-sm-2">
+                                		<p>用户名*</p>
+                                	</div>
+                                	<div class="col-lg-4 col-md-4 col-sm-4">
+                                    	<div class="iconic-input">
+                                           <!--  <input name="username" type="text" placeholder="邮箱/手机号" data-trigger="focus"  id="username" data-toggle="tooltip" data-placement="right" title="请输入邮箱名或手机号"> -->
+                                            <input type="text"  data-trigger="focus"  name="username" id="username" data-toggle="tooltip" placeholder="邮箱/手机号" data-placement="right" title="请输入邮箱名或手机号"/>
+                                           <span></span>
+                                            <i class="icons icon-user-3"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-5">
+                                		<p>*请输入邮箱名或手机号</p>
+                                	</div>
+                                    
+                                </div>
+                                <div class="row">
+                                	 <div class="col-lg-1 col-md-1 col-sm-1">
+                               		 </div>
+                                	<div class="col-lg-2 col-md-2 col-sm-2">
+                                	<p>密码*</p>
+                                	</div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                    	<div class="iconic-input">
+                                           <!--  <input name="password" type="password" placeholder="密码"> -->
+                                            <input type="password"  data-trigger="focus" name="password" id="password" placeholder="用户密码"  data-toggle="tooltip" data-placement="right" title="请写8到16位的用户密码" />
+                                            <span></span>
+                                            <i class="icons icon-lock"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-5">
+                                		<p>*请写8到16位的用户密码</p>
+                                	</div>
+                                </div>
+                                   <div class="row">
+                                    <div class="col-lg-1 col-md-1 col-sm-1">
+                               		 </div>
+                                	<div class="col-lg-2 col-md-2 col-sm-2">
+                                	<p>验证码*</p>
+                                	</div>
+                                  <div class="col-lg-2 col-md-2 col-sm-2">
+                                  	<!-- <input name="code" type="text" placeholder="点击刷新"> -->
+                                  	<input type="text" name="code" id="code"  style="width:120px" placeholder="点击刷新" />
+                                    <span></span>
+                                  </div>
+                                  <div class="col-lg-2 col-md-2 col-sm-2">
+                                  	<img src="{:U('Home/User/code')}"  onclick="this.src=this.src + '?' + Math.random()" alt="">
+                                  </div>	
+                                </div>
+                              
+                                <div class="row">
+	                                <div class="col-lg-3 col-md-3 col-sm-3">
+	                               		</div>
+                                	<div class="col-lg-2 col-md-2 col-sm-2 align-left">
+                                    	<input type="submit" class="orange" value="登录">
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2">
+                                     <small>
+											<a class="align-right" href="#">忘记密码?</a>
+											<br>
+											<a class="align-right" href="#">忘记用户名?</a>
+											<br>
+									</small>
+	                               	</div>
+                                </div>
+                               </form>
+                            </div>
+                            
+                    	</div>
+                          
+                    </div>
+                    
+				</section>
+				<!-- /Main Content -->
+                
+                  <!-- Sidebar -->
+				<aside class="sidebar col-lg-3 col-md-3 col-sm-3 right-sidebar">
+					
+					<!-- Categories -->
+						<include file="Public:category" />
+					<!-- /Categories -->
+                   
+					
+                    
+				</aside>
+                <!-- /Sidebar -->
+                
+                
+                
+			</div>
+			<!-- /Content -->
+		
+<script>
+    
+
+    $('#username').blur(function () {
+        checkUserName(this);
+    })
+
+    $('#password').blur(function () {
+        checkPassword(this);
+    });
+
+    $('#code').blur(function () {
+        checkCaptcha(this);
+    });
+
+    $('form[name="login-form"]').submit(function (){
+        var uNameValue = $('#username')[0];
+        var uPassword  = $('#password')[0];
+        var uCaptcha   = $('#code')[0];
+
+        if (checkUserName(uNameValue) &&  checkPassword(uPassword) && checkCaptcha(uCaptcha))
+        {
+            return true;
+        }
+        return false;
+    });
+
+    // 验证码判断
+    function checkCaptcha(obj)
+    {
+        var v = $(obj).val();
+        var oSpan = $(obj).next('div');
+        if (v.length < 4 || v.length > 5)
+        {
+            oSpan.html('验证码长度不合法').css({'font-size':'12px', 'color':'red'});
+            return false;
+        }
+        else
+        {
+            oSpan.html('验证码合法').css({'font-size':'12px', 'color':'green'});
+            return true;
+        }
+    }
+
+    // 验证密码
+    function checkPassword (obj)
+    {
+        var v = $(obj).val();
+        var oSpan = $(obj).next('span');
+        if (v.length < 8)
+        {
+            oSpan.html('密码长度不够').css({'font-size':'12px', 'color':'red'});
+            return false;
+        }
+        else 
+        {
+            oSpan.html('密码可用').css({'font-size':'12px', 'color':'green'});
+            return true;
+        }
+    }
+
+    // 验证用户账户
+    function checkUserName(obj) 
+    {
+        var v = $(obj).val();
+        var oSpan = $(obj).next('span');
+        var bool = false;
+        if (v.length == 0)
+        {
+            oSpan.html('用户账户不能为空').css({'font-size':'12px', 'color':'red'});
+        }
+        else
+        {
+            if (v.match(/^1{1}[3578]{1}\w{9}$/) || v.match(/^[1-9a-zA-Z]+\w+@[\w-]+\.[0-9a-zA-Z]+$/i))
+            {
+                oSpan.html('账号可用').css({'font-size':'12px', 'color':'green'});
+                bool = true; 
+            }
+            else 
+            {
+                oSpan.html('账号不合法').css({'font-size':'12px', 'color':'red'});
+            }
+        }
+        return bool;
+    }
+</script>	
+<include file="Public:footer" />		

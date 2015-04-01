@@ -1,0 +1,33 @@
+[ 2015-03-31T18:30:15+08:00 ] ::1 /tkphp/Admin/Admin/Index/index
+ERR: 无法加载控制器:Admin
+
+[ 2015-03-31T18:30:30+08:00 ] ::1 /tkphp/Admin/Admin/Index/index
+ERR: 无法加载控制器:Admin
+
+[ 2015-03-31T18:30:32+08:00 ] ::1 /tkphp/Admin/Admin/Index/index
+ERR: 无法加载控制器:Admin
+
+[ 2015-03-31T18:30:33+08:00 ] ::1 /tkphp/Admin/Admin/Index/index
+ERR: 无法加载控制器:Admin
+
+[ 2015-03-31T18:31:07+08:00 ] ::1 /tkphp/Admin/Index/Admin/Index/index
+ERR: 非法操作:Admin
+
+[ 2015-03-31T18:31:14+08:00 ] ::1 /tkphp/Admin/Index/Admin/Index/index
+ERR: 非法操作:Admin
+
+[ 2015-03-31T18:31:34+08:00 ] ::1 /tkphp/Admin/Index/Admin/Index/index
+ERR: 非法操作:Admin
+
+[ 2015-03-31T18:31:38+08:00 ] ::1 /tkphp/Admin/Index/Admin/Index/index
+ERR: 非法操作:Admin
+
+[ 2015-03-31T18:52:35+08:00 ] ::1 /tkphp/Admin/Goods/
+ERR: 模板不存在:./Application/Admin/View/Goods/index.html
+
+[ 2015-03-31T20:31:14+08:00 ] ::1 /tkphp/Admin/Goods/delete/id/38.html
+ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tkphp.tk_goods' doesn't exist
+
+[ 2015-03-31T22:31:57+08:00 ] ::1 /tkphp/Admin/Goods/delete/id/38.html
+ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'tkphp.tk_goods' doesn't exist
+

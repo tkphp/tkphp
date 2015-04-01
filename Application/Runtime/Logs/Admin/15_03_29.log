@@ -1,0 +1,27 @@
+[ 2015-03-29T09:22:43+08:00 ] ::1 /tkphp/Admin/Goods/lists
+ERR: Think\Model:goodsLists方法不存在！
+
+[ 2015-03-29T09:22:54+08:00 ] ::1 /tkphp/Admin/Goods/lists
+ERR: Think\Model:goodsLists方法不存在！
+
+[ 2015-03-29T09:22:55+08:00 ] ::1 /tkphp/Admin/Goods/lists
+ERR: Think\Model:goodsLists方法不存在！
+
+[ 2015-03-29T09:22:55+08:00 ] ::1 /tkphp/Admin/Goods/lists
+ERR: Think\Model:goodsLists方法不存在！
+
+[ 2015-03-29T09:22:55+08:00 ] ::1 /tkphp/Admin/Goods/lists
+ERR: Think\Model:goodsLists方法不存在！
+
+[ 2015-03-29T09:25:14+08:00 ] ::1 /tkphp/Admin/Goods/lists
+ERR: Think\Model:goodsLists方法不存在！
+
+[ 2015-03-29T10:21:16+08:00 ] ::1 /tkphp/Admin/Goods/edit/id/38.html
+ERR: Think\Model:getGoodsById方法不存在！
+
+[ 2015-03-29T10:27:11+08:00 ] ::1 /tkphp/Admin/Goods/
+ERR: 模板不存在:./Application/Admin/View/Goods/index.html
+
+[ 2015-03-29T11:08:25+08:00 ] ::1 /tkphp/Admin/Goods/
+ERR: 模板不存在:./Application/Admin/View/Goods/index.html
+
