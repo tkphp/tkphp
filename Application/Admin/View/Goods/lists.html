@@ -1,36 +1,72 @@
-О╩©<extend name="Public:base" />
-
+<extend name="Public:base" />
+<block name="bread_menu">
+	<li>
+		<a href="{:U('Admin/Index/index')}">жВрЁ</a> <span class="divider"></span>
+	</li>
+	<li class="active">
+		илф╥ап╠М
+	</li>
+</block>
 <block name="content">
-<h3 class="sub-header"><a href="{:U('Goods/add')}">Ф╥╩Е┼═Е∙├Е⌠│</a></h3>
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-8">
+	  <form class="form-inline">
+	  <div class="form-group">
+	    <select class="form-control">
+		  <option>╡Иурх╚╡©</option>
+		  <option>жгдэйж╩З</option>
+		  <option>ф╫╟Е╣Гдт</option>
+		  <option>╦ъгЕ╣Гйс</option>
+		  <option>хк╧╓жгдэ</option>
+		</select>
+	  </div>
+	  <div class="form-group">
+	     <select class="form-control">
+		  <option>╡Иурх╚╡©</option>
+		  <option>жгдэйж╩З</option>
+		  <option>ф╫╟Е╣Гдт</option>
+		  <option>╦ъгЕ╣Гйс</option>
+		  <option>хк╧╓жгдэ</option>
+		 </select>
+	  </div>
+	  <button type="submit" class="btn btn-default">лА╫╩</button>
+	 </form>
+  </div>
+  <div class="col-xs-6 col-md-4 ">
+   <a href="{:U('Goods/add')}"><button class="btn  btn-large pull-right">лМ╪силф╥</button></a>
+  </div>
+</div>
+<hr>
+
 <table class="table table-bordered table-hover">
 				<thead>
 					<tr>
 						<th>
-						<input type="checkbox">Е┘╗И─┴
+						<input type="checkbox">х╚я║
 						</th>
 						<th>
-							Г╪√Е▐╥
+							╠Ю╨е
 						</th>
 						<th>
-							Е∙├Е⌠│Е░█Г╖╟
+							илф╥цШЁф
 						</th>
 						<th>
-							Х╢╖Е▐╥
+							╩У╨е
 						</th>
 						<th>
-							Е■╝Д╩╥
+							йш╪ш
 						</th>
 						<th>
-							Д╦┼Ф·╤
+							ио╪э
 						</th>
 						<th>
-							Д╦┼Ф·╤Ф≈╤И≈╢
+							ио╪эй╠╪Д
 						</th>
 						<th>
-							Х╢╖Е╜≤
+							╩У╢Ф
 						</th>
 						<th>
-							Ф⌠█Д╫°
+							╡ывВ
 						</th>
 					</tr>
 				</thead>
@@ -53,7 +89,7 @@
 							{$good.market_price}
 						</td>
 						<td>
-							<if condition="$good.is_on_sale eq 1">Б┬ </if>
+							<if condition="$good.is_on_sale eq 1">║л</if>
 							<if condition="$good.is_on_sale eq 0">X</if>
 						</td>
 						<td>
@@ -63,8 +99,8 @@
 							{$good.stock_num}
 						</td>
 						<td>
-							 <a href="{:U('Goods/edit',array('id'=>$good[id]))}">Г╪√Х╬▒</a>&nbsp;&nbsp;&nbsp;&nbsp;
-							 <a href="{:U('Goods/delete',array('id'=>$good[id]))}">Е┬═И≥╓</a>
+							 <a href="{:U('Goods/edit',array('id'=>$good[id]))}">╠Ю╪╜</a>&nbsp;&nbsp;&nbsp;&nbsp;
+							 <a href="{:U('Goods/delete',array('id'=>$good[id]))}">и╬ЁЩ</a>
 						
 						</td>
 					</tr>
@@ -72,8 +108,9 @@
 				</tbody>
 				<tfoot>
 				
-					<th colspan="9" >{$page}</th>
+					<th colspan="9" ><a href="#">и╬ЁЩ</a></th>
 				</tfoot>
 			</table>
+			{$page}
 
 </block>

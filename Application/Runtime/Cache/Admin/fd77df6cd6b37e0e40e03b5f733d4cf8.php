@@ -1,11 +1,11 @@
-<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?>﻿<!DOCTYPE html>
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>Bootstrap 101 Template</title>
+    <title>TKPHP管理</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="/tkphp/Public/static/css/bootstrap.css" />
@@ -145,8 +145,8 @@ body {
           <ul class="nav navbar-nav">
             <li><a href="#">面板</a></li>
             <li><a href="#">设置</a></li>
-            <li><a href="#">文件</a></li>
             <li><a href="#">帮助</a></li>
+            <li><a href="<?php echo U('Home/Index/index');?>">前台首页</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
 			<li>
@@ -164,7 +164,7 @@ body {
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="<?php echo ('Index/index');?>">后台主页 <span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="#">后台主页 <span class="sr-only">(current)</span></a></li>
             <li>   <a data-toggle="collapse" href="#1" aria-expanded="false" aria-controls="1">系统管理</a>
 				   <ol class="collapse" id="1">
 					<li><a href="#">网站配置</a></li>
@@ -176,7 +176,8 @@ body {
 			</li>
 			<li>   <a data-toggle="collapse" href="#2" aria-expanded="false" aria-controls="2">用户管理</a>
 			   <ol class="collapse" id="2">
-				<li><a href="#">会员列表</a></li>
+				<li><a href="<?php echo U('User/lists');?>">会员列表</a></li>
+				<li><a href="<?php echo U('User/contact');?>">用户留言</a></li>
 			   </ol>
 			</li>
 			<li>   <a data-toggle="collapse" href="#3" aria-expanded="false" aria-controls="3">商品管理</a>
@@ -192,9 +193,9 @@ body {
 
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
           <ul class="breadcrumb main">
-          
+           
 	<li>
-		<a href="#">主页</a> <span class="divider"></span>
+		<a href="<?php echo U('Admin/Index/index');?>">主页</a> <span class="divider"></span>
 	</li>
 	<li class="active">
 		商品分类

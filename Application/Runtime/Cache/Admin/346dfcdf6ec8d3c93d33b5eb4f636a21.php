@@ -1,11 +1,11 @@
-<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?>﻿<!DOCTYPE html>
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>Bootstrap 101 Template</title>
+    <title>TKPHP管理</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="/tkphp/Public/static/css/bootstrap.css" />
@@ -145,8 +145,8 @@ body {
           <ul class="nav navbar-nav">
             <li><a href="#">面板</a></li>
             <li><a href="#">设置</a></li>
-            <li><a href="#">文件</a></li>
             <li><a href="#">帮助</a></li>
+            <li><a href="<?php echo U('Home/Index/index');?>">前台首页</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
 			<li>
@@ -164,7 +164,7 @@ body {
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="<?php echo ('Index/index');?>">后台主页 <span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="#">后台主页 <span class="sr-only">(current)</span></a></li>
             <li>   <a data-toggle="collapse" href="#1" aria-expanded="false" aria-controls="1">系统管理</a>
 				   <ol class="collapse" id="1">
 					<li><a href="#">网站配置</a></li>
@@ -176,14 +176,15 @@ body {
 			</li>
 			<li>   <a data-toggle="collapse" href="#2" aria-expanded="false" aria-controls="2">用户管理</a>
 			   <ol class="collapse" id="2">
-				<li><a href="#">会员列表</a></li>
+				<li><a href="<?php echo U('User/lists');?>">会员列表</a></li>
+				<li><a href="<?php echo U('User/contact');?>">用户留言</a></li>
 			   </ol>
 			</li>
 			<li>   <a data-toggle="collapse" href="#3" aria-expanded="false" aria-controls="3">商品管理</a>
 				   <ol class="collapse" id="3">
 					<li><a href="<?php echo U('Goods/lists');?>">商品列表</a></li>
 					<li><a href="<?php echo U('Goods/add');?>">添加商品</a></li>
-					<li><a href="<?php echo U('Goods/cat');?>">商品分类</a></li>
+					<li><a href="<?php echo U('Cat/index');?>">商品分类</a></li>
 				   </ol>
 			</li>
           </ul>
@@ -192,30 +193,27 @@ body {
 
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
           <ul class="breadcrumb main">
-          
+           
 	<li>
-		<a href="#">��ҳ</a> <span class="divider"></span>
-	</li>
-	<li>
-		<a href="#">��Ʒ����</a> <span class="divider"></span>
+		<a href="<?php echo U('Admin/Index/index');?>">主页</a> <span class="divider"></span>
 	</li>
 	<li class="active">
-		������Ʒ
+		添加商品
 	</li>
 
 			</ul>
 
 
-  <h3 class="sub-header"><a href="<?php echo U('Goods/lists');?>">��Ʒ�б�</a></h3>
+  <h3 class="sub-header"><a href="<?php echo U('Goods/lists');?>">商品列表</a></h3>
   <form class="form-horizontal" action="<?php echo U('Goods/doAdd');?>" enctype="multipart/form-data" method="post">
   <div class="form-group">
-    <label for="pro_name" class="col-sm-3 control-label">��Ʒ����:</label>
+    <label for="pro_name" class="col-sm-3 control-label">产品名称:</label>
     <div class="col-sm-5">
-      <input type="text" class="form-control" id="pro_name" name="pro_name" placeholder="��Ʒ����">
+      <input type="text" class="form-control" id="pro_name" name="pro_name" placeholder="产品名称">
     </div>		
   </div>
    <div class="form-group">
-      <label for="cat_id" class="col-sm-3 control-label">��Ʒ���:</label>
+      <label for="cat_id" class="col-sm-3 control-label">产品类别:</label>
       <div class="col-sm-5">
           <select name="cat_id" id="cat_id" class="form-control">
               <?php if(is_array($cats)): foreach($cats as $key=>$cats): ?><option value="<?php echo ($cats["id"]); ?>"><?php echo ($cats["cat_name"]); ?></option><?php endforeach; endif; ?>
@@ -223,67 +221,67 @@ body {
       </div>
   </div>
   <div class="form-group">
-      <label for="pro_sn" class="col-sm-3 control-label">��Ʒ����:</label>
+      <label for="pro_sn" class="col-sm-3 control-label">产品货号:</label>
       <div class="col-sm-5">
-          <input type="text" id="pro_sn" name="pro_sn" class="form-control" placeholder="��Ʒ����">
+          <input type="text" id="pro_sn" name="pro_sn" class="form-control" placeholder="产品货号">
       </div>
   </div>
   <div class="form-group">
-      <label for="pro_subname" class="col-sm-3 control-label">��Ʒ������:</label>
+      <label for="pro_subname" class="col-sm-3 control-label">产品副标题:</label>
       <div class="col-sm-5">
-          <input type="text" class="form-control" id="pro_subname" name="pro_subname" placeholder="��Ʒ������">
-          <span class="help-block">��ʾ�Ĳ���������Ϣ</span> 
+          <input type="text" class="form-control" id="pro_subname" name="pro_subname" placeholder="产品副标题">
+          <span class="help-block">显示的部分描述信息</span> 
       </div>
   </div>
   <div class="form-group">
-      <label for="market_price" class="col-sm-3 control-label">�г��ۼ�:</label>
+      <label for="market_price" class="col-sm-3 control-label">市场售价:</label>
       <div class="col-sm-5">
           <input type="text" id="market_price" name="market_price" class="form-control" placeholder="0.00">
       </div>
   </div>
   <div class="form-group">
-      <label for="promote_price" class="col-sm-3 control-label">����۸�:</label>
+      <label for="promote_price" class="col-sm-3 control-label">本店价格:</label>
       <div class="col-sm-5">
           <input type="text" id="promote_price" name="promote_price" class="form-control" placeholder="0.00">
       </div>
   </div>
   <div class="form-group">
-      <label for="stock_num" class="col-sm-3 control-label">�������:</label>
+      <label for="stock_num" class="col-sm-3 control-label">库存数量:</label>
       <div class="col-sm-5">
-          <input type="text" id="stock_num" name="stock_num" class="form-control" placeholder="�����">
+          <input type="text" id="stock_num" name="stock_num" class="form-control" placeholder="库存数">
       </div>
   </div>
   <div class="form-group">
-      <label for="keywords" class="col-sm-3 control-label">�ؼ���:</label>
+      <label for="keywords" class="col-sm-3 control-label">关键字:</label>
       <div class="col-sm-5">
-          <input type="text" id="keywords" name="keywords" class="form-control"  placeholder="�ؼ���">
+          <input type="text" id="keywords" name="keywords" class="form-control"  placeholder="关键字">
       </div>
   </div>
    <div class="form-group">
-       <label for="description" class="col-sm-3 control-label">����:</label>
+       <label for="description" class="col-sm-3 control-label">描述:</label>
        <div class="col-sm-5">
-           <textarea id="description" name="description" class="form-control" placeholder="��Ʒ�������"></textarea>
+           <textarea id="description" name="description" class="form-control" placeholder="产品相关描述"></textarea>
        </div>
    </div>
    <div class="form-group">
-       <label for="photo" class="col-sm-3 control-label">�ϴ�����ͼ:</label>
+       <label for="photo" class="col-sm-3 control-label">上传缩略图:</label>
        <div class="col-sm-5">
            <input id="photo" type="file"  name="photo" />
        </div>
    </div>
    <div class="form-group">
-       <label  class="col-sm-3 control-label">����:</label>
+       <label  class="col-sm-3 control-label">属性:</label>
        <div class="col-sm-5">
-           <label><input type="checkbox" value="1" name="is_new" /> ��Ʒ</label>
-           <label><input type="checkbox" value="1" name="is_promote" /> ����</label>
-           <label><input type="checkbox" value="1" name="is_on_sale" /> �¼�</label>
+           <label><input type="checkbox" value="1" name="is_new" /> 新品</label>
+           <label><input type="checkbox" value="1" name="is_promote" /> 促销</label>
+           <label><input type="checkbox" value="1" name="is_on_sale" /> 下架</label>
        </div>
    </div>
 
   
   <div class="form-group">
     <div class="col-sm-offset-3 col-sm-5">
-      <input type="submit" value="����" class="btn btn-default">
+      <input type="submit" value="保存" class="btn btn-default">
     </div>
   </div>
 </form>

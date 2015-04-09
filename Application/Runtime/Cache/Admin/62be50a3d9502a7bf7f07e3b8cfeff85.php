@@ -1,11 +1,11 @@
-<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?>﻿<!DOCTYPE html>
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>Bootstrap 101 Template</title>
+    <title>TKPHP管理</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="/tkphp/Public/static/css/bootstrap.css" />
@@ -164,7 +164,7 @@ body {
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="<?php echo ('Index/index');?>">后台主页 <span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="#">后台主页 <span class="sr-only">(current)</span></a></li>
             <li>   <a data-toggle="collapse" href="#1" aria-expanded="false" aria-controls="1">系统管理</a>
 				   <ol class="collapse" id="1">
 					<li><a href="#">网站配置</a></li>
@@ -177,6 +177,7 @@ body {
 			<li>   <a data-toggle="collapse" href="#2" aria-expanded="false" aria-controls="2">用户管理</a>
 			   <ol class="collapse" id="2">
 				<li><a href="#">会员列表</a></li>
+				<li><a href="#">用户留言</a></li>
 			   </ol>
 			</li>
 			<li>   <a data-toggle="collapse" href="#3" aria-expanded="false" aria-controls="3">商品管理</a>
@@ -197,7 +198,9 @@ body {
 					<a href="<?php echo ('Index/index');?>">主页</a> <span class="divider"></span>
 				</li>
 				<li class="active">
+				
 					商品列表
+				
 				</li>
 			
 			</ul>

@@ -145,8 +145,8 @@ body {
           <ul class="nav navbar-nav">
             <li><a href="#">И²╒Ф²©</a></li>
             <li><a href="#">Х╝╬Г╫╝</a></li>
-            <li><a href="#">Ф√┤Д╩╤</a></li>
             <li><a href="#">Е╦╝Е┼╘</a></li>
+            <li><a href="<?php echo U('Home/Index/index');?>">Е┴█Е▐╟И╕√И║╣</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
 			<li>
@@ -176,14 +176,15 @@ body {
 			</li>
 			<li>   <a data-toggle="collapse" href="#2" aria-expanded="false" aria-controls="2">Г■╗Ф┬╥Г╝║Г░├</a>
 			   <ol class="collapse" id="2">
-				<li><a href="#">Д╪ Е▒≤Е┬≈Х║╗</a></li>
+				<li><a href="<?php echo U('User/lists');?>">Д╪ Е▒≤Е┬≈Х║╗</a></li>
+				<li><a href="<?php echo U('User/contact');?>">Г■╗Ф┬╥Г∙≥Х╗─</a></li>
 			   </ol>
 			</li>
 			<li>   <a data-toggle="collapse" href="#3" aria-expanded="false" aria-controls="3">Е∙├Е⌠│Г╝║Г░├</a>
 				   <ol class="collapse" id="3">
 					<li><a href="<?php echo U('Goods/lists');?>">Е∙├Е⌠│Е┬≈Х║╗</a></li>
 					<li><a href="<?php echo U('Goods/add');?>">Ф╥╩Е┼═Е∙├Е⌠│</a></li>
-					<li><a href="<?php echo U('Goods/cat');?>">Е∙├Е⌠│Е┬├Г╠╩</a></li>
+					<li><a href="<?php echo U('Cat/index');?>">Е∙├Е⌠│Е┬├Г╠╩</a></li>
 				   </ol>
 			</li>
           </ul>
@@ -192,47 +193,76 @@ body {
 
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
           <ul class="breadcrumb main">
-          
-				<li>
-					<a href="<?php echo ('Index/index');?>">Д╦╩И║╣</a> <span class="divider"></span>
-				</li>
-				<li class="active">
-					Е∙├Е⌠│Е┬≈Х║╗
-				</li>
-			
+           
+	<li>
+		<a href="<?php echo U('Admin/Index/index');?>">жВрЁ</a> <span class="divider"></span>
+	</li>
+	<li class="active">
+		илф╥ап╠М
+	</li>
+
 			</ul>
 
 
-<h3 class="sub-header"><a href="<?php echo U('Goods/add');?>">Ф╥╩Е┼═Е∙├Е⌠│</a></h3>
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-8">
+	  <form class="form-inline">
+	  <div class="form-group">
+	    <select class="form-control">
+		  <option>╡Иурх╚╡©</option>
+		  <option>жгдэйж╩З</option>
+		  <option>ф╫╟Е╣Гдт</option>
+		  <option>╦ъгЕ╣Гйс</option>
+		  <option>хк╧╓жгдэ</option>
+		</select>
+	  </div>
+	  <div class="form-group">
+	     <select class="form-control">
+		  <option>╡Иурх╚╡©</option>
+		  <option>жгдэйж╩З</option>
+		  <option>ф╫╟Е╣Гдт</option>
+		  <option>╦ъгЕ╣Гйс</option>
+		  <option>хк╧╓жгдэ</option>
+		 </select>
+	  </div>
+	  <button type="submit" class="btn btn-default">лА╫╩</button>
+	 </form>
+  </div>
+  <div class="col-xs-6 col-md-4 ">
+   <a href="<?php echo U('Goods/add');?>"><button class="btn  btn-large pull-right">лМ╪силф╥</button></a>
+  </div>
+</div>
+<hr>
+
 <table class="table table-bordered table-hover">
 				<thead>
 					<tr>
 						<th>
-						<input type="checkbox">Е┘╗И─┴
+						<input type="checkbox">х╚я║
 						</th>
 						<th>
-							Г╪√Е▐╥
+							╠Ю╨е
 						</th>
 						<th>
-							Е∙├Е⌠│Е░█Г╖╟
+							илф╥цШЁф
 						</th>
 						<th>
-							Х╢╖Е▐╥
+							╩У╨е
 						</th>
 						<th>
-							Е■╝Д╩╥
+							йш╪ш
 						</th>
 						<th>
-							Д╦┼Ф·╤
+							ио╪э
 						</th>
 						<th>
-							Д╦┼Ф·╤Ф≈╤И≈╢
+							ио╪эй╠╪Д
 						</th>
 						<th>
-							Х╢╖Е╜≤
+							╩У╢Ф
 						</th>
 						<th>
-							Ф⌠█Д╫°
+							╡ывВ
 						</th>
 					</tr>
 				</thead>
@@ -254,7 +284,7 @@ body {
 							<?php echo ($good["market_price"]); ?>
 						</td>
 						<td>
-							<?php if($good["is_on_sale"] == 1): ?>Б┬ <?php endif; ?>
+							<?php if($good["is_on_sale"] == 1): ?>║л<?php endif; ?>
 							<?php if($good["is_on_sale"] == 0): ?>X<?php endif; ?>
 						</td>
 						<td>
@@ -264,17 +294,18 @@ body {
 							<?php echo ($good["stock_num"]); ?>
 						</td>
 						<td>
-							 <a href="<?php echo U('Goods/edit',array('id'=>$good[id]));?>">Г╪√Х╬▒</a>&nbsp;&nbsp;&nbsp;&nbsp;
-							 <a href="<?php echo U('Goods/delete',array('id'=>$good[id]));?>">Е┬═И≥╓</a>
+							 <a href="<?php echo U('Goods/edit',array('id'=>$good[id]));?>">╠Ю╪╜</a>&nbsp;&nbsp;&nbsp;&nbsp;
+							 <a href="<?php echo U('Goods/delete',array('id'=>$good[id]));?>">и╬ЁЩ</a>
 						
 						</td>
 					</tr><?php endforeach; endif; ?>
 				</tbody>
 				<tfoot>
 				
-					<th colspan="9" ><?php echo ($page); ?></th>
+					<th colspan="9" ><a href="#">и╬ЁЩ</a></th>
 				</tfoot>
 			</table>
+			<?php echo ($page); ?>
 
 
         </div>

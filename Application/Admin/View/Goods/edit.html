@@ -1,15 +1,12 @@
 ﻿<extend name="Public:base" />
 <block name="bread_menu">
 	<li>
-		<a href="#">主页</a> <span class="divider"></span>
-	</li>
-	<li>
-		<a href="#">商品管理</a> <span class="divider"></span>
+		<a href="{:U('Admin/Index/index')}">主页</a> <span class="divider"></span>
 	</li>
 	<li class="active">
 		编辑商品
 	</li>
-</block>
+</block></block>
 <block name="content">
   <h3 class="sub-header"><a href="{:U('Goods/lists')}">商品列表</a></h3>
   <form class="form-horizontal" action="{:U('Goods/doEdit')}" enctype="multipart/form-data" method="post">
