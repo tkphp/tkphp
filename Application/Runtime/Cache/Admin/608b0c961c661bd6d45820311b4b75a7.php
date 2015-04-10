@@ -1,15 +1,15 @@
-<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?>﻿<!DOCTYPE html>
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>Bootstrap 101 Template</title>
+    <title>TKPHP管理</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="/tkphp/Public/static/css/bootstrap.css" />
-
+	    <link rel="stylesheet" type="text/css" href="/tkphp/Public/static/jquery.js />
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -84,8 +84,14 @@ body {
   color: #fff;
   background-color: #428bca;
 }
-
-
+ol li{
+	border-bottom:1px solid #ccc;
+}
+ol li a{
+	line-height:40px;
+	padding-right:40px;
+	display:block;
+}
 /*
  * Main content
  */
@@ -143,10 +149,33 @@ body {
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#">面板</a></li>
-            <li><a href="#">设置</a></li>
-            <li><a href="#">文件</a></li>
-            <li><a href="#">帮助</a></li>
+            <li class="dropdown">
+				 <a class="dropdown-toggle" href="#" data-toggle="dropdown">系统管理<strong class="caret"></strong></a>
+				 <ul class="dropdown-menu">
+					<li><a href="#">网站配置</a></li>
+					<li><a href="#">系统管理员</a></li>
+					<li><a href="#">邮件配置</a></li>
+					<li><a href="#">短信配置</a></li>
+					<li><a href="#">支付管理</a></li>
+				</ul>
+			</li>
+			 <li class="dropdown">
+				 <a class="dropdown-toggle" href="#" data-toggle="dropdown">用户管理<strong class="caret"></strong></a>
+				 <ul class="dropdown-menu">
+					<li><a href="<?php echo U('User/lists');?>">会员列表</a></li>
+					<li><a href="<?php echo U('User/contact');?>">用户留言</a></li>
+				</ul>
+			</li>
+			 <li class="dropdown">
+				 <a class="dropdown-toggle" href="#" data-toggle="dropdown">商品管理<strong class="caret"></strong></a>
+				 <ul class="dropdown-menu">
+					<li><a href="<?php echo U('Goods/lists');?>">商品列表</a></li>
+					<li><a href="<?php echo U('Goods/add');?>">添加商品</a></li>
+					<li><a href="<?php echo U('Cat/index');?>">商品分类</a></li>
+				</ul>
+			</li>
+            
+            <li><a href="<?php echo U('Home/Index/index');?>">前台首页</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
 			<li>
@@ -164,9 +193,9 @@ body {
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="<?php echo ('Index/index');?>">后台主页 <span class="sr-only">(current)</span></a></li>
-            <li>   <a data-toggle="collapse" href="#1" aria-expanded="false" aria-controls="1">系统管理</a>
-				   <ol class="collapse" id="1">
+            <li class="active"><a href="#">后台主页 <span class="sr-only">(current)</span></a></li>
+            <li>   <a  class="menu">系统管理</a>
+				   <ol>
 					<li><a href="#">网站配置</a></li>
 					<li><a href="#">系统管理员</a></li>
 					<li><a href="#">邮件配置</a></li>
@@ -174,16 +203,17 @@ body {
 					<li><a href="#">支付管理</a></li>
 				   </ol>
 			</li>
-			<li>   <a data-toggle="collapse" href="#2" aria-expanded="false" aria-controls="2">用户管理</a>
-			   <ol class="collapse" id="2">
-				<li><a href="#">会员列表</a></li>
+		 	<li>   <a class="menu">用户管理</a>
+			   <ol>
+				<li><a href="<?php echo U('User/lists');?>">会员列表</a></li>
+				<li><a href="<?php echo U('User/contact');?>">用户留言</a></li>
 			   </ol>
 			</li>
-			<li>   <a data-toggle="collapse" href="#3" aria-expanded="false" aria-controls="3">商品管理</a>
-				   <ol class="collapse" id="3">
+			<li>   <a class="menu">商品管理</a>
+				   <ol>
 					<li><a href="<?php echo U('Goods/lists');?>">商品列表</a></li>
 					<li><a href="<?php echo U('Goods/add');?>">添加商品</a></li>
-					<li><a href="<?php echo U('Goods/cat');?>">商品分类</a></li>
+					<li><a href="<?php echo U('Cat/index');?>">商品分类</a></li>
 				   </ol>
 			</li>
           </ul>
@@ -192,12 +222,9 @@ body {
 
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
           <ul class="breadcrumb main">
-          
+           
 	<li>
-		<a href="#">主页</a> <span class="divider"></span>
-	</li>
-	<li>
-		<a href="#">商品管理</a> <span class="divider"></span>
+		<a href="<?php echo U('Admin/Index/index');?>">主页</a> <span class="divider"></span>
 	</li>
 	<li class="active">
 		编辑商品
@@ -218,13 +245,14 @@ body {
    <div class="form-group">
       <label for="cat_id" class="col-sm-3 control-label">产品类别:</label>
       <div class="col-sm-5">
-          <select name="cat_id" id="cat_id" class="form-control">
+         <!--  <select name="cat_id" id="cat_id" class="form-control">
               <?php if(is_array($cats)): foreach($cats as $key=>$cat): ?><option value="<?php echo ($cat["id"]); ?>" 
 	                <?php if($cat['id'] == $pro['cat_id']): ?>selected<?php endif; ?>
 	                > 
 	                <?php echo ($cat["cat_name"]); ?>
 	                </option><?php endforeach; endif; ?>
-          </select>
+          </select> -->
+          <?php echo ($cats); ?>
       </div>
   </div>
   <div class="form-group">
@@ -284,8 +312,11 @@ body {
 	                 value="1" name="is_new" /> 新品</label>
            <label><input type="checkbox" <?php if($pro["is_promote"] == 1): ?>checked<?php endif; ?>
 	                 value="1" name="is_promote" /> 促销</label>
-           <label><input type="checkbox" <?php if($pro["is_on_sale"] == 0): ?>checked<?php endif; ?>
-	                 value="1" name="is_on_sale" /> 下架</label>
+           <!-- <label><input type="checkbox" <?php if($pro["is_on_sale"] == 0): ?>checked<?php endif; ?>
+	                 value="1" name="is_on_sale" /> 下架</label> -->
+            <?php if($pro['is_on_sale'] == 0): ?><label><input type="checkbox" value="1" name="is_on_sale" /> 上架</label>
+            <?php else: ?>
+                <label><input type="checkbox" value="0" name="is_on_sale" /> 下架</label><?php endif; ?>
        </div>
    </div>
 
@@ -305,5 +336,22 @@ body {
     <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="/tkphp/Public/static/js/bootstrap.js"></script>
+	
+
+<script type="text/javascript">
+$(function(){
+	$("ol").hide();
+	$(".menu").click(function(){
+		$(".menu").css({"background-color":"#ddd"})
+		$(this).css({"background-color": "#eee"});
+		$(this).parent().find('ol').removeClass("menu_chioce");
+		$(".menu_chioce").slideUp(); 
+		$(this).parent().find('ol').slideToggle();
+		$(this).parent().find('ol').addClass("menu_chioce");
+	});
+})
+</script>
+
+
   </body>
 </html>

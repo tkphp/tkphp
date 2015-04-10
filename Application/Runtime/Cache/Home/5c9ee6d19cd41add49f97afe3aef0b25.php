@@ -274,7 +274,7 @@
 								<!-- 	<span class="nav-description">Variety of Layouts</span> -->
 								</a>
 								
-								<ul class="normal-dropdown normalAnimation">
+								<!-- <ul class="normal-dropdown normalAnimation">
 									<li><a href="#">Layouts <i class="icons icon-right-dir"></i></a>
 										<ul class="normalAnimation">
 											<li><a href="home_v1.html">Layout 1</a></li>
@@ -309,7 +309,7 @@
 											<li><a href="home_v3.html">Flex Slider</a></li>
 										</ul>
 									</li>
-								</ul>
+								</ul> -->
 							</li>
 							
 							<li class="red">
@@ -319,7 +319,7 @@
 									<!-- <span class="nav-description">Photo & Video</span> -->
 								</a>
 								
-								<ul class="wide-dropdown normalAniamtion">
+								<!-- <ul class="wide-dropdown normalAniamtion">
 									<li>
 										<ul>
 											<li><span class="nav-caption">Digital Cameras</span></li>
@@ -346,7 +346,7 @@
 											<li><a href="#"><i class="icons icon-right-dir"></i> Cases, Bags &amp; Covers</a></li>
 										</ul>
 									</li>
-								</ul>
+								</ul> -->
 								
 							</li>
 							
@@ -546,22 +546,21 @@
 				<aside class="sidebar col-lg-3 col-md-3 col-sm-3 right-sidebar">
 					
 					<!-- Categories -->
-							<!-- Categories -->
-					<div class="row sidebar-box purple">
+						ï»¿		   <div class="row sidebar-box purple" style="margin-top:0;">
 						
 						<div class="col-lg-12 col-md-12 col-sm-12">
 							
 							<div class="sidebar-box-heading">
 								<i class="icons icon-folder-open-empty"></i>
-								<h4>Categories</h4>
+								<h4>å•†å“åˆ†ç±»</h4>
 							</div>
 							
 							<div class="sidebar-box-content">
 								<ul>
-									<li><a href="#">Cameras &amp; Photography <i class="icons icon-right-dir"></i></a></li>
-									<li><a href="#">Computers &amp; Tablets <i class="icons icon-right-dir"></i></a></li>
-									<li><a href="#">Cell Phones &amp; Accessories <i class="icons icon-right-dir"></i></a>
-                                    	<ul class="sidebar-dropdown">
+									<li><a href="#">æ™ºèƒ½æ‰‹æœº <i class="icons icon-right-dir"></i></a></li>
+									<li><a href="#">å¹³æ¿ç”µè„‘ <i class="icons icon-right-dir"></i></a></li>
+									<li><a href="#">å•åç›¸æœº <i class="icons icon-right-dir"></i></a>
+                                    	 <ul class="sidebar-dropdown">
                                         	<li>
                                             	<ul>
                                                 	<li><a href="#">Cell phones &amp; Smartphone</a></li>
@@ -581,19 +580,19 @@
                                             </li>
                                         </ul>
                                     </li>
-									<li><a href="#">TV, Audio &amp; Surveillance <i class="icons icon-right-dir"></i></a></li>
-									<li><a href="#">Video Games &amp; Consoles <i class="icons icon-right-dir"></i></a></li>
-									<li><a href="#">Car Audio, Video &amp; GPS <i class="icons icon-right-dir"></i></a></li>
-									<li><a href="#">Best Sellers <i class="icons icon-right-dir"></i></a></li>
-									<li><a href="#">Shop by Brands <i class="icons icon-right-dir"></i></a></li>
-									<li><a class="purple" href="#">All Categories</a></li>
+									<li><a href="#">æ‰‹æœº<i class="icons icon-right-dir"></i></a></li>
+									<li><a href="#">ç”µè„‘ <i class="icons icon-right-dir"></i></a></li>
+									<li><a href="#">ç›¸æœº <i class="icons icon-right-dir"></i></a></li>
+									<li><a href="#">é…ä»¶ <i class="icons icon-right-dir"></i></a></li>
+									<li><a href="#">æœåŠ¡ <i class="icons icon-right-dir"></i></a></li>
+									<li><a class="purple" href="#">æ›´å¤šåˆ†ç±»</a></li>
 								</ul>
 							</div>
 							
 						</div>
 							
 					</div>
-					<!-- /Categories -->
+
 					<!-- /Categories -->
                    
 					
@@ -692,29 +691,29 @@
         return bool;
     }
 </script>	
-<!-- Banner -->
+ï»¿<!-- Banner -->
 			<section class="banner">
 				
 				<div class="left-side-banner banner-item icon-on-right gray">
 					<h4>0379-65518814</h4>
-					<p>ÖÜÒ» - ÖÜÁù: 8am - 5pm </p>
+					<p>å‘¨ä¸€ - å‘¨å…­: 8am - 5pm </p>
 					<i class="icons icon-phone-outline"></i>
 				</div>
 				
 				<a href="#">
 				<div class="middle-banner banner-item icon-on-left light-blue">
-					<h4>ÃâÓÊ</h4>
-					<p>¶©µ¥Âú99Ôª</p>
-                    <span class="button">ÁË½â¸ü¶à</span>
+					<h4>å…é‚®</h4>
+					<p>è®¢å•æ»¡99å…ƒ</p>
+                    <span class="button">äº†è§£æ›´å¤š</span>
 					<i class="icons icon-truck-1"></i>
 				</div>
 				</a>
 				
 				<a href="#">
 				<div class="right-side-banner banner-item orange">
-					<h4>·è¿ñÇÀ¹º!</h4>
-					<p>ÉÌÆ·ÁĞ±í</p>
-                    <span class="button">ÏÖÔÚ¹ºÂò</span>
+					<h4>ç–¯ç‹‚æŠ¢è´­!</h4>
+					<p>å…¨ç½‘æœ€ä½ä»·</p>
+                    <span class="button">ç°åœ¨è´­ä¹°</span>
 				</div>
 				</a>
 				
@@ -735,7 +734,7 @@
 							<!-- Newsletter -->
 							<div class="col-lg-7 col-md-7 col-sm-7">
 								<form id="newsletter" action="php/newsletter.php">
-									<h2>¹Ø×¢ÎÒÃÇ</h2>
+									<h2>å…³æ³¨æˆ‘ä»¬</h2>
 									
 								</form>
 							</div>
@@ -765,15 +764,15 @@
 							
 							<!-- The Service -->
 							<div class="col-lg-3 col-md-3 col-sm-6">
-								<h4>¹ØÓÚÎÒÃÇ</h4>
+								<h4>å…³äºæˆ‘ä»¬</h4>
 								<ul>
-									<li><a href="#"><i class="icons icon-right-dir"></i> ¹ØÓÚtkphp</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> ĞÂÎÅÖĞĞÄ</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> ¼ÓÈëÎÒÃÇ</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> ·¨ÂÉÉùÃ÷</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> ĞÇ¿ÕÖ®Ô¼</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> ÁªÏµÎÒÃÇ</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> ÓÑÇéÁ´½Ó</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> å…³äºtkphp</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> æ–°é—»ä¸­å¿ƒ</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> åŠ å…¥æˆ‘ä»¬</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> æ³•å¾‹å£°æ˜</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> æ˜Ÿç©ºä¹‹çº¦</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> è”ç³»æˆ‘ä»¬</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> å‹æƒ…é“¾æ¥</a></li>
 								</ul>
 							</div>
 							<!-- /The Service -->
@@ -781,14 +780,14 @@
 							
 							<!-- Like us on Facebook -->
 							<div class="col-lg-3 col-md-3 col-sm-6">
-								<h4>²úÆ·</h4>
+								<h4>äº§å“</h4>
 								<ul>
-									<li><a href="#"><i class="icons icon-right-dir"></i>Æ½°åÏµÁĞ</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i>ÊÖ¼ÇÏµÁĞ</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i>Ïà»úÏµÁĞ</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i>Åä¼ş</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i>ĞÂ²úÆ·</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i>¸ÅÄî²úÆ·</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i>å¹³æ¿ç³»åˆ—</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i>æ‰‹è®°ç³»åˆ—</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i>ç›¸æœºç³»åˆ—</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i>é…ä»¶</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i>æ–°äº§å“</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i>æ¦‚å¿µäº§å“</a></li>
 								</ul>
 							</div>
 							<!-- /Like us on Facebook -->
@@ -796,14 +795,14 @@
 							
 							<!-- Information -->
 							<div class="col-lg-3 col-md-3 col-sm-6">
-								<h4>·şÎñÖĞĞÄ</h4>
+								<h4>æœåŠ¡ä¸­å¿ƒ</h4>
 								<ul>
-									<li><a href="#"><i class="icons icon-right-dir"></i> ÌåÑéµê</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> ÊÛºó·şÎñ</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> ¹Ù·şÖĞĞÄ</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> °ïÖúÖĞĞÄ</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> Èí¼şÏÂÔØ</a></li>
-									<li><a href="#"><i class="icons icon-right-dir"></i> ¹Ì¼şÉı¼¶</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> ä½“éªŒåº—</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> å”®åæœåŠ¡</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> å®˜æœä¸­å¿ƒ</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> å¸®åŠ©ä¸­å¿ƒ</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> è½¯ä»¶ä¸‹è½½</a></li>
+									<li><a href="#"><i class="icons icon-right-dir"></i> å›ºä»¶å‡çº§</a></li>
 								</ul>
 							</div>
 							<!-- /Information -->
@@ -811,12 +810,12 @@
 							
 							<!-- Contact Us -->
 							<div class="col-lg-3 col-md-3 col-sm-6 contact-footer-info">
-								<h4>ÁªÏµÎÒÃÇ</h4>
+								<h4>è”ç³»æˆ‘ä»¬</h4>
 								<ul>
-									<li><i class="icons icon-location"></i>ÁúÃÅ´óµÀ71ºÅ,<br>ÂåÑôÊ¦·¶Ñ§Ôº, ĞÅÏ¢¼¼ÊõÑ§Ôº.</li>
+									<li><i class="icons icon-location"></i>é¾™é—¨å¤§é“71å·,<br>æ´›é˜³å¸ˆèŒƒå­¦é™¢, ä¿¡æ¯æŠ€æœ¯å­¦é™¢.</li>
                                     <li><i class="icons icon-phone"></i> +182-3882-7991</li>
 									<li><i class="icons icon-mail-alt"></i><a href="mailto:web_zhaobei@163.com"> web_zhaobei@163.com</a></li>
-									<li><i class="icons icon-skype"></i> homeshop</li>
+									<li><i class="icons icon-skype"></i> tkphp</li>
 								</ul>
 							</div>
 							<!-- /Contact Us -->
@@ -838,7 +837,7 @@
 						<div class="row">
 							
 							<div class="col-lg-6 col-md-6 col-sm-6">
-								<p class="copyright">Copyright 2015 <a href="#">ShopZhao</a>. All Rights Reserved.</p>
+								<p class="copyright">Copyright 2015 <a href="#">TKPHP</a>. All Rights Reserved.</p>
 							</div>
 							
 							<div class="col-lg-6 col-md-6 col-sm-6">

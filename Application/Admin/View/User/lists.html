@@ -1,89 +1,107 @@
 ﻿<extend name="Public:base" />
-<block name="section">
-<div class="row-fluid">
-		<div class="span12">
-			<ul class="nav nav-list well ">
-				<li class="nav-header">
-					会员管理
-				</li>
-				<li class="active">
-					<a href="#">会员列表</a>
-				</li>
-				<li>
-					<a href="#">新增会员</a>
-				</li>
-				<li>
-					<a href="#">应用</a>
-				</li>
-				<li class="nav-header">
-					分组管理
-				</li>
-				<li>
-					<a href="#">分组列表</a>
-				</li>
-				<li>
-					<a href="#">新增分组</a>
-				</li>
-				<li class="divider">
-				</li>
-				<li>
-					<a href="#">帮助</a>
-				</li>
-			</ul>
-		</div>
-	</div>
+<block name="bread_menu">
+	<li>
+		<a href="{:U('Admin/Index/index')}">主页</a> <span class="divider"></span>
+	</li>
+	<li class="active">
+		用户列表
+	</li>
 </block>
-
 <block name="content">
-<div style="margin-top:15px; margin-bottom:10px;">
- <button class="btn btn-primary btn-small" type="button">添加</button>
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-8">
+	   <form action="" method="get" class="form-inline">
+        <input class="form-control" type="text" name="keyword"  placeholder="请输入关键字...">
+        <div class="btn-group" >
+            <button class="btn"> 查找 </button>
+            <button data-toggle="dropdown" class="btn dropdown-toggle"><span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li><a href="#">全部</a></li>
+                <li class="divider"></li>
+                <li><a href="#">按邮箱</a></li>
+                <li><a href="#">按手机</a></li>
+                <li><a href="#">用户名</a></li>
+            </ul>
+        </div>
+    </form>
+  </div>
+  <div class="col-xs-6 col-md-4 ">
+     <a href="{:U('Admin/User/add')}" class="btn btn-info pull-right"><i class="icon-plus"></i> 添加会员</a> 
+  </div>
 </div>
-<table class="table table-bordered table-hover">
-				<thead>
-					<tr>
-						<th>
-							ID
-						</th>
-						<th>
-							用户名
-						</th>
-						<th>
-							IP
-						</th>
-						<th>
-							注册时间
-						</th>
-						<th>
-							操作
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-					<foreach name="user_list.list" item="ul">
-					<tr class="info">
-						<td>
-							{$ul.id}
-						</td>
-						<td>
-							{$ul.username}
-						</td>
-						<td>
-							{$ul.ip}
-						</td>
-						<td>
-							{$ul.last_time|date="Y-m-d",###}
-						</td>
-						<td>
-							 <a href="{:U('User/edit',array('id'=>$ul[id]))}">编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;
-							 <a href="{:U('User/delete',array('id'=>$ul[id]))}">删除</a>
-						
-						</td>
-					</tr>
-					</foreach>
-				</tbody>
-				<tfoot>
-					<th colspan="6">{$user_list.page}</th>
-				</tfoot>
-			</table>
+<hr>
 
+<form action="{:U('User/DeleteUsers')}" method="post"  onsubmit="return confirm('你确定要删除这些商品吗？')">
+            <table class="table table-bordered table-striped with-check">
+                <thead>
+                    <tr>
+                        <th><i class="icon-resize-vertical"></i></th>
+                        <th style="width:5%;">编号</th>
+                        <th style="width:8%;">用户名</th>
+                        <th>电子邮箱</th>
+                        <th>手机号</th>
+                        <th style="width:12%;">上次登录</th>
+                        <th style="width:8%;">上次IP</th>
+                        <th style="width:5%;">状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <foreach name="userRes" item="user">
+                        <tr>
+                            <td><input type="checkbox" name="uids[]" value="{$user.id}"/></td>
+                            <td class="text-center">{$user.id}</td>
+                            <td class="text-center">
+                                {$user.uname}
+                            </td>
+                            <td>
+                                <empty name="user.email">
+                                    未填写
+                                <else />
+                                    {$user.email} <notempty name="user.email_state"> <span class="badge badge-success">证</notempty>
+                                </empty>
+                            </td>
+                            <td>
+                                <empty name="user.mobile">
+                                    未填写
+                                <else />
+                                    {$user.mobile}
+                                    <notempty name="user.mobile_state"> 
+                                        <span class="badge badge-warning">证</span>
+                                    </notempty>
+                                </empty>
+                            </td>
+                            <td class="text-center">
+                                {$user.last_login_time|date="Y-m-d H:i", ###}
+                            </td>
+                            <td class="text-center">{$user.last_login_ip|long2ip}</td>
+                            <td class="text-center">
+                                <empty name="user.status">
+                                    <i class="icon-lock" style="color:red">禁用</i>
+                                <else />
+                                    <i class="icon-unlock" style="color:green">激活</i>
+                                </empty>
+                            </td>
+                            <td class="text-center">
+                                <a href="{:U('Admin/User/edit')}" title="编辑" class="btn btn-success btn-mini"> 编辑 </a>
+                                <a href="__CONTROLLER__/userAddress/id/<{$user.id}>" title="收货地址" class="btn btn-info btn-mini">地址  </a>
+                                <a href="__CONTROLLER__/productParamAdd/id/<{$pro.id}>" title="查询订单" class="btn btn-warning btn-mini"> 订单</a>
+                                <a href="__CONTROLLER__/toggleOnSale/id/<{$pro.id}>/state/<{$pro.is_on_sale}>" title="交易明细" class="btn btn-primary btn-mini"> 交易 </a>
+                                <a href="__CONTROLLER__/addProductToRecycle/id/<{$pro.id}>" title="禁用" class="btn btn-danger btn-mini"> 禁用 </a>
+                            </td>
+                        </tr>
+                    </foreach>
+                </tbody>
+              <tfoot>
+                <tr>
+                    <td colspan="9">
+                      <div class="pagination alternate text-right">
+                      <input type="submit" class="btn btn-primary pull-left"  value="批量删除">
+                          {$page}
+                      </div>
+                    </td>
+                </tr>
+              </tfoot>
+            </table>
+            </form>
 </block>

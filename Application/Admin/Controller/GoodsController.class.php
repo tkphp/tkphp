@@ -27,7 +27,8 @@ class GoodsController extends MyController
     //商品添加页面
     public function add()
     {
-        $cats = M('product_cat')->select();
+        /* $cats = D('Admin/Cat')->selectform(); */
+        $cats=D('cat')->selectform('cat_id');
         // 将商品分类变量分配到模板
         $this->assign('cats', $cats);
         $this->display();
@@ -70,37 +71,49 @@ class GoodsController extends MyController
     }
 
 
-     //获取商品分类，这个功能其它方法也能用到
-    private function _getProductCats()
-    {
-        $modelProduct = M('product_cat');
-        return $modelProduct->select();
-    }
     public function edit(){
-        $cats = $this->_getProductCats();
         //$getId = I('get.id');
         $id = I("id", 0, 'int');
         // 获取产品详细信息
-        $res = M('products')->find($id);
+        $goods=M("products")->find($id);
+        $cats=D('cat')->selectform('cat_id', $goods['cat_id']);
+
         // 将商品分类变量分配到模板
         $this->assign('cats', $cats);
-        $this->assign('pro', $res);
+        $this->assign('pro', $goods);
         $this->display();
     }
     //商品列表
     public function lists()
-    {   $goods = D("products"); // 实例化对象
-        $count      = $goods->count();// 查询满足要求的总记录数
-        $Page       = new \Think\Page($count,5);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+    {   
+        // 分页处理，带关键字搜索
+        if (isset($_GET)) {
+            if(!empty($_GET['cat_id'])) {
+                $ser['cat_id'] = I("cat_id", 0, 'int');
+            }
+            if(!empty($_GET['is_on_sale'])) {
+               $ser['is_on_sale'] = I("is_on_sale", 0, 'int');
+            }
+           /*   if(empty($_GET['keyword']!='')) {
+                $ser['pro_name'] = I("keyword", 0, 'string');
+            }  */
+            
+        }
+        $cats = D('Admin/Cat')->selectform('cat_id');
+        // 将商品分类变量分配到模板
+        $goods = D("products"); // 实例化对象
+        $count      = $goods->where($ser)->count();// 查询满足要求的总记录数
+        $Page       = new \Think\Page($count,8);// 实例化分页类 传入总记录数和每页显示的记录数(25)
         $show       = $Page->show();// 分页显示输出
         // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
-        $good = $goods->limit($Page->firstRow.','.$Page->listRows)->select();
+        $good = $goods->where($ser)->limit($Page->firstRow.','.$Page->listRows)->select();
+        $this->assign('cats', $cats);
         $this->assign('page',$show);// 赋值分页输出
         $this->assign("goods", $good);
-        $this->display();
+        $this->display(); 
     }
 
-
+   
     // 执行商品修改操作
     public function doEdit()
     {
@@ -114,27 +127,22 @@ class GoodsController extends MyController
         $post['update_time'] = time();
         $post['is_new'] = isset($_POST['is_new']) ? $_POST['is_new'] : 0;
         $post['is_promote'] = isset($_POST['is_promote']) ? $_POST['is_promote'] : 0;
-    
+        $post['is_on_sale'] = isset($_POST['is_on_sale']) ? $_POST['is_on_sale'] : 0;
         M('products')->where("id={$Id}")->save($post);
         header("Location:" . U('Goods/lists'));
     }
     //商品删除
     public function delete()
     {
-        $id = I("id", 0, 'int');
+       
+        $id = !empty($_POST['id']) ? $_POST['id'] : $_GET['id'];
+//         var_dump($id);
+//         $id = I("id", 0, 'int'); 
         $good= M("products");
-        $path=$good->where("id='{$id}'")->find();
+        $path=$good->where($id)->find();
         unlink('./Uploads/'.$path["list_image"]);
-        $good->where("id='{$id}'")->delete();
-        header("Location:" . U('Goods/lists'));
+        $good->where($id)->delete();
+        header("Location:" . U('Goods/lists'));  
     }
     
-    
-     //商品分类列表，获取商品列表模板
-    public function cat()
-    {
-        $cats = M('product_cat')->select();
-        $this->assign('cats', $cats);
-        $this->display();
-    }
 }

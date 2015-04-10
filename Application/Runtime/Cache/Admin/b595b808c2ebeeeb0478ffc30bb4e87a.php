@@ -9,7 +9,7 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="/tkphp/Public/static/css/bootstrap.css" />
-
+	    <link rel="stylesheet" type="text/css" href="/tkphp/Public/static/jquery.js />
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -84,8 +84,14 @@ body {
   color: #fff;
   background-color: #428bca;
 }
-
-
+ol li{
+	border-bottom:1px solid #ccc;
+}
+ol li a{
+	line-height:40px;
+	padding-right:40px;
+	display:block;
+}
 /*
  * Main content
  */
@@ -143,9 +149,32 @@ body {
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#">面板</a></li>
-            <li><a href="#">设置</a></li>
-            <li><a href="#">帮助</a></li>
+            <li class="dropdown">
+				 <a class="dropdown-toggle" href="#" data-toggle="dropdown">系统管理<strong class="caret"></strong></a>
+				 <ul class="dropdown-menu">
+					<li><a href="#">网站配置</a></li>
+					<li><a href="#">系统管理员</a></li>
+					<li><a href="#">邮件配置</a></li>
+					<li><a href="#">短信配置</a></li>
+					<li><a href="#">支付管理</a></li>
+				</ul>
+			</li>
+			 <li class="dropdown">
+				 <a class="dropdown-toggle" href="#" data-toggle="dropdown">用户管理<strong class="caret"></strong></a>
+				 <ul class="dropdown-menu">
+					<li><a href="<?php echo U('User/lists');?>">会员列表</a></li>
+					<li><a href="<?php echo U('User/contact');?>">用户留言</a></li>
+				</ul>
+			</li>
+			 <li class="dropdown">
+				 <a class="dropdown-toggle" href="#" data-toggle="dropdown">商品管理<strong class="caret"></strong></a>
+				 <ul class="dropdown-menu">
+					<li><a href="<?php echo U('Goods/lists');?>">商品列表</a></li>
+					<li><a href="<?php echo U('Goods/add');?>">添加商品</a></li>
+					<li><a href="<?php echo U('Cat/index');?>">商品分类</a></li>
+				</ul>
+			</li>
+            
             <li><a href="<?php echo U('Home/Index/index');?>">前台首页</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -165,8 +194,8 @@ body {
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li class="active"><a href="#">后台主页 <span class="sr-only">(current)</span></a></li>
-            <li>   <a data-toggle="collapse" href="#1" aria-expanded="false" aria-controls="1">系统管理</a>
-				   <ol class="collapse" id="1">
+            <li>   <a  class="menu">系统管理</a>
+				   <ol>
 					<li><a href="#">网站配置</a></li>
 					<li><a href="#">系统管理员</a></li>
 					<li><a href="#">邮件配置</a></li>
@@ -174,14 +203,14 @@ body {
 					<li><a href="#">支付管理</a></li>
 				   </ol>
 			</li>
-			<li>   <a data-toggle="collapse" href="#2" aria-expanded="false" aria-controls="2">用户管理</a>
-			   <ol class="collapse" id="2">
+		 	<li>   <a class="menu">用户管理</a>
+			   <ol>
 				<li><a href="<?php echo U('User/lists');?>">会员列表</a></li>
 				<li><a href="<?php echo U('User/contact');?>">用户留言</a></li>
 			   </ol>
 			</li>
-			<li>   <a data-toggle="collapse" href="#3" aria-expanded="false" aria-controls="3">商品管理</a>
-				   <ol class="collapse" id="3">
+			<li>   <a class="menu">商品管理</a>
+				   <ol>
 					<li><a href="<?php echo U('Goods/lists');?>">商品列表</a></li>
 					<li><a href="<?php echo U('Goods/add');?>">添加商品</a></li>
 					<li><a href="<?php echo U('Cat/index');?>">商品分类</a></li>
@@ -194,12 +223,81 @@ body {
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
           <ul class="breadcrumb main">
            
-
-
+				<li>
+					<a href="#">主页</a> <span class="divider"></span>
+				</li>
+			
 			</ul>
 
 
-<h1>Admin/Index/index</h1>
+   <div class="container-fluid">
+		<div class="row-fluid">
+				<h3>
+					<center>TKPHP后台管理系统</center>
+				</h3>
+		</div>
+			<div class="row-fluid">
+				<div class="span12">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>
+									标题
+								</th>
+								<th>
+									内容
+								</th>
+								
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="success">
+								<td>
+									开发平台
+								</td>
+								<td>
+									LNMP
+								</td>
+							</tr>
+							<tr class="success">
+								<td>
+									开发平台
+								</td>
+								<td>
+									LNMP
+								</td>
+							</tr>
+							<tr class="success">
+								<td>
+									开发平台
+								</td>
+								<td>
+									LNMP
+								</td>
+							</tr>
+							<tr class="success">
+								<td>
+									开发平台
+								</td>
+								<td>
+									LNMP
+								</td>
+							</tr>
+							<tr class="success">
+								<td>
+									开发平台
+								</td>
+								<td>
+									LNMP
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+	
 
         </div>
       </div>
@@ -209,5 +307,22 @@ body {
     <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="/tkphp/Public/static/js/bootstrap.js"></script>
+	
+
+<script type="text/javascript">
+$(function(){
+	$("ol").hide();
+	$(".menu").click(function(){
+		$(".menu").css({"background-color":"#ddd"})
+		$(this).css({"background-color": "#eee"});
+		$(this).parent().find('ol').removeClass("menu_chioce");
+		$(".menu_chioce").slideUp(); 
+		$(this).parent().find('ol').slideToggle();
+		$(this).parent().find('ol').addClass("menu_chioce");
+	});
+})
+</script>
+
+
   </body>
 </html>

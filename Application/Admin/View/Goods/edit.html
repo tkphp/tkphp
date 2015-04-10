@@ -20,7 +20,7 @@
    <div class="form-group">
       <label for="cat_id" class="col-sm-3 control-label">产品类别:</label>
       <div class="col-sm-5">
-          <select name="cat_id" id="cat_id" class="form-control">
+         <!--  <select name="cat_id" id="cat_id" class="form-control">
               <foreach name="cats" item="cat">
 	                <option value="{$cat.id}" 
 	                <if condition="$cat['id'] eq $pro['cat_id']">selected</if>
@@ -28,7 +28,8 @@
 	                {$cat.cat_name}
 	                </option>
 	            </foreach>
-          </select>
+          </select> -->
+          {$cats}
       </div>
   </div>
   <div class="form-group">
@@ -88,8 +89,13 @@
 	                 value="1" name="is_new" /> 新品</label>
            <label><input type="checkbox" <if condition="$pro.is_promote eq 1">checked</if>
 	                 value="1" name="is_promote" /> 促销</label>
-           <label><input type="checkbox" <if condition="$pro.is_on_sale eq 0">checked</if>
-	                 value="1" name="is_on_sale" /> 下架</label>
+           <!-- <label><input type="checkbox" <if condition="$pro.is_on_sale eq 0">checked</if>
+	                 value="1" name="is_on_sale" /> 下架</label> -->
+            <if condition="$pro['is_on_sale'] eq 0" >
+                <label><input type="checkbox" value="1" name="is_on_sale" /> 上架</label>
+            <else/>
+                <label><input type="checkbox" value="0" name="is_on_sale" /> 下架</label>
+            </if>
        </div>
    </div>
 

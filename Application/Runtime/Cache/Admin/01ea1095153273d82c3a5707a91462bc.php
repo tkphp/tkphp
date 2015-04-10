@@ -9,7 +9,7 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="/tkphp/Public/static/css/bootstrap.css" />
-
+	    <link rel="stylesheet" type="text/css" href="/tkphp/Public/static/jquery.js />
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -84,8 +84,14 @@ body {
   color: #fff;
   background-color: #428bca;
 }
-
-
+ol li{
+	border-bottom:1px solid #ccc;
+}
+ol li a{
+	line-height:40px;
+	padding-right:40px;
+	display:block;
+}
 /*
  * Main content
  */
@@ -143,9 +149,32 @@ body {
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#">面板</a></li>
-            <li><a href="#">设置</a></li>
-            <li><a href="#">帮助</a></li>
+            <li class="dropdown">
+				 <a class="dropdown-toggle" href="#" data-toggle="dropdown">系统管理<strong class="caret"></strong></a>
+				 <ul class="dropdown-menu">
+					<li><a href="#">网站配置</a></li>
+					<li><a href="#">系统管理员</a></li>
+					<li><a href="#">邮件配置</a></li>
+					<li><a href="#">短信配置</a></li>
+					<li><a href="#">支付管理</a></li>
+				</ul>
+			</li>
+			 <li class="dropdown">
+				 <a class="dropdown-toggle" href="#" data-toggle="dropdown">用户管理<strong class="caret"></strong></a>
+				 <ul class="dropdown-menu">
+					<li><a href="<?php echo U('User/lists');?>">会员列表</a></li>
+					<li><a href="<?php echo U('User/contact');?>">用户留言</a></li>
+				</ul>
+			</li>
+			 <li class="dropdown">
+				 <a class="dropdown-toggle" href="#" data-toggle="dropdown">商品管理<strong class="caret"></strong></a>
+				 <ul class="dropdown-menu">
+					<li><a href="<?php echo U('Goods/lists');?>">商品列表</a></li>
+					<li><a href="<?php echo U('Goods/add');?>">添加商品</a></li>
+					<li><a href="<?php echo U('Cat/index');?>">商品分类</a></li>
+				</ul>
+			</li>
+            
             <li><a href="<?php echo U('Home/Index/index');?>">前台首页</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -165,8 +194,8 @@ body {
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li class="active"><a href="#">后台主页 <span class="sr-only">(current)</span></a></li>
-            <li>   <a data-toggle="collapse" href="#1" aria-expanded="false" aria-controls="1">系统管理</a>
-				   <ol class="collapse" id="1">
+            <li>   <a  class="menu">系统管理</a>
+				   <ol>
 					<li><a href="#">网站配置</a></li>
 					<li><a href="#">系统管理员</a></li>
 					<li><a href="#">邮件配置</a></li>
@@ -174,14 +203,14 @@ body {
 					<li><a href="#">支付管理</a></li>
 				   </ol>
 			</li>
-			<li>   <a data-toggle="collapse" href="#2" aria-expanded="false" aria-controls="2">用户管理</a>
-			   <ol class="collapse" id="2">
+		 	<li>   <a class="menu">用户管理</a>
+			   <ol>
 				<li><a href="<?php echo U('User/lists');?>">会员列表</a></li>
 				<li><a href="<?php echo U('User/contact');?>">用户留言</a></li>
 			   </ol>
 			</li>
-			<li>   <a data-toggle="collapse" href="#3" aria-expanded="false" aria-controls="3">商品管理</a>
-				   <ol class="collapse" id="3">
+			<li>   <a class="menu">商品管理</a>
+				   <ol>
 					<li><a href="<?php echo U('Goods/lists');?>">商品列表</a></li>
 					<li><a href="<?php echo U('Goods/add');?>">添加商品</a></li>
 					<li><a href="<?php echo U('Cat/index');?>">商品分类</a></li>
@@ -195,10 +224,10 @@ body {
           <ul class="breadcrumb main">
            
 	<li>
-		<a href="<?php echo U('Admin/Index/index');?>">��ҳ</a> <span class="divider"></span>
+		<a href="<?php echo U('Admin/Index/index');?>">主页</a> <span class="divider"></span>
 	</li>
 	<li class="active">
-		��Ʒ�б�
+		商品列表
 	</li>
 
 			</ul>
@@ -206,70 +235,72 @@ body {
 
 <div class="row">
   <div class="col-xs-12 col-sm-6 col-md-8">
-	  <form class="form-inline">
+	  <form action="<?php echo U('Goods/lists');?>" post="get" class="form-inline">
 	  <div class="form-group">
-	    <select class="form-control">
-		  <option>����ȫ��</option>
-		  <option>�����ֻ�</option>
-		  <option>ƽ�����</option>
-		  <option>�������</option>
-		  <option>�˹�����</option>
-		</select>
+	    <!-- <select class="form-control">
+		  <option>查找全部</option>
+		  <option>智能手机</option>
+		  <option>平板电脑</option>
+		  <option>高清电视</option>
+		  <option>人工智能</option>
+		</select> -->
+		<?php echo ($cats); ?>
 	  </div>
 	  <div class="form-group">
-	     <select class="form-control">
-		  <option>����ȫ��</option>
-		  <option>�����ֻ�</option>
-		  <option>ƽ�����</option>
-		  <option>�������</option>
-		  <option>�˹�����</option>
+	     <select name="is_on_sale" class="form-control">
+		  <option value="1">上架</option>
+		  <option value="0">下架</option>
 		 </select>
 	  </div>
-	  <button type="submit" class="btn btn-default">�ύ</button>
+	  <!-- <div class="form-group">
+	  	<input type="text" class="form-control" name="keyword" >
+	  </div> -->
+	  <button type="submit" class="btn btn-default">提交</button>
 	 </form>
   </div>
   <div class="col-xs-6 col-md-4 ">
-   <a href="<?php echo U('Goods/add');?>"><button class="btn  btn-large pull-right">������Ʒ</button></a>
+   <a href="<?php echo U('Goods/add');?>"><button class="btn  btn-large pull-right">添加商品</button></a>
   </div>
 </div>
 <hr>
 
 <table class="table table-bordered table-hover">
+<form action="<?php echo U('Goods/delete');?>" method="post"  onsubmit="return confirm('你确定要删除这些商品吗？')">
 				<thead>
 					<tr>
 						<th>
-						<input type="checkbox">ȫѡ
+						<input type="checkbox" name="chk_all" id="chk_all" />全选
 						</th>
 						<th>
-							���
+							编号
 						</th>
 						<th>
-							��Ʒ����
+							商品名称
 						</th>
 						<th>
-							����
+							货号
 						</th>
 						<th>
-							�ۼ�
+							售价
 						</th>
 						<th>
-							�ϼ�
+							上架
 						</th>
 						<th>
-							�ϼ�ʱ��
+							上架时间
 						</th>
 						<th>
-							����
+							货存
 						</th>
 						<th>
-							����
+							操作
 						</th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php if(is_array($goods)): foreach($goods as $key=>$good): ?><tr>
 						<td>
-							<input type="checkbox">
+							<input type="checkbox" name="id" id="<?php echo ($good["id"]); ?>" value="<?php echo ($good["id"]); ?>" >
 						</td>
 						<td>
 							<?php echo ($good["id"]); ?>
@@ -284,7 +315,7 @@ body {
 							<?php echo ($good["market_price"]); ?>
 						</td>
 						<td>
-							<?php if($good["is_on_sale"] == 1): ?>��<?php endif; ?>
+							<?php if($good["is_on_sale"] == 1): ?>√<?php endif; ?>
 							<?php if($good["is_on_sale"] == 0): ?>X<?php endif; ?>
 						</td>
 						<td>
@@ -294,19 +325,24 @@ body {
 							<?php echo ($good["stock_num"]); ?>
 						</td>
 						<td>
-							 <a href="<?php echo U('Goods/edit',array('id'=>$good[id]));?>">�༭</a>&nbsp;&nbsp;&nbsp;&nbsp;
-							 <a href="<?php echo U('Goods/delete',array('id'=>$good[id]));?>">ɾ��</a>
+							 <a href="<?php echo U('Goods/edit',array('id'=>$good[id]));?>">编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;
+							 <a onclick="return confirm('你确定要删除商品<?php echo ($good["pro_name"]); ?>吗?')" href="<?php echo U('Goods/delete',array('id'=>$good[id]));?>">删除</a>
 						
 						</td>
 					</tr><?php endforeach; endif; ?>
 				</tbody>
 				<tfoot>
 				
-					<th colspan="9" ><a href="#">ɾ��</a></th>
+					<th colspan="9" ><input type="submit" name="del" value="删除"></th>
 				</tfoot>
+</form>
 			</table>
 			<?php echo ($page); ?>
-
+<script>
+$("#chk_all").click(function(){
+    $("input[name='id']").attr("checked",$(this).attr("checked"));
+});
+</script>
 
         </div>
       </div>
@@ -316,5 +352,22 @@ body {
     <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="/tkphp/Public/static/js/bootstrap.js"></script>
+	
+
+<script type="text/javascript">
+$(function(){
+	$("ol").hide();
+	$(".menu").click(function(){
+		$(".menu").css({"background-color":"#ddd"})
+		$(this).css({"background-color": "#eee"});
+		$(this).parent().find('ol').removeClass("menu_chioce");
+		$(".menu_chioce").slideUp(); 
+		$(this).parent().find('ol').slideToggle();
+		$(this).parent().find('ol').addClass("menu_chioce");
+	});
+})
+</script>
+
+
   </body>
 </html>

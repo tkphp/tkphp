@@ -483,74 +483,6 @@
 											data-easing="Power4.easeOut"><a class="button big red" href="#">了解更多</a>
 										</div>
 									</li><?php endforeach; endif; ?>
-									<!-- SLIDE  -->
-									<!-- <li data-transition="zoomout" data-slotamount="7" data-masterspeed="1000" >
-										MAIN IMAGE
-										<img src="/tkphp/Public/homeshop/img/slide3.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
-										LAYERS
-										<div class="tp-caption skewfromrightshort fadeout"
-											data-x="40"
-											data-y="60"
-											data-speed="500"
-											data-start="1200"
-											data-easing="Power4.easeOut"><h2><strong>新款耳机<br></strong></h2>
-										</div>
-										<div class="tp-caption skewfromrightshort fadeout"
-											data-x="40"
-											data-y="190"
-											data-speed="500"
-											data-start="1200"
-											data-easing="Power4.easeOut"><h3>悦耳声音</h3>
-										</div>
-										<div class="tp-caption skewfromrightshort fadeout"
-											data-x="40"
-											data-y="300"
-											data-speed="500"
-											data-start="1200"
-											data-easing="Power4.easeOut"><span>只要 <span class="price">￥399</span></span>
-										</div>
-										<div class="tp-caption skewfromrightshort fadeout"
-											data-x="40"
-											data-y="347"
-											data-speed="500"
-											data-start="1200"
-											data-easing="Power4.easeOut"><a class="button big red" href="#">立即购买</a>
-										</div>
-									</li> -->
-									<!-- SLIDE  -->
-									<!-- <li data-transition="zoomout" data-slotamount="7" data-masterspeed="1000" >
-										MAIN IMAGE
-										<img src="/tkphp/Public/homeshop/img/slide2.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
-										LAYERS
-										<div class="tp-caption skewfromrightshort fadeout"
-											data-x="40"
-											data-y="60"
-											data-speed="500"
-											data-start="1200"
-											data-easing="Power4.easeOut"><h2><strong>一切皆有可能</strong></h2>
-										</div>
-										<div class="tp-caption skewfromrightshort fadeout"
-											data-x="40"
-											data-y="140"
-											data-speed="500"
-											data-start="1200"
-											data-easing="Power4.easeOut"><h3>权利在你手中!</h3>
-										</div>
-										<div class="tp-caption skewfromrightshort fadeout"
-											data-x="40"
-											data-y="250"
-											data-speed="500"
-											data-start="1200"
-											data-easing="Power4.easeOut"><span>售价<span class="price">￥990</span></span>
-										</div>
-										<div class="tp-caption skewfromrightshort fadeout"
-											data-x="40"
-											data-y="300"
-											data-speed="500"
-											data-start="1200"
-											data-easing="Power4.easeOut"><a class="button big red" href="#">现在购买</a>
-										</div>
-									</li> -->
 								</ul>
 							</div>
 						</div>
@@ -565,7 +497,7 @@
 						<div class="col-lg-12 col-md-12 col-sm-12">
 							
 							<div class="carousel-heading">
-								<h4>Featured Products</h4>
+								<h4>电脑</h4>
 								<div class="carousel-arrows">
 									<i class="icons icon-left-dir"></i>
 									<i class="icons icon-right-dir"></i>
@@ -581,20 +513,20 @@
 							<div class="owl-carousel" data-max-items="3">
 									
 									<!-- Slide -->
-									<div>
+									<?php if(is_array($products)): foreach($products as $key=>$good): ?><div>
 										<!-- Carousel Item -->
 										<div class="product">
 											
 											<div class="product-image">
-												<img src="/tkphp/Public/homeshop/img/products/sample1.jpg" alt="Product1">
+												<img src="/tkphp/Uploads/<?php echo ($good["list_image"]); ?>" alt="Product1">
 												<a href="<?php echo U('Home/Product/index');?>" class="product-hover">
-													<i class="icons icon-eye-1"></i> Quick View
+													<i class="icons icon-eye-1"></i> 快速查看
 												</a>
 											</div>
 											
 											<div class="product-info">
-												<h5><a href="<?php echo U('Home/Product/index');?>">Lorem ipsum dolor sit amet</a></h5>
-												<span class="price">$281.00</span>
+												<h5><a href="<?php echo U('Home/Product/index');?>">值得拥有</a></h5>
+												<span class="price">￥<?php echo ($good["promote_price"]); ?></span>
 												<div class="rating readonly-rating" data-score="4"></div>
 											</div>
 											
@@ -602,261 +534,30 @@
 												<span class="add-to-cart">
 													<span class="action-wrapper">
 														<i class="icons icon-basket-2"></i>
-														<span class="action-name">Add to cart</span>
+														<span class="action-name">加入购物车</span>
 													</span >
 												</span>
 												<span class="add-to-favorites">
 													<span class="action-wrapper">
 														<i class="icons icon-heart-empty"></i>
-														<span class="action-name">Add to wishlist</span>
+														<span class="action-name">加入收藏夹</span>
 													</span>
 												</span>
 												<span class="add-to-compare">
 													<span class="action-wrapper">
 														<i class="icons icon-docs"></i>
-														<span class="action-name">Add to Compare</span>
+														<span class="action-name">加入对比</span>
 													</span>
 												</span>
 											</div>
 											
 										</div>
 										<!-- /Carousel Item -->
-									</div>
-									<!-- /Slide -->
-									
-									
-									<!-- Slide -->
-									<div>
-										<!-- Carousel Item -->
-										<div class="product">
-											
-											<div class="product-image">
-												<span class="product-tag">Sale</span>
-												<img src="/tkphp/Public/homeshop/img/products/sample2.jpg" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Quick View
-												</a>
-											</div>
-											
-											<div class="product-info">
-												<h5><a href="products_page_v1.html">Lorem ipsum dolor sit amet</a></h5>
-												<span class="price">$281.00</span>
-												<div class="rating readonly-rating" data-score="4"></div>
-											</div>
-											
-											<div class="product-actions">
-												<span class="add-to-cart">
-													<span class="action-wrapper">
-														<i class="icons icon-basket-2"></i>
-														<span class="action-name">Add to cart</span>
-													</span >
-												</span>
-												<span class="add-to-favorites">
-													<span class="action-wrapper">
-														<i class="icons icon-heart-empty"></i>
-														<span class="action-name">Add to wishlist</span>
-													</span>
-												</span>
-												<span class="add-to-compare">
-													<span class="action-wrapper">
-														<i class="icons icon-docs"></i>
-														<span class="action-name">Add to Compare</span>
-													</span>
-												</span>
-											</div>
-											
-										</div>
-										<!-- /Carousel Item -->
-									</div>
+									</div><?php endforeach; endif; ?>
 									<!-- /Slide -->
 									
 									
 									
-									<!-- Slide -->
-									<div>
-										<!-- Carousel Item -->
-										<div class="product">
-											
-											<div class="product-image">
-												<img src="/tkphp/Public/homeshop/img/products/sample3.jpg" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Quick View
-												</a>
-											</div>
-											
-											<div class="product-info">
-												<h5><a href="products_page_v1.html">Lorem ipsum dolor sit amet</a></h5>
-												<span class="price">$281.00</span>
-												<div class="rating readonly-rating" data-score="4"></div>
-											</div>
-											
-											<div class="product-actions">
-												<span class="add-to-cart">
-													<span class="action-wrapper">
-														<i class="icons icon-basket-2"></i>
-														<span class="action-name">Add to cart</span>
-													</span >
-												</span>
-												<span class="add-to-favorites">
-													<span class="action-wrapper">
-														<i class="icons icon-heart-empty"></i>
-														<span class="action-name">Add to wishlist</span>
-													</span>
-												</span>
-												<span class="add-to-compare">
-													<span class="action-wrapper">
-														<i class="icons icon-docs"></i>
-														<span class="action-name">Add to Compare</span>
-													</span>
-												</span>
-											</div>
-											
-										</div>
-										<!-- /Carousel Item -->
-									</div>
-									<!-- /Slide -->
-									
-									
-									
-									
-									<!-- Slide -->
-									<div>
-										<!-- Carousel Item -->
-										<div class="product">
-											
-											<div class="product-image">
-												<img src="/tkphp/Public/homeshop/img/products/sample1.jpg" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Quick View
-												</a>
-											</div>
-											
-											<div class="product-info">
-												<h5><a href="products_page_v1.html">Lorem ipsum dolor sit amet</a></h5>
-												<span class="price">$281.00</span>
-												<div class="rating readonly-rating" data-score="4"></div>
-											</div>
-											
-											<div class="product-actions">
-												<span class="add-to-cart">
-													<span class="action-wrapper">
-														<i class="icons icon-basket-2"></i>
-														<span class="action-name">Add to cart</span>
-													</span >
-												</span>
-												<span class="add-to-favorites">
-													<span class="action-wrapper">
-														<i class="icons icon-heart-empty"></i>
-														<span class="action-name">Add to wishlist</span>
-													</span>
-												</span>
-												<span class="add-to-compare">
-													<span class="action-wrapper">
-														<i class="icons icon-docs"></i>
-														<span class="action-name">Add to Compare</span>
-													</span>
-												</span>
-											</div>
-											
-										</div>
-										<!-- /Carousel Item -->
-									</div>
-									<!-- /Slide -->
-									
-									
-									
-									
-									<!-- Slide -->
-									<div>
-										<!-- Carousel Item -->
-										<div class="product">
-											
-											<div class="product-image">
-												<img src="/tkphp/Public/homeshop/img/products/sample2.jpg" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Quick View
-												</a>
-											</div>
-											
-											<div class="product-info">
-												<h5><a href="products_page_v1.html">Lorem ipsum dolor sit amet</a></h5>
-												<span class="price">$281.00</span>
-												<div class="rating readonly-rating" data-score="4"></div>
-											</div>
-											
-											<div class="product-actions">
-												<span class="add-to-cart">
-													<span class="action-wrapper">
-														<i class="icons icon-basket-2"></i>
-														<span class="action-name">Add to cart</span>
-													</span >
-												</span>
-												<span class="add-to-favorites">
-													<span class="action-wrapper">
-														<i class="icons icon-heart-empty"></i>
-														<span class="action-name">Add to wishlist</span>
-													</span>
-												</span>
-												<span class="add-to-compare">
-													<span class="action-wrapper">
-														<i class="icons icon-docs"></i>
-														<span class="action-name">Add to Compare</span>
-													</span>
-												</span>
-											</div>
-											
-										</div>
-										<!-- /Carousel Item -->
-									</div>
-									<!-- /Slide -->
-									
-									
-									
-									
-									
-									<!-- Slide -->
-									<div>
-										<!-- Carousel Item -->
-										<div class="product">
-											
-											<div class="product-image">
-												<img src="/tkphp/Public/homeshop/img/products/sample3.jpg" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Quick View
-												</a>
-											</div>
-											
-											<div class="product-info">
-												<h5><a href="products_page_v1.html">Lorem ipsum dolor sit amet</a></h5>
-												<span class="price">$281.00</span>
-												<div class="rating readonly-rating" data-score="4"></div>
-											</div>
-											
-											<div class="product-actions">
-												<span class="add-to-cart">
-													<span class="action-wrapper">
-														<i class="icons icon-basket-2"></i>
-														<span class="action-name">Add to cart</span>
-													</span >
-												</span>
-												<span class="add-to-favorites">
-													<span class="action-wrapper">
-														<i class="icons icon-heart-empty"></i>
-														<span class="action-name">Add to wishlist</span>
-													</span>
-												</span>
-												<span class="add-to-compare">
-													<span class="action-wrapper">
-														<i class="icons icon-docs"></i>
-														<span class="action-name">Add to Compare</span>
-													</span>
-												</span>
-											</div>
-											
-										</div>
-										<!-- /Carousel Item -->
-									</div>
-									<!-- /Slide -->
 									
 									
 							</div>
@@ -876,7 +577,7 @@
 						<div class="col-lg-12 col-md-12 col-sm-12">
 							
 							<div class="carousel-heading">
-								<h4>New Collection</h4>
+								<h4>手机</h4>
 								<div class="carousel-arrows">
 									<i class="icons icon-left-dir"></i>
 									<i class="icons icon-right-dir"></i>
@@ -892,21 +593,20 @@
 							<div class="owl-carousel" data-max-items="3">
 									
 									<!-- Slide -->
-									<div>
+									<?php if(is_array($products)): foreach($products as $key=>$good): ?><div>
 										<!-- Carousel Item -->
 										<div class="product">
 											
 											<div class="product-image">
-												<span class="product-tag">Sale</span>
-												<img src="/tkphp/Public/homeshop/img/products/sample4.jpg" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Quick View
+												<img src="/tkphp/Uploads/<?php echo ($good["list_image"]); ?>" alt="Product1">
+												<a href="<?php echo U('Home/Product/index');?>" class="product-hover">
+													<i class="icons icon-eye-1"></i> 快速查看
 												</a>
 											</div>
 											
 											<div class="product-info">
-												<h5><a href="products_page_v1.html">Lorem ipsum dolor sit amet</a></h5>
-												<span class="price">$281.00</span>
+												<h5><a href="<?php echo U('Home/Product/index');?>">值得拥有</a></h5>
+												<span class="price">￥<?php echo ($good["promote_price"]); ?></span>
 												<div class="rating readonly-rating" data-score="4"></div>
 											</div>
 											
@@ -914,261 +614,27 @@
 												<span class="add-to-cart">
 													<span class="action-wrapper">
 														<i class="icons icon-basket-2"></i>
-														<span class="action-name">Add to cart</span>
+														<span class="action-name">加入购物车</span>
 													</span >
 												</span>
 												<span class="add-to-favorites">
 													<span class="action-wrapper">
 														<i class="icons icon-heart-empty"></i>
-														<span class="action-name">Add to wishlist</span>
+														<span class="action-name">加入收藏夹</span>
 													</span>
 												</span>
 												<span class="add-to-compare">
 													<span class="action-wrapper">
 														<i class="icons icon-docs"></i>
-														<span class="action-name">Add to Compare</span>
+														<span class="action-name">加入对比</span>
 													</span>
 												</span>
 											</div>
 											
 										</div>
 										<!-- /Carousel Item -->
-									</div>
+									</div><?php endforeach; endif; ?>
 									<!-- /Slide -->
-									
-									
-									<!-- Slide -->
-									<div>
-										<!-- Carousel Item -->
-										<div class="product">
-											
-											<div class="product-image">
-												<img src="/tkphp/Public/homeshop/img/products/sample5.jpg" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Quick View
-												</a>
-											</div>
-											
-											<div class="product-info">
-												<h5><a href="products_page_v1.html">Lorem ipsum dolor sit amet</a></h5>
-												<span class="price">$281.00</span>
-												<div class="rating readonly-rating" data-score="4"></div>
-											</div>
-											
-											<div class="product-actions">
-												<span class="add-to-cart">
-													<span class="action-wrapper">
-														<i class="icons icon-basket-2"></i>
-														<span class="action-name">Add to cart</span>
-													</span >
-												</span>
-												<span class="add-to-favorites">
-													<span class="action-wrapper">
-														<i class="icons icon-heart-empty"></i>
-														<span class="action-name">Add to wishlist</span>
-													</span>
-												</span>
-												<span class="add-to-compare">
-													<span class="action-wrapper">
-														<i class="icons icon-docs"></i>
-														<span class="action-name">Add to Compare</span>
-													</span>
-												</span>
-											</div>
-											
-										</div>
-										<!-- /Carousel Item -->
-									</div>
-									<!-- /Slide -->
-									
-									
-									
-									<!-- Slide -->
-									<div>
-										<!-- Carousel Item -->
-										<div class="product">
-											
-											<div class="product-image">
-												<img src="/tkphp/Public/homeshop/img/products/sample6.jpg" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Quick View
-												</a>
-											</div>
-											
-											<div class="product-info">
-												<h5><a href="products_page_v1.html">Lorem ipsum dolor sit amet</a></h5>
-												<span class="price">$281.00</span>
-												<div class="rating readonly-rating" data-score="4"></div>
-											</div>
-											
-											<div class="product-actions">
-												<span class="add-to-cart">
-													<span class="action-wrapper">
-														<i class="icons icon-basket-2"></i>
-														<span class="action-name">Add to cart</span>
-													</span >
-												</span>
-												<span class="add-to-favorites">
-													<span class="action-wrapper">
-														<i class="icons icon-heart-empty"></i>
-														<span class="action-name">Add to wishlist</span>
-													</span>
-												</span>
-												<span class="add-to-compare">
-													<span class="action-wrapper">
-														<i class="icons icon-docs"></i>
-														<span class="action-name">Add to Compare</span>
-													</span>
-												</span>
-											</div>
-											
-										</div>
-										<!-- /Carousel Item -->
-									</div>
-									<!-- /Slide -->
-									
-									
-									
-									
-									<!-- Slide -->
-									<div>
-										<!-- Carousel Item -->
-										<div class="product">
-											
-											<div class="product-image">
-												<img src="/tkphp/Public/homeshop/img/products/sample4.jpg" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Quick View
-												</a>
-											</div>
-											
-											<div class="product-info">
-												<h5><a href="products_page_v1.html">Lorem ipsum dolor sit amet</a></h5>
-												<span class="price">$281.00</span>
-												<div class="rating readonly-rating" data-score="4"></div>
-											</div>
-											
-											<div class="product-actions">
-												<span class="add-to-cart">
-													<span class="action-wrapper">
-														<i class="icons icon-basket-2"></i>
-														<span class="action-name">Add to cart</span>
-													</span >
-												</span>
-												<span class="add-to-favorites">
-													<span class="action-wrapper">
-														<i class="icons icon-heart-empty"></i>
-														<span class="action-name">Add to wishlist</span>
-													</span>
-												</span>
-												<span class="add-to-compare">
-													<span class="action-wrapper">
-														<i class="icons icon-docs"></i>
-														<span class="action-name">Add to Compare</span>
-													</span>
-												</span>
-											</div>
-											
-										</div>
-										<!-- /Carousel Item -->
-									</div>
-									<!-- /Slide -->
-									
-									
-									
-									
-									<!-- Slide -->
-									<div>
-										<!-- Carousel Item -->
-										<div class="product">
-											
-											<div class="product-image">
-												<img src="/tkphp/Public/homeshop/img/products/sample5.jpg" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Quick View
-												</a>
-											</div>
-											
-											<div class="product-info">
-												<h5><a href="products_page_v1.html">Lorem ipsum dolor sit amet</a></h5>
-												<span class="price">$281.00</span>
-												<div class="rating readonly-rating" data-score="4"></div>
-											</div>
-											
-											<div class="product-actions">
-												<span class="add-to-cart">
-													<span class="action-wrapper">
-														<i class="icons icon-basket-2"></i>
-														<span class="action-name">Add to cart</span>
-													</span >
-												</span>
-												<span class="add-to-favorites">
-													<span class="action-wrapper">
-														<i class="icons icon-heart-empty"></i>
-														<span class="action-name">Add to wishlist</span>
-													</span>
-												</span>
-												<span class="add-to-compare">
-													<span class="action-wrapper">
-														<i class="icons icon-docs"></i>
-														<span class="action-name">Add to Compare</span>
-													</span>
-												</span>
-											</div>
-											
-										</div>
-										<!-- /Carousel Item -->
-									</div>
-									<!-- /Slide -->
-									
-									
-									
-									
-									
-									<!-- Slide -->
-									<div>
-										<!-- Carousel Item -->
-										<div class="product">
-											
-											<div class="product-image">
-												<img src="/tkphp/Public/homeshop/img/products/sample6.jpg" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Quick View
-												</a>
-											</div>
-											
-											<div class="product-info">
-												<h5><a href="products_page_v1.html">Lorem ipsum dolor sit amet</a></h5>
-												<span class="price">$281.00</span>
-												<div class="rating readonly-rating" data-score="4"></div>
-											</div>
-											
-											<div class="product-actions">
-												<span class="add-to-cart">
-													<span class="action-wrapper">
-														<i class="icons icon-basket-2"></i>
-														<span class="action-name">Add to cart</span>
-													</span >
-												</span>
-												<span class="add-to-favorites">
-													<span class="action-wrapper">
-														<i class="icons icon-heart-empty"></i>
-														<span class="action-name">Add to wishlist</span>
-													</span>
-												</span>
-												<span class="add-to-compare">
-													<span class="action-wrapper">
-														<i class="icons icon-docs"></i>
-														<span class="action-name">Add to Compare</span>
-													</span>
-												</span>
-											</div>
-											
-										</div>
-										<!-- /Carousel Item -->
-									</div>
-									<!-- /Slide -->
-									
 									
 							</div>
 						</div>
@@ -1188,7 +654,7 @@
 						<div class="col-lg-12 col-md-12 col-sm-12">
 							
 							<div class="carousel-heading">
-								<h4>Random Products</h4>
+								<h4>相机</h4>
 								<div class="carousel-arrows">
 									<i class="icons icon-left-dir"></i>
 									<i class="icons icon-right-dir"></i>
@@ -1204,20 +670,20 @@
 							<div class="owl-carousel" data-max-items="3">
 									
 									<!-- Slide -->
-									<div>
+								<?php if(is_array($products)): foreach($products as $key=>$good): ?><div>
 										<!-- Carousel Item -->
 										<div class="product">
 											
 											<div class="product-image">
-												<img src="/tkphp/Public/homeshop/img/products/sample7.jpg" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Quick View
+												<img src="/tkphp/Uploads/<?php echo ($good["list_image"]); ?>" alt="Product1">
+												<a href="<?php echo U('Home/Product/index');?>" class="product-hover">
+													<i class="icons icon-eye-1"></i> 快速查看
 												</a>
 											</div>
 											
 											<div class="product-info">
-												<h5><a href="products_page_v1.html">Lorem ipsum dolor sit amet</a></h5>
-												<span class="price">$281.00</span>
+												<h5><a href="<?php echo U('Home/Product/index');?>">值得拥有</a></h5>
+												<span class="price">￥<?php echo ($good["promote_price"]); ?></span>
 												<div class="rating readonly-rating" data-score="4"></div>
 											</div>
 											
@@ -1225,262 +691,27 @@
 												<span class="add-to-cart">
 													<span class="action-wrapper">
 														<i class="icons icon-basket-2"></i>
-														<span class="action-name">Add to cart</span>
+														<span class="action-name">加入购物车</span>
 													</span >
 												</span>
 												<span class="add-to-favorites">
 													<span class="action-wrapper">
 														<i class="icons icon-heart-empty"></i>
-														<span class="action-name">Add to wishlist</span>
+														<span class="action-name">加入收藏夹</span>
 													</span>
 												</span>
 												<span class="add-to-compare">
 													<span class="action-wrapper">
 														<i class="icons icon-docs"></i>
-														<span class="action-name">Add to Compare</span>
+														<span class="action-name">加入对比</span>
 													</span>
 												</span>
 											</div>
 											
 										</div>
 										<!-- /Carousel Item -->
-									</div>
+									</div><?php endforeach; endif; ?>
 									<!-- /Slide -->
-									
-									
-									<!-- Slide -->
-									<div>
-										<!-- Carousel Item -->
-										<div class="product">
-											
-											<div class="product-image">
-												<img src="/tkphp/Public/homeshop/img/products/sample8.jpg" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Quick View
-												</a>
-											</div>
-											
-											<div class="product-info">
-												<h5><a href="products_page_v1.html">Lorem ipsum dolor sit amet</a></h5>
-												<span class="price">$281.00</span>
-												<div class="rating readonly-rating" data-score="4"></div>
-											</div>
-											
-											<div class="product-actions">
-												<span class="add-to-cart">
-													<span class="action-wrapper">
-														<i class="icons icon-basket-2"></i>
-														<span class="action-name">Add to cart</span>
-													</span >
-												</span>
-												<span class="add-to-favorites">
-													<span class="action-wrapper">
-														<i class="icons icon-heart-empty"></i>
-														<span class="action-name">Add to wishlist</span>
-													</span>
-												</span>
-												<span class="add-to-compare">
-													<span class="action-wrapper">
-														<i class="icons icon-docs"></i>
-														<span class="action-name">Add to Compare</span>
-													</span>
-												</span>
-											</div>
-											
-										</div>
-										<!-- /Carousel Item -->
-									</div>
-									<!-- /Slide -->
-									
-									
-									
-									<!-- Slide -->
-									<div>
-										<!-- Carousel Item -->
-										<div class="product">
-											
-											<div class="product-image">
-												<img src="/tkphp/Public/homeshop/img/products/sample9.jpg" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Quick View
-												</a>
-											</div>
-											
-											<div class="product-info">
-												<h5><a href="products_page_v1.html">Lorem ipsum dolor sit amet</a></h5>
-												<span class="price">$281.00</span>
-												<div class="rating readonly-rating" data-score="4"></div>
-											</div>
-											
-											<div class="product-actions">
-												<span class="add-to-cart">
-													<span class="action-wrapper">
-														<i class="icons icon-basket-2"></i>
-														<span class="action-name">Add to cart</span>
-													</span >
-												</span>
-												<span class="add-to-favorites">
-													<span class="action-wrapper">
-														<i class="icons icon-heart-empty"></i>
-														<span class="action-name">Add to wishlist</span>
-													</span>
-												</span>
-												<span class="add-to-compare">
-													<span class="action-wrapper">
-														<i class="icons icon-docs"></i>
-														<span class="action-name">Add to Compare</span>
-													</span>
-												</span>
-											</div>
-											
-										</div>
-										<!-- /Carousel Item -->
-									</div>
-									<!-- /Slide -->
-									
-									
-									
-									
-									<!-- Slide -->
-									<div>
-										<!-- Carousel Item -->
-										<div class="product">
-											
-											<div class="product-image">
-												<img src="/tkphp/Public/homeshop/img/products/sample7.jpg" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Quick View
-												</a>
-											</div>
-											
-											<div class="product-info">
-												<h5><a href="products_page_v1.html">Lorem ipsum dolor sit amet</a></h5>
-												<span class="price">$281.00</span>
-												<div class="rating readonly-rating" data-score="4"></div>
-											</div>
-											
-											<div class="product-actions">
-												<span class="add-to-cart">
-													<span class="action-wrapper">
-														<i class="icons icon-basket-2"></i>
-														<span class="action-name">Add to cart</span>
-													</span >
-												</span>
-												<span class="add-to-favorites">
-													<span class="action-wrapper">
-														<i class="icons icon-heart-empty"></i>
-														<span class="action-name">Add to wishlist</span>
-													</span>
-												</span>
-												<span class="add-to-compare">
-													<span class="action-wrapper">
-														<i class="icons icon-docs"></i>
-														<span class="action-name">Add to Compare</span>
-													</span>
-												</span>
-											</div>
-											
-										</div>
-										<!-- /Carousel Item -->
-									</div>
-									<!-- /Slide -->
-									
-									
-									
-									
-									<!-- Slide -->
-									<div>
-										<!-- Carousel Item -->
-										<div class="product">
-											
-											<div class="product-image">
-												<img src="/tkphp/Public/homeshop/img/products/sample8.jpg" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Quick View
-												</a>
-											</div>
-											
-											<div class="product-info">
-												<h5><a href="products_page_v1.html">Lorem ipsum dolor sit amet</a></h5>
-												<span class="price">$281.00</span>
-												<div class="rating readonly-rating" data-score="4"></div>
-											</div>
-											
-											<div class="product-actions">
-												<span class="add-to-cart">
-													<span class="action-wrapper">
-														<i class="icons icon-basket-2"></i>
-														<span class="action-name">Add to cart</span>
-													</span >
-												</span>
-												<span class="add-to-favorites">
-													<span class="action-wrapper">
-														<i class="icons icon-heart-empty"></i>
-														<span class="action-name">Add to wishlist</span>
-													</span>
-												</span>
-												<span class="add-to-compare">
-													<span class="action-wrapper">
-														<i class="icons icon-docs"></i>
-														<span class="action-name">Add to Compare</span>
-													</span>
-												</span>
-											</div>
-											
-										</div>
-										<!-- /Carousel Item -->
-									</div>
-									<!-- /Slide -->
-									
-									
-									
-									
-									
-									<!-- Slide -->
-									<div>
-										<!-- Carousel Item -->
-										<div class="product">
-											
-											<div class="product-image">
-												<img src="/tkphp/Public/homeshop/img/products/sample9.jpg" alt="Product1">
-												<a href="products_page_v1.html" class="product-hover">
-													<i class="icons icon-eye-1"></i> Quick View
-												</a>
-											</div>
-											
-											<div class="product-info">
-												<h5><a href="products_page_v1.html">Lorem ipsum dolor sit amet</a></h5>
-												<span class="price">$281.00</span>
-												<div class="rating readonly-rating" data-score="4"></div>
-											</div>
-											
-											<div class="product-actions">
-												<span class="add-to-cart">
-													<span class="action-wrapper">
-														<i class="icons icon-basket-2"></i>
-														<span class="action-name">Add to cart</span>
-													</span >
-												</span>
-												<span class="add-to-favorites">
-													<span class="action-wrapper">
-														<i class="icons icon-heart-empty"></i>
-														<span class="action-name">Add to wishlist</span>
-													</span>
-												</span>
-												<span class="add-to-compare">
-													<span class="action-wrapper">
-														<i class="icons icon-docs"></i>
-														<span class="action-name">Add to Compare</span>
-													</span>
-												</span>
-											</div>
-											
-										</div>
-										<!-- /Carousel Item -->
-									</div>
-									<!-- /Slide -->
-									
-									
 							</div>
 						</div>
 						<!-- /Carousel -->
@@ -1498,7 +729,7 @@
 						<div class="col-lg-12 col-md-12 col-sm-12">
 							
 							<div class="carousel-heading">
-								<h4>Product Brands</h4>
+								<h4>配件</h4>
 								<div class="carousel-arrows">
 									<i class="icons icon-left-dir"></i>
 									<i class="icons icon-right-dir"></i>
@@ -1514,83 +745,28 @@
 							<div class="owl-carousel" data-max-items="5">
 									
 									<!-- Slide -->
-									<div>
+									<?php if(is_array($products)): foreach($products as $key=>$good): ?><div>
+										<!-- Carousel Item -->
 										<div class="product">
-											<a href="#"><img src="/tkphp/Public/homeshop/img/brands/sample.jpg" alt="Brand1"></a>
+											
+											<div class="product-image">
+												<img src="/tkphp/Uploads/<?php echo ($good["list_image"]); ?>" alt="Product1">
+												<a href="<?php echo U('Home/Product/index');?>" class="product-hover">
+													<i class="icons icon-eye-1"></i> 快速查看
+												</a>
+											</div>
+											
+											<div class="product-info">
+												<h5><a href="<?php echo U('Home/Product/index');?>">值得拥有</a></h5>
+												<span class="price">￥<?php echo ($good["promote_price"]); ?></span>
+												<div class="rating readonly-rating" data-score="4"></div>
+											</div>
+											
+							
+											
 										</div>
-									</div>
-									<!-- /Slide -->
-									
-									<!-- Slide -->
-									<div>
-										<div class="product">
-											<a href="#"><img src="/tkphp/Public/homeshop/img/brands/sample.jpg" alt="Brand1"></a>
-										</div>
-									</div>
-									<!-- /Slide -->
-									
-									<!-- Slide -->
-									<div>
-										<div class="product">
-											<a href="#"><img src="/tkphp/Public/homeshop/img/brands/sample.jpg" alt="Brand1"></a>
-										</div>
-									</div>
-									<!-- /Slide -->
-									
-									<!-- Slide -->
-									<div>
-										<div class="product">
-											<a href="#"><img src="/tkphp/Public/homeshop/img/brands/sample.jpg" alt="Brand1"></a>
-										</div>
-									</div>
-									<!-- /Slide -->
-									
-									<!-- Slide -->
-									<div>
-										<div class="product">
-											<a href="#"><img src="/tkphp/Public/homeshop/img/brands/sample.jpg" alt="Brand1"></a>
-										</div>
-									</div>
-									<!-- /Slide -->
-									
-									<!-- Slide -->
-									<div>
-										<div class="product">
-											<a href="#"><img src="/tkphp/Public/homeshop/img/brands/sample.jpg" alt="Brand1"></a>
-										</div>
-									</div>
-									<!-- /Slide -->
-									
-									<!-- Slide -->
-									<div>
-										<div class="product">
-											<a href="#"><img src="/tkphp/Public/homeshop/img/brands/sample.jpg" alt="Brand1"></a>
-										</div>
-									</div>
-									<!-- /Slide -->
-									
-									<!-- Slide -->
-									<div>
-										<div class="product">
-											<a href="#"><img src="/tkphp/Public/homeshop/img/brands/sample.jpg" alt="Brand1"></a>
-										</div>
-									</div>
-									<!-- /Slide -->
-									
-									<!-- Slide -->
-									<div>
-										<div class="product">
-											<a href="#"><img src="/tkphp/Public/homeshop/img/brands/sample.jpg" alt="Brand1"></a>
-										</div>
-									</div>
-									<!-- /Slide -->
-									
-									<!-- Slide -->
-									<div>
-										<div class="product">
-											<a href="#"><img src="/tkphp/Public/homeshop/img/brands/sample.jpg" alt="Brand1"></a>
-										</div>
-									</div>
+										<!-- /Carousel Item -->
+									</div><?php endforeach; endif; ?>
 									<!-- /Slide -->
 							
 							</div>
@@ -1676,19 +852,19 @@
                                     	 <ul class="sidebar-dropdown">
                                         	<li>
                                             	<ul>
-                                                	<li><a href="#">Cell phones &amp; Smartphone</a></li>
-                                                    <li><a href="#">Cell Phone Accessories</a></li>
-                                                    <li><a href="#">Headsets</a></li>
-                                                    <li><a href="#">Cases, Covers & Skins</a></li>
-                                                    <li><a href="#">Screen Protectors</a></li>
+                                                	<li><a href="#">平板电脑&&笔记本&&超级本</a></li>
+                                                    <li><a href="#">平板电脑&&笔记本&&超级本</a></li>
+                                                    <li><a href="#">平板电脑&&笔记本&&超级本</a></li>
+                                                    <li><a href="#">平板电脑&&笔记本&&超级本</a></li>
+                                                    <li><a href="#">平板电脑&&笔记本&&超级本</a></li>
                                                 </ul>
                                             </li>
                                             <li>
                                             	<ul>
-                                                	<li><a href="#">Chargers & Cradles</a></li>
-                                                    <li><a href="#">Batteries</a></li>
-                                                    <li><a href="#">Cables & Adapters</a></li>
-                                                    <li><a href="#">All About Smartphones</a></li>
+                                                	<li><a href="#">平板电脑&&笔记本&&超级本</a></li>
+                                                    <li><a href="#">平板电脑&&笔记本&&超级本</a></li>
+                                                    <li><a href="#">平板电脑&&笔记本&&超级本</a></li>
+                                                    <li><a href="#">平板电脑&&笔记本&&超级本</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -1858,92 +1034,47 @@
 							<div class="owl-carousel" data-max-items="1">
 									
 								<!-- Slide -->
-								<div>
-									<!-- Carousel Item -->
-									<div class="product">
-										
-										<div class="product-image">
-											<img src="/tkphp/Public/homeshop/img/products/sample1.jpg" alt="Product1">
-											<a href="products_page_v1.html" class="product-hover">
-												<i class="icons icon-eye-1"></i> Quick View
-											</a>
-										</div>
-										
-										<div class="product-info">
-											<h5><a href="products_page_v1.html">Lorem ipsum dolor sit amet</a></h5>
-											<span class="price">$281.00</span>
-											<div class="rating readonly-rating" data-score="4"></div>
-										</div>
-										
-										<div class="product-actions">
-											<span class="add-to-cart">
-												<span class="action-wrapper">
-													<i class="icons icon-basket-2"></i>
-													<span class="action-name">Add to cart</span>
-												</span >
-											</span>
-											<span class="add-to-favorites">
-												<span class="action-wrapper">
-													<i class="icons icon-heart-empty"></i>
-													<span class="action-name">Add to wishlist</span>
+								<?php if(is_array($products)): foreach($products as $key=>$good): ?><div>
+										<!-- Carousel Item -->
+										<div class="product">
+											
+											<div class="product-image">
+												<img src="/tkphp/Uploads/<?php echo ($good["list_image"]); ?>" alt="Product1">
+												<a href="<?php echo U('Home/Product/index');?>" class="product-hover">
+													<i class="icons icon-eye-1"></i> 快速查看
+												</a>
+											</div>
+											
+											<div class="product-info">
+												<h5><a href="<?php echo U('Home/Product/index');?>">值得拥有</a></h5>
+												<span class="price">￥<?php echo ($good["promote_price"]); ?></span>
+												<div class="rating readonly-rating" data-score="4"></div>
+											</div>
+											
+											<div class="product-actions">
+												<span class="add-to-cart">
+													<span class="action-wrapper">
+														<i class="icons icon-basket-2"></i>
+														<span class="action-name">加入购物车</span>
+													</span >
 												</span>
-											</span>
-											<span class="add-to-compare">
-												<span class="action-wrapper">
-													<i class="icons icon-docs"></i>
-													<span class="action-name">Add to Compare</span>
+												<span class="add-to-favorites">
+													<span class="action-wrapper">
+														<i class="icons icon-heart-empty"></i>
+														<span class="action-name">加入收藏夹</span>
+													</span>
 												</span>
-											</span>
-										</div>
-										
-									</div>
-									<!-- /Carousel Item -->
-								</div>
-								<!-- /Slide -->
-								
-								
-								<!-- Slide -->
-								<div>
-									<!-- Carousel Item -->
-									<div class="product">
-										
-										<div class="product-image">
-											<img src="/tkphp/Public/homeshop/img/products/sample2.jpg" alt="Product1">
-											<a href="products_page_v1.html" class="product-hover">
-												<i class="icons icon-eye-1"></i> Quick View
-											</a>
-										</div>
-										
-										<div class="product-info">
-											<h5><a href="products_page_v1.html">Lorem ipsum dolor sit amet</a></h5>
-											<span class="price">$281.00</span>
-											<div class="rating readonly-rating" data-score="4"></div>
-										</div>
-										
-										<div class="product-actions">
-											<span class="add-to-cart">
-												<span class="action-wrapper">
-													<i class="icons icon-basket-2"></i>
-													<span class="action-name">Add to cart</span>
-												</span >
-											</span>
-											<span class="add-to-favorites">
-												<span class="action-wrapper">
-													<i class="icons icon-heart-empty"></i>
-													<span class="action-name">Add to wishlist</span>
+												<span class="add-to-compare">
+													<span class="action-wrapper">
+														<i class="icons icon-docs"></i>
+														<span class="action-name">加入对比</span>
+													</span>
 												</span>
-											</span>
-											<span class="add-to-compare">
-												<span class="action-wrapper">
-													<i class="icons icon-docs"></i>
-													<span class="action-name">Add to Compare</span>
-												</span>
-											</span>
+											</div>
+											
 										</div>
-										
-									</div>
-									<!-- /Carousel Item -->
-								</div>
+										<!-- /Carousel Item -->
+									</div><?php endforeach; endif; ?>
 								<!-- /Slide -->
 								
 							</div>
