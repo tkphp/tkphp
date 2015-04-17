@@ -43,7 +43,7 @@
 											data-y="300"
 											data-speed="500"
 											data-start="1200"
-											data-easing="Power4.easeOut"><a class="button big red" href="#">了解更多</a>
+											data-easing="Power4.easeOut"><a class="button big red" href="{:U('Home/Product/index' ,array('id'=>$good[id]))}">了解更多</a>
 										</div>
 									</li>
 									</foreach>
@@ -84,7 +84,7 @@
 											
 											<div class="product-image">
 												<img src="__ROOT__/Uploads/{$good.list_image}" alt="Product1">
-												<a href="{:U('Home/Product/index')}" class="product-hover">
+												<a href="{:U('Home/Product/index' ,array('id'=>$good[id]))}" class="product-hover">
 													<i class="icons icon-eye-1"></i> 快速查看
 												</a>
 											</div>

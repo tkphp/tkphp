@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?>﻿﻿<!DOCTYPE html>
 
 <html>
 
@@ -369,7 +369,7 @@
 							<li class="green">
 								<a href="<?php echo U('Home/Blog/index');?>">
 								<!-- 	<i class="icons icon-pencil-7"></i> -->
-									<span class="nav-caption">博客</span>
+									<span class="nav-caption">新闻</span>
 								<!-- 	<span class="nav-description">News & Reviews</span> -->
 								</a>
 							</li>
@@ -438,6 +438,15 @@
 }) */
 </script>
 <!-- Main Content -->
+		<div class="row content">
+            	
+                
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                	<div class="breadcrumbs">
+                    	<p><a href="<?php echo U('Home/Index/index');?>">首页</a> <i class="icons icon-right-dir"></i> <a href="#">电脑</a> <i class="icons icon-right-dir"></i> <?php echo ($pro["pro_name"]); ?></p>
+                    </div>
+                </div>
+                
 				<section class="main-content col-lg-9 col-md-9 col-sm-9">
 					
 					
@@ -466,24 +475,24 @@
 									<div id="product-carousel">
 										<ul class="slides">
 											<li>
-												<a class="fancybox" rel="product-images" href="/tkphp/Public/homeshop/img/products/single1.jpg"></a>
-												<img src="/tkphp/Public/homeshop/img/products/single1.jpg" data-large="/tkphp/Public/homeshop/img/products/single1.jpg" alt="">
+												<a class="fancybox" rel="product-images" href="/tkphp/Uploads/<?php echo ($pro["feater1"]); ?>"></a>
+												<img src="/tkphp/Uploads/<?php echo ($pro["feater1"]); ?>" data-large="/tkphp/Uploads/<?php echo ($pro["feater1"]); ?>" alt="">
 											</li>
 											<li>
-												<a class="fancybox" rel="product-images" href="/tkphp/Public/homeshop/img/products/single2.jpg"></a>
-												<img src="/tkphp/Public/homeshop/img/products/single2.jpg" data-large="/tkphp/Public/homeshop/img/products/single2.jpg" alt="" />
+												<a class="fancybox" rel="product-images" href="/tkphp/Uploads/<?php echo ($pro["feater2"]); ?>"></a>
+												<img src="/tkphp/Uploads/<?php echo ($pro["feater2"]); ?>" data-large="/tkphp/Uploads/<?php echo ($pro["feater2"]); ?>" alt="">
 											</li>
 											<li>
-												<a class="fancybox" rel="product-images" href="/tkphp/Public/homeshop/img/products/single3.jpg"></a>
-												<img src="/tkphp/Public/homeshop/img/products/single3.jpg" data-large="/tkphp/Public/homeshop/img/products/single3.jpg" alt="" />
+												<a class="fancybox" rel="product-images" href="/tkphp/Uploads/<?php echo ($pro["feater3"]); ?>"></a>
+												<img src="/tkphp/Uploads/<?php echo ($pro["feater3"]); ?>" data-large="/tkphp/Uploads/<?php echo ($pro["feater3"]); ?>" alt="">
 											</li>
 											<li>
-												<a class="fancybox" rel="product-images" href="/tkphp/Public/homeshop/img/products/single4.jpg"></a>
-												<img src="/tkphp/Public/homeshop/img/products/single4.jpg" data-large="/tkphp/Public/homeshop/img/products/single4.jpg" alt="" />
+												<a class="fancybox" rel="product-images" href="/tkphp/Uploads/<?php echo ($pro["feater4"]); ?>"></a>
+												<img src="/tkphp/Uploads/<?php echo ($pro["feater4"]); ?>" data-large="/tkphp/Uploads/<?php echo ($pro["feater4"]); ?>" alt="">
 											</li>
 											<li>
-												<a class="fancybox" rel="product-images" href="/tkphp/Public/homeshop/img/products/single5.jpg"></a>
-												<img src="/tkphp/Public/homeshop/img/products/single5.jpg" data-large="/tkphp/Public/homeshop/img/products/single5.jpg" alt="" />
+												<a class="fancybox" rel="product-images" href="/tkphp/Uploads/<?php echo ($pro["feater5"]); ?>"></a>
+												<img src="/tkphp/Uploads/<?php echo ($pro["feater5"]); ?>" data-large="/tkphp/Uploads/<?php echo ($pro["feater5"]); ?>" alt="">
 											</li>
 										</ul>
 										<div class="product-arrows">
@@ -501,65 +510,62 @@
 								
 								<div class="col-lg-7 col-md-7 col-sm-7 product-single-info">
 									
-									<h2>Lorem ipsum dolor sit amet</h2>
+									<h2><?php echo ($pro["pro_subname"]); ?></h2>
 									<div class="rating-box">
 										<div class="rating readonly-rating" data-score="4"></div>
-										<span>3 Review(s)</span>
+										<span><?php echo ($pro["click_times"]); ?></span>
 									</div>
 									<table>
 										<tr>
-											<td>Manufacturer</td>
-											<td><a href="#">Manufacturer 1</a></td>
+											<td>产品名称</td>
+											<td><a href="#"><?php echo ($pro["pro_name"]); ?></a></td>
 										</tr>
 										<tr>
-											<td>Availability</td>
-											<td><span class="green">in stock</span> 20 items</td>
+											<td>产品特点</td>
+											<td><span class="green"><?php echo ($pro["keywords"]); ?></span> </td>
 										</tr>
 										<tr>
-											<td>Product code</td>
-											<td>PBS173</td>
+											<td>产品型号</td>
+											<td><?php echo ($pro["pro_sn"]); ?></td>
 										</tr>
 									</table>
 									
-									<strong>Product Dimensions</strong>
+								<!-- 	<strong>产品参数</strong>
 									<table>
 										<tr>
-											<td>Product Width</td>
+											<td>产品长度</td>
 											<td>10.00000M</td>
 										</tr>
 										<tr>
-											<td>Product Length</td>
+											<td>产品宽度</td>
 											<td>10.00000M</td>
 										</tr>
-									</table>
+									</table> -->
 									
-									<span class="price"><del>$381.00</del> $281.00</span>
+									<span class="price"><del>￥<?php echo ($pro["market_price"]); ?></del> ￥<?php echo ($pro["promote_price"]); ?></span>
 									
 									<table class="product-actions-single">
 										<tr>
-											<td>Color:</td>
+											<td>颜色:</td>
 											<td>
 												<select class="chosen-select">
-													<option>Red +$25.00</option>
-													<option>Red +$25.00</option>
-													<option>Red +$25.00</option>
-													<option>Red +$25.00</option>
+													<option>黑</option>
+													<option>白</option>
+													<option>灰</option>
 												</select>
 											</td>
 										</tr>
 										<tr>
-											<td>Quantity:</td>
+											<td>数量:</td>
 											<td>
 												<div class="numeric-input">
-													<input type="text" value="1">
-													<span class="arrow-up"><i class="icons icon-up-dir"></i></span>
-													<span class="arrow-down"><i class="icons icon-down-dir"></i></span>
+													<input type="number" value="1" min="1" max="10" >
 												</div>
 												<a href="#">
 													<span class="add-to-cart">
 														<span class="action-wrapper">
 															<i class="icons icon-basket-2"></i>
-															<span class="action-name">Add to cart</span>
+															<span class="action-name">加入购物车</span>
 														</span >
 													</span>
 												</a>
@@ -571,48 +577,17 @@
 										<span class="add-to-favorites">
 											<span class="action-wrapper">
 												<i class="icons icon-heart-empty"></i>
-												<span class="action-name">Add to wishlist</span>
+												<span class="action-name">加入收藏夹</span>
 											</span>
 										</span>
 										<span class="add-to-compare">
 											<span class="action-wrapper">
 												<i class="icons icon-docs"></i>
-												<span class="action-name">Add to compare</span>
+												<span class="action-name">加入对比</span>
 											</span>
 										</span>
-										<span class="green product-action">
-											<span class="action-wrapper">
-												<i class="icons icon-info"></i>
-												<span class="action-name">Ask a question</span>
-											</span>
-										</span>
+							
 									</div>
-									
-									<div class="social-share">
-											<!-- <iframe src="/www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=21" style="border:none; overflow:hidden; height:21px; width:100px;"></iframe>
-											
-											<iframe 
-			src="https://platform.twitter.com/widgets/tweet_button.html"
-			style="width:100px; height:20px;"></iframe> -->
-			
-											<!-- Place this tag where you want the +1 button to render. -->
-											<div class="g-plusone" data-size="medium"></div>
-											
-											<!-- Place this tag after the last +1 button tag. -->
-											<!-- <script type="text/javascript">
-											  (function() {
-												var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-												po.src = 'https://apis.google.com/js/platform.js';
-												var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-											  })();
-											</script> -->
-											
-											
-											<!-- <a href="/www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.flickr.com%2Fphotos%2Fkentbrew%2F6851755809%2F&media=http%3A%2F%2Ftest.ratkosolar.com%2Fhomeshop%2F15-blog_post.html&description=Next%20stop%3A%20Pinterest" data-pin-do="buttonPin" data-pin-config="beside" class="pinterest"><img src="/assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" /></a> -->
-											<!-- Please call pinit.js only once per page -->
-											<script type="text/javascript" async src="/tkphp/Public/homeshop/assets.pinterest.com/js/pinit.js"></script>
-											
-										</div>
 									
 								</div>
 								
@@ -1662,6 +1637,7 @@
 					
 				</aside>
 				<!-- /Sidebar -->
+</div>
  ﻿<!-- Banner -->
 			<section class="banner">
 				

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit();?>﻿<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?>﻿﻿<!DOCTYPE html>
 
 <html>
 
@@ -369,7 +369,7 @@
 							<li class="green">
 								<a href="<?php echo U('Home/Blog/index');?>">
 								<!-- 	<i class="icons icon-pencil-7"></i> -->
-									<span class="nav-caption">博客</span>
+									<span class="nav-caption">新闻</span>
 								<!-- 	<span class="nav-description">News & Reviews</span> -->
 								</a>
 							</li>

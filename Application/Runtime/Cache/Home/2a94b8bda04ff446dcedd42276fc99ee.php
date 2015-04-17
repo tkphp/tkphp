@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit();?>﻿<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?>﻿﻿<!DOCTYPE html>
 
 <html>
 
@@ -369,7 +369,7 @@
 							<li class="green">
 								<a href="<?php echo U('Home/Blog/index');?>">
 								<!-- 	<i class="icons icon-pencil-7"></i> -->
-									<span class="nav-caption">博客</span>
+									<span class="nav-caption">新闻</span>
 								<!-- 	<span class="nav-description">News & Reviews</span> -->
 								</a>
 							</li>
@@ -480,7 +480,7 @@
 											data-y="300"
 											data-speed="500"
 											data-start="1200"
-											data-easing="Power4.easeOut"><a class="button big red" href="#">了解更多</a>
+											data-easing="Power4.easeOut"><a class="button big red" href="<?php echo U('Home/Product/index' ,array('id'=>$good[id]));?>">了解更多</a>
 										</div>
 									</li><?php endforeach; endif; ?>
 								</ul>
@@ -519,7 +519,7 @@
 											
 											<div class="product-image">
 												<img src="/tkphp/Uploads/<?php echo ($good["list_image"]); ?>" alt="Product1">
-												<a href="<?php echo U('Home/Product/index');?>" class="product-hover">
+												<a href="<?php echo U('Home/Product/index' ,array('id'=>$good[id]));?>" class="product-hover">
 													<i class="icons icon-eye-1"></i> 快速查看
 												</a>
 											</div>

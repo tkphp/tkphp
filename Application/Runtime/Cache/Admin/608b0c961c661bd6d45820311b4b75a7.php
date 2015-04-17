@@ -306,6 +306,41 @@ ol li a{
        <img src="/tkphp/Uploads/<?php echo ($pro["list_image"]); ?>">
    </div>
    <div class="form-group">
+       <label for="photo1" class="col-sm-3 control-label">特征图片1:</label>
+       <div class="col-sm-5">
+           <input id="photo1" type="file"  name="photo1" />
+       </div>
+       <img src="/tkphp/Uploads/<?php echo ($pro["feater1"]); ?>">
+   </div>
+    <div class="form-group">
+       <label for="photo2" class="col-sm-3 control-label">特征图片2:</label>
+       <div class="col-sm-5">
+           <input id="photo2" type="file"  name="photo2" />
+       </div>
+       <img src="/tkphp/Uploads/<?php echo ($pro["feater2"]); ?>">
+   </div>
+    <div class="form-group">
+       <label for="photo3" class="col-sm-3 control-label">特征图片3:</label>
+       <div class="col-sm-5">
+           <input id="photo3" type="file"  name="photo3" />
+       </div>
+       <img src="/tkphp/Uploads/<?php echo ($pro["feater3"]); ?>">
+   </div>
+    <div class="form-group">
+       <label for="photo4" class="col-sm-3 control-label">特征图片4:</label>
+       <div class="col-sm-5">
+           <input id="photo4" type="file"  name="photo4" />
+       </div>
+       <img src="/tkphp/Uploads/<?php echo ($pro["feater4"]); ?>">
+   </div>
+    <div class="form-group">
+       <label for="photo5" class="col-sm-3 control-label">特征图片5:</label>
+       <div class="col-sm-5">
+           <input id="photo5" type="file"  name="photo5" />
+       </div>
+       <img src="/tkphp/Uploads/<?php echo ($pro["feater5"]); ?>">
+   </div>
+   <div class="form-group">
        <label  class="col-sm-3 control-label">属性:</label>
        <div class="col-sm-5">
            <label><input type="checkbox"  <?php if($pro["is_new"] == 1): ?>checked<?php endif; ?>

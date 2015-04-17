@@ -61,6 +61,11 @@ class GoodsController extends MyController
             $this->success('上传成功！');
         }
         $post['list_image']=$info['photo']['savepath'].$info['photo']['savename'];
+        $post['feater1']=$info['photo1']['savepath'].$info['photo1']['savename'];
+        $post['feater2']=$info['photo2']['savepath'].$info['photo2']['savename'];
+        $post['feater3']=$info['photo3']['savepath'].$info['photo3']['savename'];
+        $post['feater4']=$info['photo4']['savepath'].$info['photo4']['savename'];
+        $post['feater5']=$info['photo5']['savepath'].$info['photo5']['savename'];
         $getProductId = M('products')->add($post);
         if (! $getProductId) {
             $this->error('商品添加失败');
@@ -128,6 +133,27 @@ class GoodsController extends MyController
         $post['is_new'] = isset($_POST['is_new']) ? $_POST['is_new'] : 0;
         $post['is_promote'] = isset($_POST['is_promote']) ? $_POST['is_promote'] : 0;
         $post['is_on_sale'] = isset($_POST['is_on_sale']) ? $_POST['is_on_sale'] : 0;
+        
+        $upload = new \Think\Upload();// 实例化上传类
+        $upload->maxSize   =     3145728 ;// 设置附件上传大小
+        $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
+        $upload->savePath  =      ''; // 设置附件上传目录
+        // 上传文件
+        $info   =   $upload->upload();
+        
+        if(!$info) {
+            // 上传错误提示错误信息
+            $this->error($upload->getError());
+        }else{
+            // 上传成功
+            $this->success('上传成功！');
+        }
+        $post['list_image']=$info['photo']['savepath'].$info['photo']['savename'];
+        $post['feater1']=$info['photo1']['savepath'].$info['photo1']['savename'];
+        $post['feater2']=$info['photo2']['savepath'].$info['photo2']['savename'];
+        $post['feater3']=$info['photo3']['savepath'].$info['photo3']['savename'];
+        $post['feater4']=$info['photo4']['savepath'].$info['photo4']['savename'];
+        $post['feater5']=$info['photo5']['savepath'].$info['photo5']['savename'];
         M('products')->where("id={$Id}")->save($post);
         header("Location:" . U('Goods/lists'));
     }
@@ -135,12 +161,17 @@ class GoodsController extends MyController
     public function delete()
     {
        
-        $id = !empty($_POST['id']) ? $_POST['id'] : $_GET['id'];
-//         var_dump($id);
-//         $id = I("id", 0, 'int'); 
+  //       $id = !empty($_POST['id']) ? $_POST['id'] : $_GET['id'];
+    //    var_dump($id);
+         $id = I("id", 0, 'int'); 
         $good= M("products");
         $path=$good->where($id)->find();
         unlink('./Uploads/'.$path["list_image"]);
+        unlink('./Uploads/'.$path["feater1"]);
+        unlink('./Uploads/'.$path["feater2"]);
+        unlink('./Uploads/'.$path["feater3"]);
+        unlink('./Uploads/'.$path["feater4"]);
+        unlink('./Uploads/'.$path["feater5"]);
         $good->where($id)->delete();
         header("Location:" . U('Goods/lists'));  
     }
